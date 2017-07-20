@@ -1,0 +1,20 @@
+---
+layout: post
+title: "假装用过 Rust"
+date: 2015-05-16 09:45:01
+categories:  Jabber
+---
+<!--more-->
+
+Rust 发布 1.0, Twitter 上刷了一遍屏, 接着到 Ruby-China 上也看到了, 于是, 不去把 Rust 装上都不好意思了.
+
+准备用 Cargo 玩点啥, 安装依赖的时候一直装不上, 报错啥 `SSL peer certificate or SSH remote key was not OK`
+
+![](http://ww1.sinaimg.cn/mw690/62fdd4d5gw1eslgr9n5zgj217m07udha.jpg)
+
+万能的 Google 告诉我要看这里 [https://github.com/rust-lang/cargo/issues/1420](https://github.com/rust-lang/cargo/issues/1420)
+
+看样子是 RVM 升级时候的一些证书问题 = . = 其实我没细看, 不过的确把 `/etc/openssl`  Rename 就好了.
+
+敢情我只能写 Ruby 了?
+看着 Rust 的语法那才叫神仙代码, 谁说 Ruby 会写出什么神仙代码的 = . =
