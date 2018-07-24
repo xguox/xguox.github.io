@@ -2,7 +2,7 @@
 layout: post
 title: "Rails.cache.fetch Relation 的'坑'"
 date: 2015-09-29 19:15:18
-categories:  Rails
+categories: [Ruby, Rails]
 excerpt: Ruby on Rails 缓存 Rails.cache.fetch Relation
 ---
 <!--more-->

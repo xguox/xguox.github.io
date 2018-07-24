@@ -46,7 +46,7 @@ section.post {
 
 // Post title
 .post-title {
-
+  color: $primary;
 }
 
 .post-title-link {
@@ -64,7 +64,7 @@ section.post {
   font-size: 13px;
   font-weight: bold;
 	.post-date {
-		color: $secondary;
+		color: $primary;
 	}
 	.post-author {
 		text-transform: uppercase;
