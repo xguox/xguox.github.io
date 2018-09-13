@@ -3,6 +3,7 @@ layout: post
 title: "Rails 5 belongs_to 默认 required"
 date: 2016-09-24 08:25:20
 categories:  [Ruby, Rails]
+tags: Ruby
 description: Rails 5 belongs_to 默认 required, must exist
 ---
 <!--more-->

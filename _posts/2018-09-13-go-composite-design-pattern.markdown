@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Go 的组合模式"
+title: "Go 的组合模式(Composite Pattern)"
 date: 2018-09-13 01:23:45
 categories: Go
 tags: Go
@@ -10,7 +10,7 @@ tags: Go
 
 **Go** 没有传统面向对象语言(如 Ruby, Java) 的继承特性, 取而代之, 更多的是用 **组合模式** 来达到类似效果.
 
-##### 组合设计模式 Composite design pattern
+##### 组合设计模式 Composite Design Pattern
 
 **组合构建的是一个树形的层级对象, 一个对象包含有其他一些拥有各自独立的字段和方法的对象.** 换一个说法讲, **组合代表「拥有 has」 关系, 而继承则代表「是 is」关系.** 这种模式可以解决(多)继承的问题, 典型的比如, 两个实体分别继承自两个不同的类, 而这两个实体之间实际上并没有任何关联关系.
 
