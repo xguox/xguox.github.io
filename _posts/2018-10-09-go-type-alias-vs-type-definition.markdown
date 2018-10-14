@@ -21,15 +21,15 @@ type C int
 type D = int
 
 func (a AliasA) testA() {
-	fmt.Println("test A")
+    fmt.Println("test A")
 }
 
 func (b B) testB() {
-	fmt.Println("test B")
+    fmt.Println("test B")
 }
 
 func (c *C) testC() {
-	fmt.Println("test C")
+    fmt.Println("test C")
 }
 
 // cannot define new methods on non-local type int
@@ -39,19 +39,19 @@ func (c *C) testC() {
 // }
 
 func main() {
-	var a = A{}
-	var aa AliasA = a
-	// var b1 B = a // cannot use a (type A) as type B in assignment
-	var b2 B
-	a.testA()  // test A
-	aa.testA() // test A
-	b2.testB() // test B
+    var a = A{}
+    var aa AliasA = a
+    // var b1 B = a // cannot use a (type A) as type B in assignment
+    var b2 B
+    a.testA()  // test A
+    aa.testA() // test A
+    b2.testB() // test B
 
-	var c C
-	c.testC()
+    var c C
+    c.testC()
 
-	// var d D
-	// d.testD() // d.testD undefined (type int has no field or method testD)
+    // var d D
+    // d.testD() // d.testD undefined (type int has no field or method testD)
 
 }
 

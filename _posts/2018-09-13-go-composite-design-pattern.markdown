@@ -24,7 +24,7 @@ tags: Go
 type Athlete struct{}
 
 func (a *Athlete) Train() {
-  fmt.Println("Training")
+    fmt.Println("Training")
 }
 ```
 
@@ -32,8 +32,8 @@ func (a *Athlete) Train() {
 
 ```go
 type CompositeSwimmerA struct{
-  MyAthlete Athlete
-  MySwim func()
+    MyAthlete Athlete
+    MySwim func()
 }
 ```
 
@@ -43,12 +43,12 @@ CompositeSwimmerA 这个类型有一个 `Athlete` 类型的 `MyAthlete` 字段, 
 
 ```go
 func Swim(){
-  fmt.Println("Swimming!")
+    fmt.Println("Swimming!")
 }
 
 
 swimmer := CompositeSwimmerA{
-  MySwim: Swim,
+    MySwim: Swim,
 }
 swimmer.MyAthlete.Train()
 swimmer.MySwim()
@@ -68,16 +68,16 @@ Swimming!
 type Animal struct{}
 
 func (r *Animal)Eat() {
-  println("Eating")
+    println("Eating")
 }
 
 type Fish struct{
-  Animal
-  Swim func()
+    Animal
+    Swim func()
 }
 
 nimo := Fish{
-  Swim: Swim,
+    Swim: Swim,
 }
 nimo.Eat()
 nimo.Swim()
@@ -97,21 +97,21 @@ Swimming!
 
 ```go
 type Swimmer interface {
-  Swim()
+    Swim()
 }
 
 type Trainer interface {
-  Train()
+    Train()
 }
 type SwimmerImpl struct{}
 
 func (s *SwimmerImpl) Swim(){
-  println("Swimming!")
+    println("Swimming!")
 }
 
 type CompositeSwimmerB struct{
-  Trainer
-  Swimmer
+    Trainer
+    Swimmer
 }
 
 ```
@@ -120,8 +120,8 @@ type CompositeSwimmerB struct{
 
 ```go
 swimmer := CompositeSwimmerB{
-  &Athlete{},
-  &SwimmerImpl{},
+    &Athlete{},
+    &SwimmerImpl{},
 }
 
 swimmer.Train()

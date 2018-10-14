@@ -12,8 +12,8 @@ Gin 默认用就是 [go-playground/validator](https://github.com/go-playground/v
 
 ```go
 type Category struct {
-	Name string `form:"name" json:"name" binding:"required"`
-	Slug string `form:"slug" json:"slug" binding:"required"`
+    Name string `form:"name" json:"name" binding:"required"`
+    Slug string `form:"slug" json:"slug" binding:"required"`
 }
 ```
 
@@ -23,16 +23,16 @@ v8 的自定义规则类似长这样的
 
 ```go
 func bookableDate(
-	v *validator.Validate, topStruct reflect.Value, currentStructOrField reflect.Value,
-	field reflect.Value, fieldType reflect.Type, fieldKind reflect.Kind, param string,
+    v *validator.Validate, topStruct reflect.Value, currentStructOrField reflect.Value,
+    field reflect.Value, fieldType reflect.Type, fieldKind reflect.Kind, param string,
 ) bool {
-	if date, ok := field.Interface().(time.Time); ok {
-		today := time.Now()
-		if today.Year() > date.Year() || today.YearDay() > date.YearDay() {
-			return false
-		}
-	}
-	return true
+    if date, ok := field.Interface().(time.Time); ok {
+        today := time.Now()
+        if today.Year() > date.Year() || today.YearDay() > date.YearDay() {
+            return false
+        }
+    }
+    return true
 }
 
 ```
@@ -41,15 +41,15 @@ func bookableDate(
 
 ```go
 func ValidateUniq(fl validator.FieldLevel) bool {
-	var result struct{ Count int }
-	currentField, _, _ := fl.GetStructFieldOK()
-	table := modelTableNameMap[currentField.Type().Name()] // table name
-	value := fl.Field().String()                           // value
-	column := fl.FieldName()                               // column name
-	sql := fmt.Sprintf("select count(*) from %s where %s='%s'", table, column, value)
-	db.PG.Raw(sql).Scan(&result)
-	dup := result.Count > 0
-	return !dup
+    var result struct{ Count int }
+    currentField, _, _ := fl.GetStructFieldOK()
+    table := modelTableNameMap[currentField.Type().Name()] // table name
+    value := fl.Field().String()                           // value
+    column := fl.FieldName()                               // column name
+    sql := fmt.Sprintf("select count(*) from %s where %s='%s'", table, column, value)
+    db.PG.Raw(sql).Scan(&result)
+    dup := result.Count > 0
+    return !dup
 }
 ```
 
@@ -63,47 +63,47 @@ func ValidateUniq(fl validator.FieldLevel) bool {
 package model
 
 import (
-	"coconut/db"
-	"fmt"
+    "coconut/db"
+    "fmt"
 
-	validator "gopkg.in/go-playground/validator.v9"
+    validator "gopkg.in/go-playground/validator.v9"
 
-	"github.com/gin-gonic/gin/binding"
+    "github.com/gin-gonic/gin/binding"
 
-	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
+    "github.com/gin-gonic/gin"
+    "github.com/jinzhu/gorm"
 )
 
 type Category struct {
-	gorm.Model
-	Name string `form:"name" json:"name" binding:"required,is-uniq"`
-	Slug string `form:"slug" json:"slug" binding:"required"`
+    gorm.Model
+    Name string `form:"name" json:"name" binding:"required,is-uniq"`
+    Slug string `form:"slug" json:"slug" binding:"required"`
 }
 
 // CATEGORY VALIDATOR
 type CategoryValidator struct {
-	CategoryModel Category `json:"category"`
+    CategoryModel Category `json:"category"`
 }
 
 func (s *CategoryValidator) Bind(c *gin.Context) error {
-	b := binding.Default(c.Request.Method, c.ContentType())
-	err := c.ShouldBindWith(s, b)
-	if err != nil {
-		return err
-	}
-	return nil
+    b := binding.Default(c.Request.Method, c.ContentType())
+    err := c.ShouldBindWith(s, b)
+    if err != nil {
+        return err
+    }
+    return nil
 }
 
 func ValidateUniq(fl validator.FieldLevel) bool {
-	var result struct{ Count int }
-	currentField, _, _ := fl.GetStructFieldOK()
-	table := modelTableNameMap[currentField.Type().Name()] // table name
-	value := fl.Field().String()                           // value
-	column := fl.FieldName()                               // column name
-	sql := fmt.Sprintf("select count(*) from %s where %s='%s'", table, column, value)
-	db.PG.Raw(sql).Scan(&result)
-	dup := result.Count > 0
-	return !dup
+    var result struct{ Count int }
+    currentField, _, _ := fl.GetStructFieldOK()
+    table := modelTableNameMap[currentField.Type().Name()] // table name
+    value := fl.Field().String()                           // value
+    column := fl.FieldName()                               // column name
+    sql := fmt.Sprintf("select count(*) from %s where %s='%s'", table, column, value)
+    db.PG.Raw(sql).Scan(&result)
+    dup := result.Count > 0
+    return !dup
 }
 ```
 
@@ -111,17 +111,17 @@ func ValidateUniq(fl validator.FieldLevel) bool {
 
 ```go
 type CommonError struct {
-	Errors map[string]interface{} `json:"errors"`
+    Errors map[string]interface{} `json:"errors"`
 }
 
 func NewValidatorError(err error) CommonError {
-	res := CommonError{}
-	res.Errors = make(map[string]interface{})
-	errs := err.(validator.ValidationErrors)
+    res := CommonError{}
+    res.Errors = make(map[string]interface{})
+    errs := err.(validator.ValidationErrors)
 
-	for _, e := range errs {
-		res.Errors[e.Field()] = e.ActualTag()
-	}
-	return res
+    for _, e := range errs {
+        res.Errors[e.Field()] = e.ActualTag()
+    }
+    return res
 }
 ```

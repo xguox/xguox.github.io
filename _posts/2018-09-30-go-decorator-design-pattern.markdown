@@ -26,29 +26,29 @@ import "fmt"
 type Base struct {
 }
 func (b *Base) Call() string {
-	return "base is called"
+    return "base is called"
 }
 
 // step2: 将上面的方法声明为接口类型，基础功能中的 Call() 调用自动满足下面的接口
 type DecoratorI interface {
-	Call() string
+    Call() string
 }
 
 // step3: 编写新增功能，结构中保存接口类型的参数
 type Decorator struct {
-	derorator DecoratorI
+    derorator DecoratorI
 }
 
 func (d *Decorator) Call() string {
-	return "decorator: " + d.derorator.Call()
+    return "decorator: " + d.derorator.Call()
 }
 
 func main() {
-	base := &Base{}
-	fmt.Println(base.Call())
+    base := &Base{}
+    fmt.Println(base.Call())
 
-	decorator := Decorator{base}
-	fmt.Println(decorator.Call())
+    decorator := Decorator{base}
+    fmt.Println(decorator.Call())
 }
 ```
 
@@ -62,13 +62,13 @@ func main() {
 type MyServer struct{}
 
 func (m *MyServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello Decorator!")
+    fmt.Fprintln(w, "Hello Decorator!")
 }
 
 
 func main() {
-	http.Handle("/", &MyServer{})
-	log.Fatal(http.ListenAndServe(":8080", nil))
+    http.Handle("/", &MyServer{})
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
 ```
 
@@ -76,23 +76,23 @@ func main() {
 
 ```go
 type LoggerServer struct {
-	Handler   http.Handler
-	LogWriter io.Writer
+    Handler   http.Handler
+    LogWriter io.Writer
 }
 func (s *LoggerServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(s.LogWriter, "Request URI: %s\n", r.RequestURI)
-	fmt.Fprintf(s.LogWriter, "Host: %s\n", r.Host)
-	fmt.Fprintf(s.LogWriter, "Content Length: %d\n", r.ContentLength)
-	fmt.Fprintf(s.LogWriter, "Method: %s\n", r.Method)fmt.Fprintf(s.LogWriter, "--------------------------------\n")
-	s.Handler.ServeHTTP(w, r)
+    fmt.Fprintf(s.LogWriter, "Request URI: %s\n", r.RequestURI)
+    fmt.Fprintf(s.LogWriter, "Host: %s\n", r.Host)
+    fmt.Fprintf(s.LogWriter, "Content Length: %d\n", r.ContentLength)
+    fmt.Fprintf(s.LogWriter, "Method: %s\n", r.Method)fmt.Fprintf(s.LogWriter, "--------------------------------\n")
+    s.Handler.ServeHTTP(w, r)
 }
 
 func main() {
-	http.Handle("/", &LoggerServer{
-		LogWriter:os.Stdout,
-		Handler:&MyServer{},
-	})
-	log.Fatal(http.ListenAndServe(":8080", nil))
+    http.Handle("/", &LoggerServer{
+        LogWriter:os.Stdout,
+        Handler:&MyServer{},
+    })
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
 ```
 

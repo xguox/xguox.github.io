@@ -41,10 +41,10 @@ book := &pb.AddressBook{}
 // Write the new address book back to disk.
 out, err := proto.Marshal(book)
 if err != nil {
-        log.Fatalln("Failed to encode address book:", err)
+    log.Fatalln("Failed to encode address book:", err)
 }
 if err := ioutil.WriteFile(fname, out, 0644); err != nil {
-        log.Fatalln("Failed to write address book:", err)
+    log.Fatalln("Failed to write address book:", err)
 }
 ```
 
@@ -56,11 +56,11 @@ if err := ioutil.WriteFile(fname, out, 0644); err != nil {
 // Read the existing address book.
 in, err := ioutil.ReadFile(fname)
 if err != nil {
-        log.Fatalln("Error reading file:", err)
+    log.Fatalln("Error reading file:", err)
 }
 book := &pb.AddressBook{}
 if err := proto.Unmarshal(in, book); err != nil {
-        log.Fatalln("Failed to parse address book:", err)
+    log.Fatalln("Failed to parse address book:", err)
 }
 ```
 
@@ -100,17 +100,17 @@ go run greeter_client/main.go
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
 }
 
 // The request message containing the user's name.
 message HelloRequest {
-  string name = 1;
+    string name = 1;
 }
 
 // The response message containing the greetings
 message HelloReply {
-  string message = 1;
+    string message = 1;
 }
 ```
 
@@ -118,8 +118,8 @@ message HelloReply {
 
 ```go
 service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+    // Sends a greeting
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
 }
 ```
 
@@ -130,31 +130,31 @@ service Greeter {
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GreeterClient interface {
-	// Sends a greeting
-	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+    // Sends a greeting
+    SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 }
 
 type greeterClient struct {
-	cc *grpc.ClientConn
+    cc *grpc.ClientConn
 }
 
 func NewGreeterClient(cc *grpc.ClientConn) GreeterClient {
-	return &greeterClient{cc}
+    return &greeterClient{cc}
 }
 
 func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
+    out := new(HelloReply)
+    err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
+    if err != nil {
+        return nil, err
+    }
+    return out, nil
 }
 
 // GreeterServer is the server API for Greeter service.
 type GreeterServer interface {
-	// Sends a greeting
-	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+    // Sends a greeting
+    SayHello(context.Context, *HelloRequest) (*HelloReply, error)
 }
 
 ```
@@ -169,7 +169,7 @@ type server struct{}
 
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
-	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
+    return &pb.HelloReply{Message: "Hello " + in.Name}, nil
 }
 
 ```
@@ -182,15 +182,15 @@ Go 的 `net` 包提供了网络 I/O(TCP/IP, UDP, domain name resolution, Unix do
 
 
 ```go
-	s := grpc.NewServer()
+    s := grpc.NewServer()
 ```
 
 ![](http://wx3.sinaimg.cn/large/62fdd4d5gy1fu3p9qakuhj214k0angnx.jpg)
 
 ```go
-	pb.RegisterGreeterServer(s, &server{})
-	// Register reflection service on gRPC server.
-	reflection.Register(s)
+    pb.RegisterGreeterServer(s, &server{})
+    // Register reflection service on gRPC server.
+    reflection.Register(s)
 ```
 
 **helloworld.pb.go** 的函数 `RegisterGreeterServer`, 实际上调的是 grpc.Server 的实例方法 `RegisterService`,
@@ -199,22 +199,22 @@ Go 的 `net` 包提供了网络 I/O(TCP/IP, UDP, domain name resolution, Unix do
 
 ```go
 var _Greeter_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "helloworld.Greeter",
-	HandlerType: (*GreeterServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SayHello",
-			Handler:    _Greeter_SayHello_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "helloworld.proto",
+    ServiceName: "helloworld.Greeter",
+    HandlerType: (*GreeterServer)(nil),
+    Methods: []grpc.MethodDesc{
+        {
+            MethodName: "SayHello",
+            Handler:    _Greeter_SayHello_Handler,
+        },
+    },
+    Streams:  []grpc.StreamDesc{},
+    Metadata: "helloworld.proto",
 }
 
 ...
 
 func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
-	s.RegisterService(&_Greeter_serviceDesc, srv)
+    s.RegisterService(&_Greeter_serviceDesc, srv)
 }
 ```
 
@@ -231,11 +231,11 @@ func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
 最后这里 `s.Serve(lis)`, 本来想贴源码的, 差不多一百行算了, 贴描述好了
 
 > Serve accepts incoming connections on the listener lis, creating a new
-	ServerTransport and service goroutine for each. The service goroutines
-	read gRPC requests and then call the registered handlers to reply to them.
-	Serve returns when lis.Accept fails with fatal errors.  lis will be closed when
-	this method returns.
-	Serve will return a non-nil error unless Stop or GracefulStop is called.
+    ServerTransport and service goroutine for each. The service goroutines
+    read gRPC requests and then call the registered handlers to reply to them.
+    Serve returns when lis.Accept fails with fatal errors.  lis will be closed when
+    this method returns.
+    Serve will return a non-nil error unless Stop or GracefulStop is called.
 
 #### Client
 
@@ -254,7 +254,7 @@ r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
 ```go
 // Dial creates a client connection to the given target.
 func Dial(target string, opts ...DialOption) (*ClientConn, error) {
-	return DialContext(context.Background(), target, opts...)
+    return DialContext(context.Background(), target, opts...)
 }
 
 // DialContext creates a client connection to the given target. By default, it's
@@ -265,12 +265,12 @@ func Dial(target string, opts ...DialOption) (*ClientConn, error) {
 // In the non-blocking case, the ctx does not act against the connection. It
 // only controls the setup steps.
 func DialContext(ctx context.Context, target string, opts ...DialOption) (conn *ClientConn, err error) {
-	...
+    ...
 }
 
 // ClientConn represents a client connection to an RPC server.
 type ClientConn struct {
-	...
+    ...
 }
 ```
 
@@ -278,11 +278,11 @@ type ClientConn struct {
 
 ```go
 type greeterClient struct {
-	cc *grpc.ClientConn
+    cc *grpc.ClientConn
 }
 
 func NewGreeterClient(cc *grpc.ClientConn) GreeterClient {
-	return &greeterClient{cc}
+    return &greeterClient{cc}
 }
 ```
 
@@ -297,18 +297,18 @@ log.Printf("Greeting: %s", r.Message)
 ```go
 // The response message containing the greetings
 type HelloReply struct {
-	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+    Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+    XXX_NoUnkeyedLiteral struct{} `json:"-"`
+    XXX_unrecognized     []byte   `json:"-"`
+    XXX_sizecache        int32    `json:"-"`
 }
 
 func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
+    out := new(HelloReply)
+    err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
+    if err != nil {
+        return nil, err
+    }
+    return out, nil
 }
 ```
