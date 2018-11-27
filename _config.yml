@@ -5,8 +5,8 @@
 #
 title: XguoX
 email: xguox@hotmail.com
-description: Ruby Golang Erlang 前端 后端 Android Elasticsearch Programmer Photo Lens Camera Sony A7r Fujifilm
-url: https://xguox.coding.me # the base hostname & protocol for your site
+description: Ruby Golang Erlang 前端 后端 Android Elasticsearch Programmer Photo Lens Camera Sony A7r Fujifilm Lego
+url: https://xguox.me # the base hostname & protocol for your site
 
 
 #
@@ -36,7 +36,7 @@ owner:
   name: XguoX
   avatar: logo.jpeg
   job: "写点 Ruby 糊口饭吃"
-  bio: "IN PURSUIT OF LIGHT"
+  bio: "Model 42082"
   email: xguox@hotmail.com
   disqus-shortname: xguox
   twitter: xguox_l #username

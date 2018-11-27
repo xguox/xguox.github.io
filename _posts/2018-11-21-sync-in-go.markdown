@@ -72,6 +72,8 @@ func (r *rlocker) Lock()   { (*RWMutex)(r).RLock() }
 func (r *rlocker) Unlock() { (*RWMutex)(r).RUnlock() }
 ```
 
+配合 sync.Cond 使用的时候, 如果需要传读锁的话可以用这个 `RLocker`
+
 -------------
 
 **snyc.Cond** 需要配合锁一起使用, *Mutex 或者 *RWMutex 都可以. 通过 `sync.NewCond` 函数初始化得到一个 *sync.Cond 值.
