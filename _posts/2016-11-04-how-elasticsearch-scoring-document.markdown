@@ -14,11 +14,7 @@ tags: Elasticsearch
 
 所以, 相关度是啥? 分数又是怎么计算出来的? (全文检索和结构化的 SQL 查询不太一样, 虽然看起来结果比较'飘忽', 但也是可以追根问底的)
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->
+------------
 
 在 Elasticsearch 中, 标准的算法是  **Term Frequency/Inverse Document Frequency, 简写为 TF/IDF**, (刚刚发布的 5.0 版本, 改为了据说更先进的 BM25 算法)
 

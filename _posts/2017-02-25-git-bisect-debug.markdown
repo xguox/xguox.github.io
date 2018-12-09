@@ -57,11 +57,7 @@ RAILS_ENV=staging rake assets:precompile
 
 还原 precompile 的错误,
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->--
+--------------
 
 想起 git bisect, 看样子可以用上了.
 

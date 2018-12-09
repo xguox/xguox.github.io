@@ -70,11 +70,7 @@ Everything Hello Kitty
 
 ![](http://ww2.sinaimg.cn/large/62fdd4d5gw1f5qbiz6d7wj21kw0z4b29.jpg)
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->
+------------
 
 ![](http://ww2.sinaimg.cn/large/62fdd4d5gw1f5qbj3g70bj21kw11ye81.jpg)
 
@@ -92,11 +88,7 @@ Everything Hello Kitty
 
 ![](http://ww3.sinaimg.cn/large/62fdd4d5jw1f5qd2ohqb9j21kw11y4qp.jpg)
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->
+------------
 
 ![](http://ww4.sinaimg.cn/large/62fdd4d5gw1f5qbje3t6bj21kw11yql3.jpg)
 

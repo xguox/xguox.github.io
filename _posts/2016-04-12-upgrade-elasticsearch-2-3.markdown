@@ -34,9 +34,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)
 
 Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.
 
----
-<!--more-->---
-<!--more-->
+------
+
 升级完以后查看了一下状态
 
 `curl -XGET http://localhost:9200/_cluster/health\?pretty\=true`
@@ -127,9 +126,7 @@ cluster.routing.allocation.disk.watermark.low: .97
 cluster.routing.allocation.disk.watermark.high: .99
 ```
 
----
-<!--more-->---
-<!--more-->
+------
 
 BTW, 现在都流行飙版本号了?
 
@@ -163,9 +160,7 @@ Elasticsearch 升级 2.X 前用官方插件检测一下是否兼容
 
 ![](http://ww3.sinaimg.cn/large/62fdd4d5gw1f36zg9t49gj241s31c4qv.jpg)
 
----
-<!--more-->---
-<!--more-->--
+--------
 
 ##### Related:
 

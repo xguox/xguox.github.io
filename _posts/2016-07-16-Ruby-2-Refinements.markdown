@@ -28,10 +28,7 @@ Whatever::CONST_A
 => "ActiveRecord"
 ```
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->--
+-----------
 
 ```ruby
 class String

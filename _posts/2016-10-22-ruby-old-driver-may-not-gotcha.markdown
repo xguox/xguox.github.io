@@ -147,10 +147,7 @@ ArgumentError: wrong number of arguments (given 1, expected 0)
 
 ```
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->
+---------
 
 ##### Class Variable
 

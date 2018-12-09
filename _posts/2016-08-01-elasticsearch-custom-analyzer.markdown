@@ -13,10 +13,7 @@ excerpt: Elasticsearch analysis  自定义 analyzers 与 倒排索引
 
 这里强调的**「对应」**其实就是 **Analyzers** 在支持着.
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->-
+----------
 
 Elasticsearch 的[官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html):
 
@@ -26,10 +23,7 @@ Elasticsearch 的[官方文档](https://www.elastic.co/guide/en/elasticsearch/re
 
 **Elasticsearch(2.3)** 默认给了我们八种 **Analyzers(standard, simple, whitespace, stop, keyword, pattern, language, snowball)** 开箱即用.  此外, 还提供给了我们 **3 种 CharFilters, 12 种 Tokenizer, 以及一大堆 TokenFilters** 用于自定义 Analyzers.
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->-
+----------
 
 
 说半天, 都是很抽象的东西. 下面用一些栗子说明.
@@ -263,11 +257,7 @@ curl -XGET 'http://localhost:9200/blog/post/_search?pretty=true' -d '
 
 ```
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->--
+--------------
 
 以上, 大概说了一些默认的 Analyzers, 接下来, 看下怎么自定义 Analyzers 并运用到 mappings 中.
 
@@ -485,11 +475,7 @@ curl -XGET 'http://localhost:9200/blog/post/_search?pretty=true' -d '
 }
 ```
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->
+------------
 
 最后, 如果只是想精确的存储值而不被分析的话, 可以用 **"index": "not_analyzed"**
 
@@ -499,11 +485,7 @@ long, double, date 这些类型的数据是永远不会被分析的. 要么是 `
 
 Last but not least, 如果想知道具体怎么计算出来的匹配得分, 还可以看看 [Explain API](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-explain.html)
 
----
-<!--more-->---
-<!--more-->---
-<!--more-->---
-<!--more-->
+------------
 
 相关阅读:
 
