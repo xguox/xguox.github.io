@@ -10,7 +10,7 @@ tags: Go
 
 与 Ruby 一样, Go 在调用函数(方法)的时候都是值传递的, 即参数的副本. 在 Go 里边, 即使传的是指针类型的变量也一样, 实际上传的是指针的副本, 指向的是同样的内存地址. 因此调用时候, 传指针可能就会改变参数变量的值.
 
-此外, 当把元素塞进 array, slice, map, channel 的时候也是类似的道理.
+此外, 当把元素塞进 `array`, `slice`, `map`, `channel` 的时候也是类似的道理. [查看示例](https://xguox.me/golang-pointer-array-slice-map-copy.html)
 
 > **[As in all languages in the C family, everything in Go is passed by value.](https://golang.org/doc/faq#different_method_sets) That is, a function always gets a copy of the thing being passed, as if there were an assignment statement assigning the value to the parameter. For instance, passing an int value to a function makes a copy of the int, and passing a pointer value makes a copy of the pointer, but not the data it points to.**
 
