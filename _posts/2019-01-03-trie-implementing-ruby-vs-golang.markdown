@@ -19,6 +19,7 @@ tags: [Go, Ruby]
 #### Trie in Ruby
 
 ```ruby
+# ruby 2.4
 require 'benchmark'
 
 class Node
@@ -129,6 +130,7 @@ puts Benchmark.measure {
 #### Trie in Golang
 
 ```go
+// go 1.11
 package main
 
 import (
