@@ -120,7 +120,7 @@ func main() {
 }
 ```
 
-丢完示例以后, 跟着示例代码大概的走一遍 Gin 的全流程. 后面可能会分几块(**Engine, Context, RouterGroup, Middleware**)再深入探究, 先挖个坑.
+丢完示例以后, 跟着示例代码大概的走一遍 Gin 的全流程. 之后在深入看 RouterGroup 和 middleware 相关的探究.
 
 -------
 
@@ -343,5 +343,6 @@ func (c *Context) String(code int, format string, values ...interface{}) {
 
 Related:
 
+- [Gin RouterGroup 与 middleware 相关源码](https://xguox.me/gin-RouterGroup-and-middleware-walkthrough.html)
 - [https://chai2010.gitbooks.io/advanced-go-programming-book/content/](https://chai2010.gitbooks.io/advanced-go-programming-book/content/)
 - [https://stackoverflow.com/questions/49668070/how-does-servehttp-work](https://stackoverflow.com/a/49674486/1251496)
