@@ -1256,14 +1256,14 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/css/</loc>
+    <loc>https://xguox.me/tags/css/</loc>
     <lastmod>2014-07-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xguox.me/tags/css/</loc>
+    <loc>https://xguox.me/categories/css/</loc>
     <lastmod>2014-07-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1277,13 +1277,6 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/elasticsearch/</loc>
-    <lastmod>2018-11-27T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://xguox.me/tags/elasticsearch/</loc>
     <lastmod>2018-11-27T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1291,8 +1284,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/erlang/</loc>
-    <lastmod>2017-08-30T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/elasticsearch/</loc>
+    <lastmod>2018-11-27T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1305,8 +1298,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/go/</loc>
-    <lastmod>2019-01-11T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/erlang/</loc>
+    <lastmod>2017-08-30T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1319,8 +1312,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/jabber/</loc>
-    <lastmod>2017-09-18T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/go/</loc>
+    <lastmod>2019-01-11T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1333,8 +1326,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/javascript/</loc>
-    <lastmod>2017-07-26T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/jabber/</loc>
+    <lastmod>2017-09-18T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1347,8 +1340,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/lego/</loc>
-    <lastmod>2018-11-03T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/javascript/</loc>
+    <lastmod>2017-07-26T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1361,8 +1354,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/linux/</loc>
-    <lastmod>2018-11-01T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/lego/</loc>
+    <lastmod>2018-11-03T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1375,8 +1368,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/music/</loc>
-    <lastmod>2019-01-20T12:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/linux/</loc>
+    <lastmod>2018-11-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1389,8 +1382,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/mysql/</loc>
-    <lastmod>2015-09-06T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/music/</loc>
+    <lastmod>2019-01-20T12:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1403,8 +1396,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/nginx/</loc>
-    <lastmod>2017-04-10T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/mysql/</loc>
+    <lastmod>2015-09-06T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1417,8 +1410,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/photo/</loc>
-    <lastmod>2018-07-30T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/nginx/</loc>
+    <lastmod>2017-04-10T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1431,14 +1424,21 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/postgres/</loc>
-    <lastmod>2017-04-27T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/photo/</loc>
+    <lastmod>2018-07-30T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/tags/postgres/</loc>
+    <lastmod>2017-04-27T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xguox.me/categories/postgres/</loc>
     <lastmod>2017-04-27T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1452,13 +1452,6 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/protobuf/</loc>
-    <lastmod>2018-08-10T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://xguox.me/tags/protobuf/</loc>
     <lastmod>2018-08-10T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1466,7 +1459,7 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/rpc/</loc>
+    <loc>https://xguox.me/categories/protobuf/</loc>
     <lastmod>2018-08-10T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1480,8 +1473,8 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/react/</loc>
-    <lastmod>2017-07-26T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/rpc/</loc>
+    <lastmod>2018-08-10T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1494,14 +1487,21 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/ruby/</loc>
-    <lastmod>2019-01-03T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/react/</loc>
+    <lastmod>2017-07-26T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/tags/ruby/</loc>
+    <lastmod>2019-01-03T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xguox.me/categories/ruby/</loc>
     <lastmod>2019-01-03T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1521,13 +1521,6 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/tools/</loc>
-    <lastmod>2019-01-07T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://xguox.me/tags/tools/</loc>
     <lastmod>2019-01-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1535,14 +1528,21 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/translation/</loc>
-    <lastmod>2017-04-27T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/categories/tools/</loc>
+    <lastmod>2019-01-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/tags/translation/</loc>
+    <lastmod>2017-04-27T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xguox.me/categories/translation/</loc>
     <lastmod>2017-04-27T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1556,14 +1556,28 @@
   </url>
   
   <url>
-    <loc>https://xguox.me/categories/%E5%A4%9A%E8%82%89%E4%B8%8E%E6%A4%8D%E7%89%A9/</loc>
-    <lastmod>2018-12-20T16:01:23+08:00</lastmod>
+    <loc>https://xguox.me/tags/youtube/</loc>
+    <lastmod>2019-01-20T12:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xguox.me/categories/youtube/</loc>
+    <lastmod>2019-01-20T12:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/tags/%E5%A4%9A%E8%82%89%E4%B8%8E%E6%A4%8D%E7%89%A9/</loc>
+    <lastmod>2018-12-20T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xguox.me/categories/%E5%A4%9A%E8%82%89%E4%B8%8E%E6%A4%8D%E7%89%A9/</loc>
     <lastmod>2018-12-20T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
