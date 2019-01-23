@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xguox.me/ji-long-yue.html/</loc>
+    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://xguox.me/go-profiling-optimizing.html/</loc>
     <lastmod>2019-01-22T01:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1453,7 +1460,7 @@
   
   <url>
     <loc>https://xguox.me/post/</loc>
-    <lastmod>2019-01-22T01:01:23+08:00</lastmod>
+    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1557,7 +1564,7 @@
   
   <url>
     <loc>https://xguox.me/</loc>
-    <lastmod>2019-01-22T01:01:23+08:00</lastmod>
+    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1578,14 +1585,14 @@
   
   <url>
     <loc>https://xguox.me/tags/%E5%A4%9A%E8%82%89%E4%B8%8E%E6%A4%8D%E7%89%A9/</loc>
-    <lastmod>2018-12-20T16:01:23+08:00</lastmod>
+    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/categories/%E5%A4%9A%E8%82%89%E4%B8%8E%E6%A4%8D%E7%89%A9/</loc>
-    <lastmod>2018-12-20T16:01:23+08:00</lastmod>
+    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
