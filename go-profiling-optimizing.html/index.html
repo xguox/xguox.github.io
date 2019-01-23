@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-01-22T01:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-22T01:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1346">
+<meta itemprop="wordCount" content="1549">
 
 
 
@@ -141,8 +141,8 @@
 
       <div class="post-meta">
         <span class="post-time"> 22 Jan 2019 </span>
-          <span class="more-meta"> 1346 words </span>
-          <span class="more-meta"> 3 mins read </span>
+          <span class="more-meta"> 1549 words </span>
+          <span class="more-meta"> 4 mins read </span>
         
       </div>
       <div class="post-category">
@@ -405,6 +405,33 @@
 </div>
 </div>
 <p>因此, <strong>Gin</strong> 项目要使用 <strong>pprof</strong> 的话可以参考<a href="https://github.com/DeanThompson/ginpprof/blob/master/pprof.go">这里</a></p>
+
+<h1 id="flame-graph-火焰图">Flame Graph 火焰图</h1>
+
+<p><a href="https://github.com/uber/go-torch">go-torch</a> 在 <strong>Go 1.11</strong> 之前是作为非官方的可视化工具存在的, 它可以为监控数据生成一个类似下面这样的图形界面, 红红火火的, 因而得名. 从 <strong>Go 1.11</strong> 开始, 火焰图被集成进入 Go 官方的 <strong>pprof</strong> 库.</p>
+
+<blockquote>
+<p>go-torch is deprecated, use pprof instead</p>
+
+<p>As of Go 1.11, flamegraph visualizations are available in go tool pprof directly!</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="o">-</span><span class="nx">http</span><span class="p">=</span><span class="s">&#34;:8081&#34;</span> <span class="p">[</span><span class="nx">binary</span><span class="p">]</span> <span class="p">[</span><span class="nx">profile</span><span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在浏览器打开 <strong><a href="http://localhost:8081/ui/flamegraph">http://localhost:8081/ui/flamegraph</a></strong>, 就可以看到下面这样的反过来的火焰图.</p>
+
+<p>长条形的颜色只是为了好看, 颜色的深浅是随机的 = 。=  长度越长代表占用 CPU 时间越长</p>
+
+<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1fzgbuz1x3nj227y0swaj2.jpg" alt="" /></p>
+
+<p>然后, <strong>pprof</strong> 命令行的 <strong>top</strong> 以及 <strong>list</strong> 正则也可以在这里边完成, 还有 <strong>svg</strong> 图形.</p>
+
+<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzgbuzpge6j21le0ocq8b.jpg" alt="" /></p>
 
     </div>
 
