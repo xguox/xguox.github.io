@@ -6,10 +6,19 @@
     <description>Recent content in Posts on XguoX - 写点 Ruby 糊口饭吃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Jan 2019 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Feb 2019 16:01:23 +0800</lastBuildDate>
     
 	<atom:link href="https://xguox.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Rails] preload vs includes</title>
+      <link>https://xguox.me/rails-preload-vs-includes.html/</link>
+      <pubDate>Fri, 15 Feb 2019 16:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/rails-preload-vs-includes.html/</guid>
+      <description>写了这么长时间的 Rails, 大部分时候都是用 includes, 鲜少使用到 preload. 所以, 没太在意这俩的区别. 最近写一个比较复杂的报表 SQL 时候总算踩到坑了. preload 会生成分开的两条查询</description>
+    </item>
     
     <item>
       <title>姬珑月 2017 - 2019</title>

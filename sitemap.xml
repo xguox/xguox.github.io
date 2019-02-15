@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xguox.me/rails-preload-vs-includes.html/</loc>
+    <lastmod>2019-02-15T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://xguox.me/ji-long-yue.html/</loc>
     <lastmod>2019-01-23T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1460,7 +1467,7 @@
   
   <url>
     <loc>https://xguox.me/post/</loc>
-    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
+    <lastmod>2019-02-15T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1509,14 +1516,14 @@
   
   <url>
     <loc>https://xguox.me/tags/ruby/</loc>
-    <lastmod>2019-01-03T16:01:23+08:00</lastmod>
+    <lastmod>2019-02-15T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/categories/ruby/</loc>
-    <lastmod>2019-01-03T16:01:23+08:00</lastmod>
+    <lastmod>2019-02-15T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1564,7 +1571,7 @@
   
   <url>
     <loc>https://xguox.me/</loc>
-    <lastmod>2019-01-23T16:01:23+08:00</lastmod>
+    <lastmod>2019-02-15T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
