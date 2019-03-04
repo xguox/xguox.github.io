@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://xguox.me/rails-3-remote-links-and-forms-part-2-data-type-with-jquery.html/" />
@@ -41,7 +41,8 @@
 <meta property="og:title" content="Rails 3 Remote Links and Forms Part 2: Data-type (With jQuery)" />
 <meta property="og:description" content="自从写了Rails 3 Remote Links &amp; Forms Definitive Guide有一个问题也接踵而至: 我们该如何使远程链接或者表单取回 js.erb而不是一个html的partial" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rails-3-remote-links-and-forms-part-2-data-type-with-jquery.html/" /><meta property="article:published_time" content="2012-07-12T16:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/rails-3-remote-links-and-forms-part-2-data-type-with-jquery.html/" />
+<meta property="article:published_time" content="2012-07-12T16:01:23&#43;08:00"/>
 <meta property="article:modified_time" content="2012-07-12T16:01:23&#43;08:00"/>
 
 <meta itemprop="name" content="Rails 3 Remote Links and Forms Part 2: Data-type (With jQuery)">
@@ -50,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2012-07-12T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2012-07-12T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="3473">
+<meta itemprop="wordCount" content="3467">
 
 
 
@@ -141,7 +142,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 12 Jul 2012 </span>
-          <span class="more-meta"> 3473 words </span>
+          <span class="more-meta"> 3467 words </span>
           <span class="more-meta"> 7 mins read </span>
         
       </div>
@@ -218,7 +219,6 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">dataType</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-type&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSettings</span> <span class="o">&amp;&amp;</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSettings</span><span class="p">.</span><span class="nx">dataType</span><span class="p">);</span>
@@ -233,7 +233,6 @@
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Simplified for clarityif (dataType === undefined) {
@@ -282,7 +281,6 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#i-want-html&#39;</span><span class="p">)</span>  <span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;ajax:success&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">){</span>
@@ -330,7 +328,6 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#i-want-json&#39;</span><span class="p">)</span>  <span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;ajax:success&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">){</span>
@@ -370,7 +367,6 @@
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#i-want-js&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;ajax:complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">,</span> <span class="nx">status</span><span class="p">){</span>  <span class="nb">eval</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
@@ -505,7 +501,6 @@
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
-</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#new-comment-form&#39;</span><span class="p">);</span>

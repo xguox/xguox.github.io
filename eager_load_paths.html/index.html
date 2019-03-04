@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://xguox.me/eager_load_paths.html/" />
@@ -41,7 +41,8 @@
 <meta property="og:title" content="Rails autoload_paths &amp; eager_load_paths" />
 <meta property="og:description" content="autoload_paths 假设 Rails 项目根目录下有如下目录以及 .rb 文件, (root/)extras/foo.rb 如果啥也不干, 直接打开 rails console: 1 2 3 4 5 6 [1] pry(main)&gt; defined?(Foo) =&gt; nil [2] pry(main)&gt; Foo NameError: uninitialized constant Foo from (pry):2:in `&lt;main&gt;&#39; 在 application.rb 中加入一行: config.autoload_paths &#43;= %W(#{config.root}/extras) 再重启" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/eager_load_paths.html/" /><meta property="article:published_time" content="2016-07-19T16:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/eager_load_paths.html/" />
+<meta property="article:published_time" content="2016-07-19T16:01:23&#43;08:00"/>
 <meta property="article:modified_time" content="2016-07-19T16:01:23&#43;08:00"/>
 
 <meta itemprop="name" content="Rails autoload_paths &amp; eager_load_paths">

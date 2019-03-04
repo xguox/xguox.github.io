@@ -17,7 +17,7 @@
       <pubDate>Tue, 27 Nov 2018 16:01:23 +0800</pubDate>
       
       <guid>https://xguox.me/elk-logstash-conf.html/</guid>
-      <description>Logstash 配置文件的 output 加了一句 1 2 stdout { codec =&amp;gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出</description>
+      <description>Logstash 配置文件的 output 加了一句 1 stdout { codec =&amp;gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出的</description>
     </item>
     
     <item>
@@ -330,7 +330,7 @@ sudo service elasticsearch start
       <pubDate>Mon, 29 Feb 2016 16:01:23 +0800</pubDate>
       
       <guid>https://xguox.me/elasticsearch-more-like-this.html/</guid>
-      <description>Elasticsearch 封装好了More Like This 搜索功能, 用来基于给定的某个或某组文档, 返回与之相似的文档. 语法如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 { &amp;#34;more_like_this&amp;#34; : { &amp;#34;fields&amp;#34;</description>
+      <description>Elasticsearch 封装好了More Like This 搜索功能, 用来基于给定的某个或某组文档, 返回与之相似的文档. 语法如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 { &amp;#34;more_like_this&amp;#34; : { &amp;#34;fields&amp;#34; :</description>
     </item>
     
     <item>

@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="XguoX" /><meta name="description" content="Logstash 配置文件的 output 加了一句 1 2 stdout { codec =&amp;gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
+<meta name="author" content="XguoX" /><meta name="description" content="Logstash 配置文件的 output 加了一句 1 stdout { codec =&amp;gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出的" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://xguox.me/elk-logstash-conf.html/" />
@@ -39,25 +39,26 @@
 
 
 <meta property="og:title" content="Logstash 的日志输出" />
-<meta property="og:description" content="Logstash 配置文件的 output 加了一句 1 2 stdout { codec =&gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出" />
+<meta property="og:description" content="Logstash 配置文件的 output 加了一句 1 stdout { codec =&gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/elk-logstash-conf.html/" /><meta property="article:published_time" content="2018-11-27T16:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/elk-logstash-conf.html/" />
+<meta property="article:published_time" content="2018-11-27T16:01:23&#43;08:00"/>
 <meta property="article:modified_time" content="2018-11-27T16:01:23&#43;08:00"/>
 
 <meta itemprop="name" content="Logstash 的日志输出">
-<meta itemprop="description" content="Logstash 配置文件的 output 加了一句 1 2 stdout { codec =&gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出">
+<meta itemprop="description" content="Logstash 配置文件的 output 加了一句 1 stdout { codec =&gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出的">
 
 
 <meta itemprop="datePublished" content="2018-11-27T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-11-27T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="177">
+<meta itemprop="wordCount" content="176">
 
 
 
 <meta itemprop="keywords" content="Elasticsearch," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Logstash 的日志输出"/>
-<meta name="twitter:description" content="Logstash 配置文件的 output 加了一句 1 2 stdout { codec =&gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出"/>
+<meta name="twitter:description" content="Logstash 配置文件的 output 加了一句 1 stdout { codec =&gt; rubydebug } 本地测试时候看输出用的, 发上去没把这句删掉然后差点把服务器的硬盘撑坏了. =。 = 去掉这句就不在把正常输出的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -141,7 +142,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 27 Nov 2018 </span>
-          <span class="more-meta"> 177 words </span>
+          <span class="more-meta"> 176 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -156,7 +157,6 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">stdout</span> <span class="p">{</span> <span class="nx">codec</span> <span class="p">=&gt;</span> <span class="nx">rubydebug</span> <span class="p">}</span>

@@ -6,10 +6,19 @@
     <description>Recent content in Youtube on XguoX - 写点 Ruby 糊口饭吃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Jan 2019 12:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 Mar 2019 01:01:23 +0800</lastBuildDate>
     
 	<atom:link href="https://xguox.me/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>抱拥这分钟</title>
+      <link>https://xguox.me/bao-yong-zhe-fen-zhong.html/</link>
+      <pubDate>Mon, 04 Mar 2019 01:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/bao-yong-zhe-fen-zhong.html/</guid>
+      <description>网易没有原唱版权的结果让我误以为这就是原唱</description>
+    </item>
     
     <item>
       <title>Try</title>

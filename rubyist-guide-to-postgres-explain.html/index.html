@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://xguox.me/rubyist-guide-to-postgres-explain.html/" />
@@ -41,7 +41,8 @@
 <meta property="og:title" content="给 Rubyist 的 Postgresql Explain 教程" />
 <meta property="og:description" content="如果想知道你的数据库查询为啥变得越来越慢了， 那没有啥比 postgres 的 EXPLAIN 更好使的了。 其实也没啥神秘的。 就是让 postgres 告诉咱们，它是怎么去执行这个查询的。你甚至" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rubyist-guide-to-postgres-explain.html/" /><meta property="article:published_time" content="2017-04-27T16:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/rubyist-guide-to-postgres-explain.html/" />
+<meta property="article:published_time" content="2017-04-27T16:01:23&#43;08:00"/>
 <meta property="article:modified_time" content="2017-04-27T16:01:23&#43;08:00"/>
 
 <meta itemprop="name" content="给 Rubyist 的 Postgresql Explain 教程">
@@ -50,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2017-04-27T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2017-04-27T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="2120">
+<meta itemprop="wordCount" content="2199">
 
 
 
@@ -141,7 +142,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 27 Apr 2017 </span>
-          <span class="more-meta"> 2120 words </span>
+          <span class="more-meta"> 2199 words </span>
           <span class="more-meta"> 5 mins read </span>
         
       </div>
@@ -447,48 +448,48 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># EXPLAIN (ANALYZE, FORMAT YAML) select * from users order by created_at limit 10;</span><span class="w">
 </span><span class="w">                </span>QUERY<span class="w"> </span>PLAN<span class="w">
-</span><span class="w"></span>------------------------------------------<span class="w">
-</span><span class="w"> </span>-<span class="w"> </span>Plan<span class="p">:</span><span class="w">                                 </span>+<span class="w">
-</span><span class="w">     </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Limit&#34;</span><span class="w">                  </span>+<span class="w">
-</span><span class="w">     </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">892.98</span><span class="w">                </span>+<span class="w">
-</span><span class="w">     </span>Total<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">893.01</span><span class="w">                  </span>+<span class="w">
-</span><span class="w">     </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                       </span>+<span class="w">
-</span><span class="w">     </span>Plan<span class="w"> </span>Width<span class="p">:</span><span class="w"> </span><span class="m">812</span><span class="w">                     </span>+<span class="w">
-</span><span class="w">     </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.945</span><span class="w">         </span>+<span class="w">
-</span><span class="w">     </span>Actual<span class="w"> </span>Total<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.947</span><span class="w">           </span>+<span class="w">
-</span><span class="w">     </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                     </span>+<span class="w">
-</span><span class="w">     </span>Actual<span class="w"> </span>Loops<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                     </span>+<span class="w">
-</span><span class="w">     </span>Plans<span class="p">:</span><span class="w">                              </span>+<span class="w">
-</span><span class="w">       </span>-<span class="w"> </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sort&#34;</span><span class="w">               </span>+<span class="w">
-</span><span class="w">         </span>Parent<span class="w"> </span>Relationship<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Outer&#34;</span><span class="w">    </span>+<span class="w">
-</span><span class="w">         </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">892.98</span><span class="w">            </span>+<span class="w">
-</span><span class="w">         </span>Total<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">919.16</span><span class="w">              </span>+<span class="w">
-</span><span class="w">         </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">                </span>+<span class="w">
-</span><span class="w">         </span>Plan<span class="w"> </span>Width<span class="p">:</span><span class="w"> </span><span class="m">812</span><span class="w">                 </span>+<span class="w">
-</span><span class="w">         </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.944</span><span class="w">     </span>+<span class="w">
-</span><span class="w">         </span>Actual<span class="w"> </span>Total<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.946</span><span class="w">       </span>+<span class="w">
-</span><span class="w">         </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                 </span>+<span class="w">
-</span><span class="w">         </span>Actual<span class="w"> </span>Loops<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                 </span>+<span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Key<span class="p">:</span><span class="w">                       </span>+<span class="w">
-</span><span class="w">           </span>-<span class="w"> </span><span class="s2">&#34;created_at&#34;</span><span class="w">                </span>+<span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Method<span class="p">:</span><span class="w"> </span><span class="s2">&#34;top-N heapsort&#34;</span><span class="w">   </span>+<span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Space<span class="w"> </span>Used<span class="p">:</span><span class="w"> </span><span class="m">31</span><span class="w">             </span>+<span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Space<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Memory&#34;</span><span class="w">       </span>+<span class="w">
-</span><span class="w">         </span>Plans<span class="p">:</span><span class="w">                          </span>+<span class="w">
-</span><span class="w">           </span>-<span class="w"> </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Seq Scan&#34;</span><span class="w">       </span>+<span class="w">
-</span><span class="w">             </span>Parent<span class="w"> </span>Relationship<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Outer&#34;</span>+<span class="w">
-</span><span class="w">             </span>Relation<span class="w"> </span>Name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;users&#34;</span><span class="w">      </span>+<span class="w">
-</span><span class="w">             </span>Alias<span class="p">:</span><span class="w"> </span><span class="s2">&#34;users&#34;</span><span class="w">              </span>+<span class="w">
-</span><span class="w">             </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">0.00</span><span class="w">          </span>+<span class="w">
-</span><span class="w">             </span>Total<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">666.71</span><span class="w">          </span>+<span class="w">
-</span><span class="w">             </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">            </span>+<span class="w">
-</span><span class="w">             </span>Plan<span class="w"> </span>Width<span class="p">:</span><span class="w"> </span><span class="m">812</span><span class="w">             </span>+<span class="w">
-</span><span class="w">             </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">0.008</span><span class="w">  </span>+<span class="w">
-</span><span class="w">             </span>Actual<span class="w"> </span>Total<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">5.823</span><span class="w">    </span>+<span class="w">
-</span><span class="w">             </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10472</span><span class="w">          </span>+<span class="w">
-</span><span class="w">             </span>Actual<span class="w"> </span>Loops<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">             </span>+<span class="w">
-</span><span class="w">   </span>Triggers<span class="p">:</span><span class="w">                             </span>+<span class="w">
-</span><span class="w">   </span>Total<span class="w"> </span>Runtime<span class="p">:</span><span class="w"> </span><span class="m">13.001</span><span class="w">
+</span><span class="w"></span>-----------------------------------------<span class="sd">-
+</span><span class="sd"> - Plan:                                 +</span><span class="w">
+</span><span class="w">     </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Limit&#34;</span><span class="w">                  </span><span class="sd">+
+</span><span class="sd">     Startup Cost: 892.98                +</span><span class="w">
+</span><span class="w">     </span>Total<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">893.01</span><span class="w">                  </span><span class="sd">+
+</span><span class="sd">     Plan Rows: 10                       +</span><span class="w">
+</span><span class="w">     </span>Plan<span class="w"> </span>Width<span class="p">:</span><span class="w"> </span><span class="m">812</span><span class="w">                     </span><span class="sd">+
+</span><span class="sd">     Actual Startup Time: 12.945         +</span><span class="w">
+</span><span class="w">     </span>Actual<span class="w"> </span>Total<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.947</span><span class="w">           </span><span class="sd">+
+</span><span class="sd">     Actual Rows: 10                     +</span><span class="w">
+</span><span class="w">     </span>Actual<span class="w"> </span>Loops<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                     </span><span class="sd">+
+</span><span class="sd">     Plans:                              +</span><span class="w">
+</span><span class="w">       </span>-<span class="w"> </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sort&#34;</span><span class="w">               </span><span class="sd">+
+</span><span class="sd">         Parent Relationship: &#34;Outer&#34;    +</span><span class="w">
+</span><span class="w">         </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">892.98</span><span class="w">            </span><span class="sd">+
+</span><span class="sd">         Total Cost: 919.16              +</span><span class="w">
+</span><span class="w">         </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">                </span><span class="sd">+
+</span><span class="sd">         Plan Width: 812                 +</span><span class="w">
+</span><span class="w">         </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.944</span><span class="w">     </span><span class="sd">+
+</span><span class="sd">         Actual Total Time: 12.946       +</span><span class="w">
+</span><span class="w">         </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                 </span><span class="sd">+
+</span><span class="sd">         Actual Loops: 1                 +</span><span class="w">
+</span><span class="w">         </span>Sort<span class="w"> </span>Key<span class="p">:</span><span class="w">                       </span><span class="sd">+
+</span><span class="sd">           - &#34;created_at&#34;                +</span><span class="w">
+</span><span class="w">         </span>Sort<span class="w"> </span>Method<span class="p">:</span><span class="w"> </span><span class="s2">&#34;top-N heapsort&#34;</span><span class="w">   </span><span class="sd">+
+</span><span class="sd">         Sort Space Used: 31             +</span><span class="w">
+</span><span class="w">         </span>Sort<span class="w"> </span>Space<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Memory&#34;</span><span class="w">       </span><span class="sd">+
+</span><span class="sd">         Plans:                          +</span><span class="w">
+</span><span class="w">           </span>-<span class="w"> </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Seq Scan&#34;</span><span class="w">       </span><span class="sd">+
+</span><span class="sd">             Parent Relationship: &#34;Outer&#34;+</span><span class="w">
+</span><span class="w">             </span>Relation<span class="w"> </span>Name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;users&#34;</span><span class="w">      </span><span class="sd">+
+</span><span class="sd">             Alias: &#34;users&#34;              +</span><span class="w">
+</span><span class="w">             </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">0.00</span><span class="w">          </span><span class="sd">+
+</span><span class="sd">             Total Cost: 666.71          +</span><span class="w">
+</span><span class="w">             </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">            </span><span class="sd">+
+</span><span class="sd">             Plan Width: 812             +</span><span class="w">
+</span><span class="w">             </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">0.008</span><span class="w">  </span><span class="sd">+
+</span><span class="sd">             Actual Total Time: 5.823    +</span><span class="w">
+</span><span class="w">             </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10472</span><span class="w">          </span><span class="sd">+
+</span><span class="sd">             Actual Loops: 1             +</span><span class="w">
+</span><span class="w">   </span>Triggers<span class="p">:</span><span class="w">                             </span><span class="sd">+
+</span><span class="sd">   Total Runtime: 13.001</span><span class="w">
 </span><span class="w"></span>(<span class="m">1</span><span class="w"> </span>row)</code></pre></td></tr></table>
 </div>
 </div>

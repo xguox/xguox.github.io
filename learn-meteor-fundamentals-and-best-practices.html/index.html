@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://xguox.me/learn-meteor-fundamentals-and-best-practices.html/" />
@@ -41,7 +41,8 @@
 <meta property="og:title" content="Meteor 基础与最佳实践" />
 <meta property="og:description" content="引言 想知道这个新奇又好玩的东西&ndash; Meteor是如何工作的?那就太好了,你来对地方了. 我会向你展示一个Meteor项目的方方面面 并" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/learn-meteor-fundamentals-and-best-practices.html/" /><meta property="article:published_time" content="2013-03-08T16:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/learn-meteor-fundamentals-and-best-practices.html/" />
+<meta property="article:published_time" content="2013-03-08T16:01:23&#43;08:00"/>
 <meta property="article:modified_time" content="2013-03-08T16:01:23&#43;08:00"/>
 
 <meta itemprop="name" content="Meteor 基础与最佳实践">
@@ -50,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2013-03-08T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2013-03-08T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="4006">
+<meta itemprop="wordCount" content="3998">
 
 
 
@@ -141,7 +142,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 8 Mar 2013 </span>
-          <span class="more-meta"> 4006 words </span>
+          <span class="more-meta"> 3998 words </span>
           <span class="more-meta"> 8 mins read </span>
         
       </div>
@@ -192,7 +193,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// This function is available on both the client and the server.
@@ -278,7 +278,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// On the client:
@@ -295,16 +294,15 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 <p>让我们把上面的例子模板上下文改为响应数据源:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// When the app starts,
@@ -323,7 +321,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">Session</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">,</span> <span class="s2">&#34;Bill Murray&#34;</span><span class="p">);</span>
@@ -353,7 +350,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Messages</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meteor</span><span class="p">.</span><span class="nx">Collection</span><span class="p">(</span><span class="s2">&#34;messages&#34;</span><span class="p">);</span>
@@ -389,7 +385,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Messages</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meteor</span><span class="p">.</span><span class="nx">Collection</span><span class="p">(</span><span class="s2">&#34;messages&#34;</span><span class="p">);</span>
@@ -439,7 +434,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">if</span><span class="p">(</span><span class="nx">Meteor</span><span class="p">.</span><span class="nx">is_server</span><span class="p">)</span> <span class="p">{</span>
@@ -484,7 +478,6 @@ Meteor目前使用的模板引擎只能是 <a href="http://handlebarsjs.com/">ha
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Relies on underscore.js. In your project directory:

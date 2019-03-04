@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://xguox.me/rails-5-belongs_to-association-required-by-default.html/" />
@@ -41,7 +41,8 @@
 <meta property="og:title" content="Rails 5 belongs_to 默认 required" />
 <meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class Team &lt; ApplicationRecord has_many :projects end class Project &lt; ApplicationRecord belongs_to :team end [1] pry(main)&gt; Project.create(name: &#39;project_1&#39;) (0.2ms) BEGIN (0.2ms) ROLLBACK =&gt; #&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt; [2] pry(main)&gt; _.errors =&gt; #&lt;ActiveModel::Errors:0x007fb84634c500 @base=#&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt;, @details={:team=&gt;[{:error=&gt;:blank}]}, @messages={:team=&gt;[&#34;must exist&#34;]}&gt;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rails-5-belongs_to-association-required-by-default.html/" /><meta property="article:published_time" content="2016-09-24T16:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/rails-5-belongs_to-association-required-by-default.html/" />
+<meta property="article:published_time" content="2016-09-24T16:01:23&#43;08:00"/>
 <meta property="article:modified_time" content="2016-09-24T16:01:23&#43;08:00"/>
 
 <meta itemprop="name" content="Rails 5 belongs_to 默认 required">
