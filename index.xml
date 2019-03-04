@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>二叉树的数组表示</title>
+      <link>https://xguox.me/binary-tree-on-array.html/</link>
+      <pubDate>Mon, 04 Mar 2019 00:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/binary-tree-on-array.html/</guid>
+      <description>如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i + 1 的位置存储的就是右子节点. 反过来, 下标为 i/2 的位置</description>
+    </item>
+    
+    <item>
       <title>[Rails] preload vs includes</title>
       <link>https://xguox.me/rails-preload-vs-includes.html/</link>
       <pubDate>Fri, 15 Feb 2019 16:01:23 +0800</pubDate>

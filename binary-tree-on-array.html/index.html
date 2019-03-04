@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>抱拥这分钟 - XguoX - 写点 Ruby 糊口饭吃</title>
+  <title>二叉树的数组表示 - XguoX - 写点 Ruby 糊口饭吃</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="XguoX" /><meta name="description" content="网易没有原唱版权的结果让我误以为这就是原唱" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
+<meta name="author" content="XguoX" /><meta name="description" content="如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i &#43; 1 的位置存储的就是右子节点. 反过来, 下标为 i/2 的位置" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/bao-yong-zhe-fen-zhong.html/" />
+<link rel="canonical" href="https://xguox.me/binary-tree-on-array.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,27 +38,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="抱拥这分钟" />
-<meta property="og:description" content="网易没有原唱版权的结果让我误以为这就是原唱" />
+<meta property="og:title" content="二叉树的数组表示" />
+<meta property="og:description" content="如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i &#43; 1 的位置存储的就是右子节点. 反过来, 下标为 i/2 的位置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/bao-yong-zhe-fen-zhong.html/" />
-<meta property="article:published_time" content="2019-03-04T01:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2019-03-04T01:01:23&#43;08:00"/>
+<meta property="og:url" content="https://xguox.me/binary-tree-on-array.html/" />
+<meta property="article:published_time" content="2019-03-04T00:01:23&#43;08:00"/>
+<meta property="article:modified_time" content="2019-03-04T00:01:23&#43;08:00"/>
 
-<meta itemprop="name" content="抱拥这分钟">
-<meta itemprop="description" content="网易没有原唱版权的结果让我误以为这就是原唱">
-
-
-<meta itemprop="datePublished" content="2019-03-04T01:01:23&#43;08:00" />
-<meta itemprop="dateModified" content="2019-03-04T01:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="21">
+<meta itemprop="name" content="二叉树的数组表示">
+<meta itemprop="description" content="如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i &#43; 1 的位置存储的就是右子节点. 反过来, 下标为 i/2 的位置">
 
 
+<meta itemprop="datePublished" content="2019-03-04T00:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-03-04T00:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="231">
 
-<meta itemprop="keywords" content="Music,Youtube," />
+
+
+<meta itemprop="keywords" content="Algorithm," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="抱拥这分钟"/>
-<meta name="twitter:description" content="网易没有原唱版权的结果让我误以为这就是原唱"/>
+<meta name="twitter:title" content="二叉树的数组表示"/>
+<meta name="twitter:description" content="如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i &#43; 1 的位置存储的就是右子节点. 反过来, 下标为 i/2 的位置"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,52 +138,51 @@
     </a>
     
     <header class="post-header">
-      <h1 class="post-title">抱拥这分钟</h1>
+      <h1 class="post-title">二叉树的数组表示</h1>
 
       <div class="post-meta">
         <span class="post-time"> 4 Mar 2019 </span>
-          <span class="more-meta"> 21 words </span>
+          <span class="more-meta"> 231 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
       <div class="post-category">
-          <a href="/categories/music/"> Music </a>
-          <a href="/categories/youtube/"> Youtube </a>
+          <a href="/categories/algorithm/"> Algorithm </a>
           </div>
     </header>
 
     
     <div class="post-content">
-      <p>网易没有原唱版权的结果让我误以为这就是原唱</p>
+      <blockquote>
+<p>如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i + 1 的位置存储的就是右子节点.</p>
+</blockquote>
 
-  <iframe style="max-width: 100%"
-      class="music163"
-      frameborder="no"
-      border="0"
-      marginwidth="0"
-      marginheight="0"
-      width="330"
-      height="86"
-      src="//music.163.com/outchain/player?type=2&id=328303&auto=0&height=66">
-    </iframe>
+<hr />
 
+<blockquote>
+<p>反过来, 下标为 i/2 的位置存储就是它的父节点. 通过这种方式, 我们只要知道根节点存储的位置(一般情况下, 为了方便计算子节点, 根节点会存储在下标为 1 的位置), 这样就可以通过下标计算, 把整棵树都串起来.</p>
+</blockquote>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube-nocookie.com/embed/VA5PVudztVM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+<hr />
 
+<blockquote>
+<p>所以, 如果某棵二叉树是一棵完全二叉树, 那用数组存储无疑是最节省内存的一种方式. 因为数组的存储方式并不需要像链式存储法那样, 要存储额外的左右子节点的指针.</p>
+</blockquote>
 
     </div>
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/music/">Music</a>
-          <a href="/tags/youtube/">Youtube</a>
+          <a href="/tags/algorithm/">Algorithm</a>
           </div>
       <nav class="post-nav">
-        
-        <a class="next" href="/binary-tree-on-array.html/">
-            <span class="next-text nav-default">二叉树的数组表示</span>
+        <a class="prev" href="/bao-yong-zhe-fen-zhong.html/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">抱拥这分钟</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/rails-preload-vs-includes.html/">
+            <span class="next-text nav-default">[Rails] preload vs includes</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

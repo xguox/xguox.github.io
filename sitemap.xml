@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://xguox.me/binary-tree-on-array.html/</loc>
+    <lastmod>2019-03-04T00:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://xguox.me/rails-preload-vs-includes.html/</loc>
     <lastmod>2019-02-15T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1284,6 +1291,20 @@
   </url>
   
   <url>
+    <loc>https://xguox.me/tags/algorithm/</loc>
+    <lastmod>2019-03-04T00:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xguox.me/categories/algorithm/</loc>
+    <lastmod>2019-03-04T00:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xguox.me/tags/css/</loc>
     <lastmod>2014-07-01T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1299,7 +1320,7 @@
   
   <url>
     <loc>https://xguox.me/categories/</loc>
-    <lastmod>2014-07-01T16:01:23+08:00</lastmod>
+    <lastmod>2019-03-04T00:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1543,7 +1564,7 @@
   
   <url>
     <loc>https://xguox.me/tags/</loc>
-    <lastmod>2014-07-01T16:01:23+08:00</lastmod>
+    <lastmod>2019-03-04T00:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
