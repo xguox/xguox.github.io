@@ -6,10 +6,19 @@
     <description>Recent content in Tools on XguoX - 写点 Ruby 糊口饭吃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Jan 2019 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2019 19:01:23 +0800</lastBuildDate>
     
 	<atom:link href="https://xguox.me/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>解决 MacBook Pro (15-inch, 2018) 抹盘重装报错</title>
+      <link>https://xguox.me/2018-15-retina-macbook-pro-reinstall-macos-error.html/</link>
+      <pubDate>Wed, 27 Mar 2019 19:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/2018-15-retina-macbook-pro-reinstall-macos-error.html/</guid>
+      <description>机器是 MacBook Pro (15-inch, 2018) 进入恢复模式把盘抹掉以后准备重装 macOS macOS 系统恢复提示未能继续安装 macOS，安装需要下载重要内容，该内容此时无法下载请稍后再试 Google 一</description>
+    </item>
     
     <item>
       <title>用 Goland 阅读代码是真 6</title>
