@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading on XguoX - 写点 Ruby 糊口饭吃</title>
+    <link>https://xguox.me/categories/reading/</link>
+    <description>Recent content in Reading on XguoX - 写点 Ruby 糊口饭吃</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 08 Apr 2019 19:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://xguox.me/categories/reading/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>《万物的签名》</title>
+      <link>https://xguox.me/the-signature-of-all-things.html/</link>
+      <pubDate>Mon, 08 Apr 2019 19:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/the-signature-of-all-things.html/</guid>
+      <description>一本特点鲜明的书, 喜欢的人会为之, 不喜欢这类题材的也自然不屑一顾。以上是一句废话。 对我而言, 关于植物的部分看的挺过瘾的, 但是, 宗教相关的就不</description>
+    </item>
+    
+  </channel>
+</rss>
