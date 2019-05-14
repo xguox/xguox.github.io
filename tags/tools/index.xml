@@ -6,10 +6,19 @@
     <description>Recent content in Tools on XguoX - 写点 Ruby 糊口饭吃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2019 19:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 09:01:23 +0800</lastBuildDate>
     
 	<atom:link href="https://xguox.me/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Oxygen OS for OnePlus 6T</title>
+      <link>https://xguox.me/one-plus-6t-oxygen-os.html/</link>
+      <pubDate>Mon, 29 Apr 2019 09:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/one-plus-6t-oxygen-os.html/</guid>
+      <description>一加刷了氧 OS（Oxygen OS）以后, 即使科学上网了, 在打开 Google 的服务的时候还是一直卡住在&amp;rdquo;正在核对信息&amp;rdquo;, 清空恢复</description>
+    </item>
     
     <item>
       <title>解决 MacBook Pro (15-inch, 2018) 抹盘重装报错</title>

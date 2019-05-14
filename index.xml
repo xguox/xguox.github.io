@@ -6,10 +6,28 @@
     <description>Recent content on XguoX - 写点 Ruby 糊口饭吃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Apr 2019 09:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2019 09:01:23 +0800</lastBuildDate>
     
 	<atom:link href="https://xguox.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>《月亮与六便士》</title>
+      <link>https://xguox.me/the-moon-and-sixpence.html/</link>
+      <pubDate>Mon, 13 May 2019 09:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/the-moon-and-sixpence.html/</guid>
+      <description>朋友推荐了 《赴宴之前》, 最近不喜欢看短篇的, 于是找了毛姆的另外一本来看, 《月亮与六便士》. 在豆瓣评分高达 9 分左右. 看完以后在豆瓣上看其他人的</description>
+    </item>
+    
+    <item>
+      <title>Oxygen OS for OnePlus 6T</title>
+      <link>https://xguox.me/one-plus-6t-oxygen-os.html/</link>
+      <pubDate>Mon, 29 Apr 2019 09:01:23 +0800</pubDate>
+      
+      <guid>https://xguox.me/one-plus-6t-oxygen-os.html/</guid>
+      <description>一加刷了氧 OS（Oxygen OS）以后, 即使科学上网了, 在打开 Google 的服务的时候还是一直卡住在&amp;rdquo;正在核对信息&amp;rdquo;, 清空恢复</description>
+    </item>
     
     <item>
       <title>《万历十五年》</title>
