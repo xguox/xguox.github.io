@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xguox.me/the-old-man-and-the-sea.html/</loc>
+    <lastmod>2019-05-29T02:01:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://xguox.me/the-moon-and-sixpence.html/</loc>
     <lastmod>2019-05-13T09:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1530,7 +1537,7 @@
   
   <url>
     <loc>https://xguox.me/post/</loc>
-    <lastmod>2019-05-13T09:01:23+08:00</lastmod>
+    <lastmod>2019-05-29T02:01:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1579,14 +1586,14 @@
   
   <url>
     <loc>https://xguox.me/tags/reading/</loc>
-    <lastmod>2019-05-13T09:01:23+08:00</lastmod>
+    <lastmod>2019-05-29T02:01:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xguox.me/categories/reading/</loc>
-    <lastmod>2019-05-13T09:01:23+08:00</lastmod>
+    <lastmod>2019-05-29T02:01:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1648,7 +1655,7 @@
   
   <url>
     <loc>https://xguox.me/</loc>
-    <lastmod>2019-05-13T09:01:23+08:00</lastmod>
+    <lastmod>2019-05-29T02:01:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
