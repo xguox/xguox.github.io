@@ -26,10 +26,10 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/protocol-buffers-learning.html/" />
+<link rel="canonical" href="https://xguox.com/protocol-buffers-learning.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -43,45 +43,32 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 
 <meta property="og:title" content="学点 Protocol Buffers" />
 <meta property="og:description" content="What are protocol buffers?
-
 Protocol Buffers(简称为 Protobuf) 是一种灵活, 高效, 可自动化, 而又不依赖于语言, 不依赖于平台的, 可扩展的用于序列化结构化数据的存储格式.
 (Google 自己说的, 听完觉得好像很流弊,  不过还是不知道怎么玩.)
-
 使用后缀为 .proto 文件定义一次数据结构以后, 就可以用自带的代码生成工具, 自动生成各种语言版本的读写这些数据结构的代码. v2 版本的 Protocol Buffers 原生只支持 c&#43;&#43;, java, python, 现在的 v3 可以支持语言还多了有 Go, Ruby, Objective-C, JavaScript, PHP 和 C#.
-
 Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新数据结构的定义." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/protocol-buffers-learning.html/" />
-<meta property="article:published_time" content="2018-08-06T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2018-08-06T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/protocol-buffers-learning.html/" />
+<meta property="article:published_time" content="2018-08-06T16:01:23+08:00" />
+<meta property="article:modified_time" content="2018-08-06T16:01:23+08:00" />
 <meta itemprop="name" content="学点 Protocol Buffers">
 <meta itemprop="description" content="What are protocol buffers?
-
 Protocol Buffers(简称为 Protobuf) 是一种灵活, 高效, 可自动化, 而又不依赖于语言, 不依赖于平台的, 可扩展的用于序列化结构化数据的存储格式.
 (Google 自己说的, 听完觉得好像很流弊,  不过还是不知道怎么玩.)
-
 使用后缀为 .proto 文件定义一次数据结构以后, 就可以用自带的代码生成工具, 自动生成各种语言版本的读写这些数据结构的代码. v2 版本的 Protocol Buffers 原生只支持 c&#43;&#43;, java, python, 现在的 v3 可以支持语言还多了有 Go, Ruby, Objective-C, JavaScript, PHP 和 C#.
-
 Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新数据结构的定义.">
-
-
 <meta itemprop="datePublished" content="2018-08-06T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-06T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1641">
+<meta itemprop="wordCount" content="1727">
 
 
 
-<meta itemprop="keywords" content="Protobuf," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Protobuf," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="学点 Protocol Buffers"/>
 <meta name="twitter:description" content="What are protocol buffers?
-
 Protocol Buffers(简称为 Protobuf) 是一种灵活, 高效, 可自动化, 而又不依赖于语言, 不依赖于平台的, 可扩展的用于序列化结构化数据的存储格式.
 (Google 自己说的, 听完觉得好像很流弊,  不过还是不知道怎么玩.)
-
 使用后缀为 .proto 文件定义一次数据结构以后, 就可以用自带的代码生成工具, 自动生成各种语言版本的读写这些数据结构的代码. v2 版本的 Protocol Buffers 原生只支持 c&#43;&#43;, java, python, 现在的 v3 可以支持语言还多了有 Go, Ruby, Objective-C, JavaScript, PHP 和 C#.
-
 Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新数据结构的定义."/>
 
 <!--[if lte IE 9]>
@@ -102,25 +89,25 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -132,14 +119,14 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -157,7 +144,7 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -166,7 +153,7 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 
       <div class="post-meta">
         <span class="post-time"> 6 Aug 2018 </span>
-          <span class="more-meta"> 1641 words </span>
+          <span class="more-meta"> 1727 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -178,20 +165,15 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
     
     <div class="post-content">
       <h4 id="what-are-protocol-buffers">What are protocol buffers?</h4>
-
 <p><strong>Protocol Buffers(简称为 Protobuf)</strong> 是一种灵活, 高效, 可自动化, 而又不依赖于语言, 不依赖于平台的, 可扩展的用于序列化结构化数据的存储格式.
 (Google 自己说的, 听完觉得好像很流弊,  不过还是不知道怎么玩.)</p>
-
 <p>使用后缀为 <code>.proto</code> 文件定义一次数据结构以后, 就可以用自带的代码生成工具, 自动生成<strong>各种语言</strong>版本的读写这些数据结构的代码. v2 版本的 Protocol Buffers 原生只支持 c++, java, python, <strong>现在的 v3 可以支持语言还多了有 Go, Ruby, Objective-C, JavaScript, PHP 和 C#</strong>.</p>
-
 <p>Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新数据结构的定义.</p>
-
 <p>官方的 <code>.proto</code> 简单示例,  定义 Person 类型的 message(<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">在 protobuf 的术语中, 结构化数据被称为 <strong>message</strong></a>)</p>
-
 <p><strong>person.proto</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -246,13 +228,11 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <span class="sr">//</span> <span class="no">Our</span> <span class="n">address</span> <span class="n">book</span> <span class="n">file</span> <span class="n">is</span> <span class="n">just</span> <span class="n">one</span> <span class="n">of</span> <span class="n">these</span><span class="o">.</span>
 <span class="n">message</span> <span class="no">AddressBook</span> <span class="p">{</span>
   <span class="n">repeated</span> <span class="no">Person</span> <span class="n">people</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>每个 message 类型都有一个或者多个带有唯一编号的字段, 每个字段都有对应的名称和值类型(<code>numbers[integer|floating-point], booleans, strings, raw bytes, 或者其他的 message 类型</code>). proto2 可以指定字段为可选(optional), 必须(required), 或者是重复(repeated), <strong>在 proto3 只剩下 repeated 能用, 默认都是  optional, 没有 required</strong>, 而且也不能设置默认值.</p>
-
+</div><p>每个 message 类型都有一个或者多个带有唯一编号的字段, 每个字段都有对应的名称和值类型(<code>numbers[integer|floating-point], booleans, strings, raw bytes, 或者其他的 message 类型</code>). proto2 可以指定字段为可选(optional), 必须(required), 或者是重复(repeated), <strong>在 proto3 只剩下 repeated 能用, 默认都是  optional, 没有 required</strong>, 而且也不能设置默认值.</p>
 <p>默认值有点类似 Go 的零值设定:</p>
-
 <ul>
 <li>For strings, the default value is the empty string.</li>
 <li>For bytes, the default value is empty bytes.</li>
@@ -261,30 +241,29 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <li>For enums, the default value is the first defined enum value, which must be 0.</li>
 <li>For message fields, the field is not set. Its exact value is language-dependent. See the generated code guide for details.</li>
 </ul>
-
 <p>要生成对应语言的数据结构表示, 得先装个 <a href="https://github.com/google/protobuf/releases">protoc</a> 的编译器. 设置好环境变量以后执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">protoc</span> <span class="o">-</span><span class="n">I</span> <span class="o">.</span><span class="n">/</span> <span class="n">person</span><span class="o">.</span><span class="n">proto</span> <span class="o">--</span><span class="n">ruby_out</span><span class="o">=.</span><span class="n">/</span>
 
-<span class="c1"># protoc --proto_path=IMPORT_PATH --cpp_out=DST_DIR --java_out=DST_DIR --python_out=DST_DIR --go_out=DST_DIR --ruby_out=DST_DIR --objc_out=DST_DIR --csharp_out=DST_DIR path/to/file.proto</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>就会自动生成一个 <strong>person_pb.rb</strong> 的文件, 好奇试了一下生成语言, Java 生成了差不多三千行代码, Go 和 Py 则都是 两百多行, JS 也有好几百行, 唯独 Ruby 只生成了下面这三十来行(是不是图省事对我大 Ruby 不上心啊喂, 好方啊 Σ( ° △ °|||)︴).</p>
+<span class="c1"># protoc --proto_path=IMPORT_PATH --cpp_out=DST_DIR --java_out=DST_DIR --python_out=DST_DIR --go_out=DST_DIR --ruby_out=DST_DIR --objc_out=DST_DIR --csharp_out=DST_DIR path/to/file.proto</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>就会自动生成一个 <strong>person_pb.rb</strong> 的文件, 好奇试了一下生成语言, Java 生成了差不多三千行代码, Go 和 Py 则都是 两百多行, JS 也有好几百行, 唯独 Ruby 只生成了下面这三十来行(是不是图省事对我大 Ruby 不上心啊喂, 好方啊 Σ( ° △ °|||)︴).</p>
 <blockquote>
 <p>Unlike C++ and Java, Ruby generated code is unaffected by the <code>optimize_for</code> option in the .proto file; in effect, all Ruby code is optimized for code size.</p>
 </blockquote>
-
 <p>Py 的指南也有这句, 但是 py 生成的代码也不少的啊.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -316,6 +295,8 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># Generated by the protocol buffer compiler.  DO NOT EDIT!</span>
@@ -349,15 +330,16 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <span class="no">Person</span> <span class="o">=</span> <span class="no">Google</span><span class="o">::</span><span class="no">Protobuf</span><span class="o">::</span><span class="no">DescriptorPool</span><span class="o">.</span><span class="n">generated_pool</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s2">&#34;Person&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">msgclass</span>
 <span class="no">Person</span><span class="o">::</span><span class="no">PhoneNumber</span> <span class="o">=</span> <span class="no">Google</span><span class="o">::</span><span class="no">Protobuf</span><span class="o">::</span><span class="no">DescriptorPool</span><span class="o">.</span><span class="n">generated_pool</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s2">&#34;Person.PhoneNumber&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">msgclass</span>
 <span class="no">Person</span><span class="o">::</span><span class="no">PhoneType</span> <span class="o">=</span> <span class="no">Google</span><span class="o">::</span><span class="no">Protobuf</span><span class="o">::</span><span class="no">DescriptorPool</span><span class="o">.</span><span class="n">generated_pool</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s2">&#34;Person.PhoneType&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">enummodule</span>
-<span class="no">AddressBook</span> <span class="o">=</span> <span class="no">Google</span><span class="o">::</span><span class="no">Protobuf</span><span class="o">::</span><span class="no">DescriptorPool</span><span class="o">.</span><span class="n">generated_pool</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s2">&#34;AddressBook&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">msgclass</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>要在 Ruby 中使用这个自动生成的数据结构还得 <code>gem install google-protobuf</code> 一下</p>
+<span class="no">AddressBook</span> <span class="o">=</span> <span class="no">Google</span><span class="o">::</span><span class="no">Protobuf</span><span class="o">::</span><span class="no">DescriptorPool</span><span class="o">.</span><span class="n">generated_pool</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s2">&#34;AddressBook&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">msgclass</span>
 
+
+</code></pre></td></tr></table>
+</div>
+</div><p>要在 Ruby 中使用这个自动生成的数据结构还得 <code>gem install google-protobuf</code> 一下</p>
 <p>强烈不建议给 message 创建自己的子类</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -384,11 +366,10 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <span class="n">encoded</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
 <span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
 
-<span class="nb">puts</span> <span class="n">person</span><span class="o">.</span><span class="n">last_updated</span></code></pre></td></tr></table>
+<span class="nb">puts</span> <span class="n">person</span><span class="o">.</span><span class="n">last_updated</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>实例方法:</p>
-
+</div><p>实例方法:</p>
 <ul>
 <li>Message#dup, Message#clone: Performs a shallow copy of this message and returns the new copy.</li>
 <li>Message#==: Performs a deep equality comparison between two messages.</li>
@@ -397,9 +378,7 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <li>Message#inspect: Returns a human-readable string representing this message.</li>
 <li>Message#[], Message#[]=: Gets or sets a field by string name. In the future this will probably also be used to get/set extensions.</li>
 </ul>
-
 <p>类方法:</p>
-
 <ul>
 <li>Message.decode(str): Decodes a binary protobuf for this message and returns it in a new instance.</li>
 <li>Message.encode(proto): Serializes a message object of this class to a binary string.</li>
@@ -407,15 +386,12 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <li>Message.encode_json(proto): Serializes a message object of this class to a JSON text string.</li>
 <li>Message.descriptor: Returns the Google::Protobuf::Descriptor object for this message.</li>
 </ul>
-
-<hr />
-
+<hr>
 <h4 id="其他一些语法">其他一些语法</h4>
-
 <h5 id="oneof">Oneof</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -428,13 +404,13 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
     <span class="n">string</span> <span class="nb">name</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
     <span class="no">SubMessage</span> <span class="n">sub_message</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>oneof 中的字段可以是任意不带 repeated 关键字的类型, 设置 oneof 会自动清除其它 oneof 字段的值.</p>
+</div><p>oneof 中的字段可以是任意不带 repeated 关键字的类型, 设置 oneof 会自动清除其它 oneof 字段的值.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -445,15 +421,14 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <span class="n">message</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">);</span>
 <span class="no">CHECK</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">has_name</span><span class="p">());</span>
 <span class="n">message</span><span class="o">.</span><span class="n">mutable_sub_message</span><span class="p">();</span>   <span class="sr">//</span> <span class="no">Will</span> <span class="n">clear</span> <span class="nb">name</span> <span class="n">field</span><span class="o">.</span>
-<span class="no">CHECK</span><span class="p">(</span><span class="o">!</span><span class="n">message</span><span class="o">.</span><span class="n">has_name</span><span class="p">());</span></code></pre></td></tr></table>
+<span class="no">CHECK</span><span class="p">(</span><span class="o">!</span><span class="n">message</span><span class="o">.</span><span class="n">has_name</span><span class="p">());</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="map-fields">Map Fields</h5>
-
+</div><h5 id="map-fields">Map Fields</h5>
 <p><code>Google::Protobuf::Map</code> 类似 Ruby 的 <code>Hash</code>, 与常规的 <code>Hash</code> 不同的是, Map 是由特定类型的键和值构造成的, 所有映射的键和值都必须是指定的的类型.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -478,14 +453,12 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
 <span class="c1"># Ok.</span>
 <span class="n">int_string_map</span><span class="o">[</span><span class="mi">123</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;abc&#34;</span>
 
-<span class="n">message</span><span class="o">.</span><span class="n">int32_string_map_field</span> <span class="o">=</span> <span class="n">int_string_map</span></code></pre></td></tr></table>
+<span class="n">message</span><span class="o">.</span><span class="n">int32_string_map_field</span> <span class="o">=</span> <span class="n">int_string_map</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="分配标识号-转-https-blog-csdn-net-u011518120-article-details-54604615-assigningtags"><a href="https://blog.csdn.net/u011518120/article/details/54604615#AssigningTags">分配标识号(转)</a></h5>
-
-<p>在一个 Message 中的每个字段都有类似 &ldquo; = 1&rdquo;, &ldquo; = 2&rdquo; 的唯一标识号, 这些标识号是用来在消息的二进制格式中识别各个字段的, 一旦开始使用就不能够再改变. <strong>注: [1,15]之内的标识号在编码的时候会占用一个字节. [16,2047]之内的标识号则占用2个字节. 所以应该为那些频繁出现的消息元素保留 [1,15]之内的标识号. 切记：要为将来有可能添加的、频繁出现的标识号预留一些标识号.</strong></p>
-
-<p>最小的标识号可以从 1 开始, 最大到 2^29 - 1, or 536,870,911. 不可以使用其中的<strong><a href="从FieldDescriptor::kFirstReservedNumber 到 FieldDescriptor::kLastReservedNumber">19000－19999</a></strong>的标识号, Protobuf协议实现中对这些进行了预留. 如果非要在.proto文件中使用这些预留标识号, 编译时就会报警.</p>
+</div><h5 id="分配标识号转httpsblogcsdnnetu011518120articledetails54604615assigningtags"><a href="https://blog.csdn.net/u011518120/article/details/54604615#AssigningTags">分配标识号(转)</a></h5>
+<p>在一个 Message 中的每个字段都有类似 &quot; = 1&rdquo;, &quot; = 2&rdquo; 的唯一标识号, 这些标识号是用来在消息的二进制格式中识别各个字段的, 一旦开始使用就不能够再改变. <strong>注: [1,15]之内的标识号在编码的时候会占用一个字节. [16,2047]之内的标识号则占用2个字节. 所以应该为那些频繁出现的消息元素保留 [1,15]之内的标识号. 切记：要为将来有可能添加的、频繁出现的标识号预留一些标识号.</strong></p>
+<p>最小的标识号可以从 1 开始, 最大到 2^29 - 1, or 536,870,911. 不可以使用其中的**[19000－19999] (从FieldDescriptor::kFirstReservedNumber 到 FieldDescriptor::kLastReservedNumber)**的标识号, Protobuf协议实现中对这些进行了预留. 如果非要在.proto文件中使用这些预留标识号, 编译时就会报警.</p>
     </div>
 
     <footer class="post-footer">
@@ -530,7 +503,7 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -548,7 +521,7 @@ Protobuf 甚至还可以不用停掉已经部署到线上的程序直接更新�
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

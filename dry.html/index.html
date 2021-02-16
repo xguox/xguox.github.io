@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/dry.html/" />
+<link rel="canonical" href="https://xguox.com/dry.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="DRY" />
 <meta property="og:description" content="从刚接触Rails开始就被灌输三种观念&ndash;DRY、COC、REST.虽然这三种思想还没完全的领悟透彻,但是,已经感受到了它们的强大" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/dry.html/" />
-<meta property="article:published_time" content="2012-03-04T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2012-03-04T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/dry.html/" />
+<meta property="article:published_time" content="2012-03-04T16:01:23+08:00" />
+<meta property="article:modified_time" content="2012-03-04T16:01:23+08:00" />
 <meta itemprop="name" content="DRY">
 <meta itemprop="description" content="从刚接触Rails开始就被灌输三种观念&ndash;DRY、COC、REST.虽然这三种思想还没完全的领悟透彻,但是,已经感受到了它们的强大">
-
-
 <meta itemprop="datePublished" content="2012-03-04T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2012-03-04T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="945">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DRY"/>
 <meta name="twitter:description" content="从刚接触Rails开始就被灌输三种观念&ndash;DRY、COC、REST.虽然这三种思想还没完全的领悟透彻,但是,已经感受到了它们的强大"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -154,11 +150,10 @@
     
     <div class="post-content">
       <p>从刚接触Rails开始就被灌输三种观念&ndash;DRY、COC、REST.虽然这三种思想还没完全的领悟透彻,但是,已经感受到了它们的强大之处.</p>
-
 <p>目前印象最深刻的则是DRY.最近在跟着Ruby on Rails Tutorial学写一点Rspec测试.这种感觉又更强烈了.看着下面代码一步步的减少,感慨DRY的思想无处不在啊.这里只是一个Example可能感觉不到什么,但是当Example多了而且几乎都在测试同一样东西的时候,优点不言而喻.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -183,11 +178,12 @@
       <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span>
             <span class="ss">text</span><span class="p">:</span> <span class="s2">&#34;Ruby on Rails Tutorial Sample App | Home&#34;</span><span class="p">)</span>
     <span class="k">end</span>
-  <span class="k">end</span></code></pre></td></tr></table>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -212,11 +208,12 @@
     <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span>
                       <span class="ss">text</span><span class="p">:</span> <span class="s2">&#34;Ruby on Rails Tutorial Sample App | Home&#34;</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -241,11 +238,12 @@
     <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span>
                       <span class="ss">text</span><span class="p">:</span> <span class="s2">&#34;Ruby on Rails Tutorial Sample App | Home&#34;</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -264,11 +262,12 @@
     <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="ss">text</span><span class="p">:</span> <span class="s1">&#39;Sample App&#39;</span><span class="p">)</span> <span class="p">}</span>
     <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">have_selector</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
                         <span class="ss">text</span><span class="p">:</span> <span class="s2">&#34;Ruby on Rails Tutorial Sample App | Home&#34;</span> <span class="p">}</span>
-  <span class="k">end</span></code></pre></td></tr></table>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -285,11 +284,12 @@
 
     <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span>    <span class="ss">text</span><span class="p">:</span> <span class="s1">&#39;Sample App&#39;</span><span class="p">)</span> <span class="p">}</span>
     <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="ss">text</span><span class="p">:</span> <span class="n">full_title</span><span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">))</span> <span class="p">}</span>
-  <span class="k">end</span></code></pre></td></tr></table>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -314,15 +314,12 @@
     <span class="n">let</span><span class="p">(</span><span class="ss">:page_title</span><span class="p">)</span> <span class="p">{</span> <span class="s1">&#39;Home&#39;</span> <span class="p">}</span>
 
     <span class="n">it_should_behave_like</span> <span class="s2">&#34;all static pages&#34;</span>
-  <span class="k">end</span></code></pre></td></tr></table>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其实,Rspec只是Ruby写的测试框架.但是,目前Rails程序上写测试用的最多的还是Rspec吧.而在Rails中,最直观的运用到这思想的应该是helper、partial了吧.把好几个view的重复代码.整合在一个partial下.代码量的减少不言而喻.减少了出错的几率.修改重构起来方便很多.</p>
-
+</div><p>其实,Rspec只是Ruby写的测试框架.但是,目前Rails程序上写测试用的最多的还是Rspec吧.而在Rails中,最直观的运用到这思想的应该是helper、partial了吧.把好几个view的重复代码.整合在一个partial下.代码量的减少不言而喻.减少了出错的几率.修改重构起来方便很多.</p>
 <p>当然DRY的思想绝不仅仅在于这一点点.不然国外也没那么名著专门描述它.</p>
-
 <p>昨天刚从一位网友也可以说是Rails学习道友那买了本打印版的《Agile Web Development with Rails,Fourth Edition》.在跟这位道友面交的时候他不断地鼓舞我,即使到最后用的人寥寥无几也要坚持 Rails下去,坚持它的思想.其实,不用他跟我说我也会坚持.不然,我不会在学校开展JAVA课程的时候自己那么寂寞的跑去学Ruby/Rails.只是他的一番话的确对我又有了不少的鼓舞.他不断地说我和年纪就接触这么新的语言框架什么的,其实,我更感慨敬佩他比我大了15~6岁还那么有power学习这些新事物.</p>
-
 <p>OK,扯远了,Over</p>
 
     </div>
@@ -369,7 +366,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -387,7 +384,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

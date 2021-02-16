@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/ruby-unix-fork.html/" />
+<link rel="canonical" href="https://xguox.com/ruby-unix-fork.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="理解 Unix 进程" />
 <meta property="og:description" content="推荐 Rubyist 看 &lt;理解Unix进程&gt;, 至少, 像我这种不是科班出身的, 可以好好补补一些计算机系统的那些基础知识. 虽然还没看完, 虽然书中的例" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/ruby-unix-fork.html/" />
-<meta property="article:published_time" content="2015-04-28T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2015-04-28T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/ruby-unix-fork.html/" />
+<meta property="article:published_time" content="2015-04-28T16:01:23+08:00" />
+<meta property="article:modified_time" content="2015-04-28T16:01:23+08:00" />
 <meta itemprop="name" content="理解 Unix 进程">
 <meta itemprop="description" content="推荐 Rubyist 看 &lt;理解Unix进程&gt;, 至少, 像我这种不是科班出身的, 可以好好补补一些计算机系统的那些基础知识. 虽然还没看完, 虽然书中的例">
-
-
 <meta itemprop="datePublished" content="2015-04-28T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2015-04-28T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="335">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="理解 Unix 进程"/>
 <meta name="twitter:description" content="推荐 Rubyist 看 &lt;理解Unix进程&gt;, 至少, 像我这种不是科班出身的, 可以好好补补一些计算机系统的那些基础知识. 虽然还没看完, 虽然书中的例"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -154,15 +150,12 @@
     
     <div class="post-content">
       <p>推荐 Rubyist 看 &lt;理解Unix进程&gt;,</p>
-
 <p>至少, 像我这种不是科班出身的, 可以好好补补一些计算机系统的那些基础知识.</p>
-
 <p>虽然还没看完, 虽然书中的例子都是用 Ruby 去写的, 有一些章节理解起来还是有些费力.</p>
-
 <p>前些天看到个好玩的, 在 irb 里面输入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -173,24 +166,19 @@
     <span class="nb">puts</span> <span class="s2">&#34;entered the if block&#34;</span>
   <span class="k">else</span>
     <span class="nb">puts</span> <span class="s2">&#34;entered the else block&#34;</span>
-  <span class="k">end</span></code></pre></td></tr></table>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出结果:
-<img src="http://ww2.sinaimg.cn/mw690/62fdd4d5gw1es7klghsxdj20jy0a4jsg.jpg" alt="" /></p>
-
+</div><p>输出结果:
+<img src="http://ww2.sinaimg.cn/mw690/62fdd4d5gw1es7klghsxdj20jy0a4jsg.jpg" alt=""></p>
 <p>if 和 else 都执行了.</p>
-
 <p>通过</p>
-
 <p><code>ps -ef | grep irb</code></p>
-
 <p>可以看到有两个 irb 进程.</p>
-
 <p>更直接一点, 退出 irb 重新执行:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -205,19 +193,15 @@
   <span class="nb">puts</span> <span class="s2">&#34;entered the if block from #</span><span class="si">#{</span><span class="no">Process</span><span class="o">.</span><span class="n">pid</span><span class="si">}</span><span class="s2">&#34;</span>
 <span class="k">else</span>
   <span class="nb">puts</span> <span class="s2">&#34;entered the else block from #</span><span class="si">#{</span><span class="no">Process</span><span class="o">.</span><span class="n">pid</span><span class="si">}</span><span class="s2">&#34;</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://ww1.sinaimg.cn/mw690/62fdd4d5gw1es7klik5t8j20sw0cumz2.jpg" alt="" /></p>
-
+</div><p><img src="http://ww1.sinaimg.cn/mw690/62fdd4d5gw1es7klik5t8j20sw0cumz2.jpg" alt=""></p>
 <blockquote>
 <p>if 语句块中的代码由父进程执行的, 而 else 语句块中的代码是子进程执行的. 子进程执行完后退出, 父进程则继续执行.</p>
 </blockquote>
-
 <p>不过, 这里就纳闷了, 子进程没有退出吧, ps 还是出来两个 irb, 而且, 如果想继续输入代码是得隔着一个按键敲的, 比如要退出的话是 敲 eexxiitt.</p>
-
 <p>= .  =</p>
-
 <p>Anyway, 说到底其实是 Ruby 里的 fork 用法.</p>
 
     </div>
@@ -264,7 +248,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -282,7 +266,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

@@ -23,13 +23,13 @@ Ubuntu sudo service elasticsearch stop wget https://download.elasticsearch.org/e
 理论上应该无痛可以跑起来的, 不过, 有一台服务器上, 安装好了以后, Elasticsearch 一直跑不起来 sudo service elasticsearch start 一直 fail~fail~fail
 elasticsearch.log 又啥也没输出. 折腾了半天才发现原来是 Java 的版本没跟上. 本地的 Java 8 和另一台 Java 7 都没事, 唯独这台, java -version
 1 2 3  java version &amp;#34;1.6.0_65&amp;#34; Java(TM) SE Runtime Environment (build 1.6.0_65-b14-468-11M4833) Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)   Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.
-升级完以后查看了一下状态
+ 升级完以后查看了一下状态
 curl -XGET http://localhost:9200/_cluster/health\?pretty\=true
 发现一直以来 Elasticsearch 的这个 status 都是黄的, 印象中好像没绿过
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  ➜ curl -XGET http://localhost:9200/_cluster/health\?pretty\=true { &amp;#34;cluster_name&amp;#34; : &amp;#34;elasticsearch_xguox&amp;#34;, &amp;#34;status&amp;#34; : &amp;#34;yellow&amp;#34;, &amp;#34;timed_out&amp;#34; : false, &amp;#34;number_of_nodes&amp;#34; : 1, &amp;#34;number_of_data_nodes&amp;#34; : 1, &amp;#34;active_primary_shards&amp;#34; : 6, &amp;#34;active_shards&amp;#34; : 6, &amp;#34;relocating_shards&amp;#34; : 0, &amp;#34;initializing_shards&amp;#34; : 0, &amp;#34;unassigned_shards&amp;#34; : 1, &amp;#34;delayed_unassigned_shards&amp;#34; : 0, &amp;#34;number_of_pending_tasks&amp;#34; : 0, &amp;#34;number_of_in_flight_fetch&amp;#34; : 0, &amp;#34;task_max_waiting_in_queue_millis&amp;#34; : 0, &amp;#34;active_shards_percent_as_number&amp;#34; : 85.71428571428571 }   elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replicas: 0 然后 reindex 就绿了.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  # Note, that for development on a local machine, with small indices, it usually # makes sense to &amp;#34;disable&amp;#34; the distributed features: # #index.number_of_shards: 1 #index.number_of_replicas: 0 # These settings directly affect the performance of index and search operations # in your cluster. Assuming you have enough machines to hold shards and # replicas, the rule of thumb is: # # 1. Having more *shards* enhances the _indexing_ performance and allows to # _distribute_ a big index across machines. # 2. Having more *replicas* enhances the _search_ performance and improves the # cluster _availability_. # # The &amp;#34;number_of_shards&amp;#34; is a one-time setting for an index. # # The &amp;#34;number_of_replicas&amp;#34; can be increased or decreased anytime, # by using the Index Update Settings API. #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  ➜ curl -XGET http://localhost:9200/_cluster/health\?pretty\=true { &amp;#34;cluster_name&amp;#34; : &amp;#34;elasticsearch_xguox&amp;#34;, &amp;#34;status&amp;#34; : &amp;#34;green&amp;#34;, &amp;#34;timed_out&amp;#34; : false, &amp;#34;number_of_nodes&amp;#34; : 1, &amp;#34;number_of_data_nodes&amp;#34; : 1, &amp;#34;active_primary_shards&amp;#34; : 6, &amp;#34;active_shards&amp;#34; : 6, &amp;#34;relocating_shards&amp;#34; : 0, &amp;#34;initializing_shards&amp;#34; : 0, &amp;#34;unassigned_shards&amp;#34; : 0, &amp;#34;delayed_unassigned_shards&amp;#34; : 0, &amp;#34;number_of_pending_tasks&amp;#34; : 0, &amp;#34;number_of_in_flight_fetch&amp;#34; : 0, &amp;#34;task_max_waiting_in_queue_millis&amp;#34; : 0, &amp;#34;active_shards_percent_as_number&amp;#34; : 100.0 }   还有就是, 查看 elasticsearch.log 的时候经常看到类似这样的信息,
-1  high disk watermark [90%] exceeded on [VopDVS8uRPurOowYR78xkQ][Marvel Boy][/usr/local/var/elasticsearch/elasticsearch_xguox/nodes/0] free: 23gb[9.9%], shards will be relocated away from this node   也是在 配置文件 elasticsearch.yml 添加下面几句就搞定了:
-1 2 3 4 5  cluster.routing.allocation.disk.threshold_enabled: true cluster.routing.allocation.disk.watermark.low: .97 cluster.routing.allocation.disk.watermark.high: .99   BTW, 现在都流行飙版本号了?
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  # Note, that for development on a local machine, with small indices, it usually # makes sense to &amp;#34;disable&amp;#34; the distributed features: # #index.number_of_shards: 1 #index.number_of_replicas: 0 # These settings directly affect the performance of index and search operations # in your cluster. Assuming you have enough machines to hold shards and # replicas, the rule of thumb is: # # 1. Having more *shards* enhances the _indexing_ performance and allows to # _distribute_ a big index across machines. # 2. Having more *replicas* enhances the _search_ performance and improves the # cluster _availability_. # # The &amp;#34;number_of_shards&amp;#34; is a one-time setting for an index. # # The &amp;#34;number_of_replicas&amp;#34; can be increased or decreased anytime, # by using the Index Update Settings API. #   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  ➜ curl -XGET http://localhost:9200/_cluster/health\?pretty\=true { &amp;#34;cluster_name&amp;#34; : &amp;#34;elasticsearch_xguox&amp;#34;, &amp;#34;status&amp;#34; : &amp;#34;green&amp;#34;, &amp;#34;timed_out&amp;#34; : false, &amp;#34;number_of_nodes&amp;#34; : 1, &amp;#34;number_of_data_nodes&amp;#34; : 1, &amp;#34;active_primary_shards&amp;#34; : 6, &amp;#34;active_shards&amp;#34; : 6, &amp;#34;relocating_shards&amp;#34; : 0, &amp;#34;initializing_shards&amp;#34; : 0, &amp;#34;unassigned_shards&amp;#34; : 0, &amp;#34;delayed_unassigned_shards&amp;#34; : 0, &amp;#34;number_of_pending_tasks&amp;#34; : 0, &amp;#34;number_of_in_flight_fetch&amp;#34; : 0, &amp;#34;task_max_waiting_in_queue_millis&amp;#34; : 0, &amp;#34;active_shards_percent_as_number&amp;#34; : 100.0 }   还有就是, 查看 elasticsearch.log 的时候经常看到类似这样的信息,
+1 2  high disk watermark [90%] exceeded on [VopDVS8uRPurOowYR78xkQ][Marvel Boy][/usr/local/var/elasticsearch/elasticsearch_xguox/nodes/0] free: 23gb[9.9%], shards will be relocated away from this node   也是在 配置文件 elasticsearch.yml 添加下面几句就搞定了:
+1 2 3 4 5  cluster.routing.allocation.disk.threshold_enabled: true cluster.routing.allocation.disk.watermark.low: .97 cluster.routing.allocation.disk.watermark.high: .99    BTW, 现在都流行飙版本号了?
 React 直接跳到 15.X, 这&amp;hellip;
 " /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
 
@@ -38,10 +38,10 @@ React 直接跳到 15.X, 这&amp;hellip;
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/upgrade-elasticsearch-2-3.html/" />
+<link rel="canonical" href="https://xguox.com/upgrade-elasticsearch-2-3.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -55,23 +55,17 @@ React 直接跳到 15.X, 这&amp;hellip;
 
 <meta property="og:title" content="Upgrade Elasticsearch to 2.3" />
 <meta property="og:description" content="正式环境和本地一直跑的 1.X, 最近在用 Elasticsearch 的 Aggregations 功能, 发现有一些个语法在 2.X 版本变了, 想来也要跟上潮流了. 于是着手各种升级事宜.
-
 官方有专门的 Rolling upgrades 链接讲如何升级的, 不过, 对于目前在用的情况来说, 貌似也用不上那么麻烦. 好吧, 其实有点谈不上升级, 感觉像是直接卸载了重装差不多 = . =
-
 {% highlight ruby %}
-
 Ubuntu
-
 sudo service elasticsearch stop
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.1.deb
 sudo dpkg -P elasticsearch
 sudo dpkg -i elasticsearch-2.3.1.deb
 sudo service elasticsearch start
 {% endhighlight %}
-
 理论上应该无痛可以跑起来的, 不过, 有一台服务器上, 安装好了以后, Elasticsearch 一直跑不起来
 sudo service elasticsearch start 一直 fail~fail~fail
-
 elasticsearch.log 又啥也没输出. 折腾了半天才发现原来是 Java 的版本没跟上. 本地的 Java 8 和另一台 Java 7 都没事, 唯独这台, java -version
 
 
@@ -87,12 +81,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)
 
 Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.
 
-
-
 升级完以后查看了一下状态
-
 curl -XGET http://localhost:9200/_cluster/health\?pretty\=true
-
 发现一直以来 Elasticsearch 的这个 status 都是黄的, 印象中好像没绿过
 
 
@@ -184,6 +174,7 @@ elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replica
 
 
 
+
  1
  2
  3
@@ -228,9 +219,11 @@ elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replica
 
 
 1
+2
 
 
 high disk watermark [90%] exceeded on [VopDVS8uRPurOowYR78xkQ][Marvel Boy][/usr/local/var/elasticsearch/elasticsearch_xguox/nodes/0] free: 23gb[9.9%], shards will be relocated away from this node
+
 
 
 也是在 配置文件 elasticsearch.yml 添加下面几句就搞定了:
@@ -251,38 +244,27 @@ cluster.routing.allocation.disk.watermark.high: .99
 
 
 
-
 BTW, 现在都流行飙版本号了?
 
-
-
 React 直接跳到 15.X, 这&hellip;
-
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/upgrade-elasticsearch-2-3.html/" />
-<meta property="article:published_time" content="2016-04-12T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-04-12T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/upgrade-elasticsearch-2-3.html/" />
+<meta property="article:published_time" content="2016-04-12T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-04-12T16:01:23+08:00" />
 <meta itemprop="name" content="Upgrade Elasticsearch to 2.3">
 <meta itemprop="description" content="正式环境和本地一直跑的 1.X, 最近在用 Elasticsearch 的 Aggregations 功能, 发现有一些个语法在 2.X 版本变了, 想来也要跟上潮流了. 于是着手各种升级事宜.
-
 官方有专门的 Rolling upgrades 链接讲如何升级的, 不过, 对于目前在用的情况来说, 貌似也用不上那么麻烦. 好吧, 其实有点谈不上升级, 感觉像是直接卸载了重装差不多 = . =
-
 {% highlight ruby %}
-
 Ubuntu
-
 sudo service elasticsearch stop
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.1.deb
 sudo dpkg -P elasticsearch
 sudo dpkg -i elasticsearch-2.3.1.deb
 sudo service elasticsearch start
 {% endhighlight %}
-
 理论上应该无痛可以跑起来的, 不过, 有一台服务器上, 安装好了以后, Elasticsearch 一直跑不起来
 sudo service elasticsearch start 一直 fail~fail~fail
-
 elasticsearch.log 又啥也没输出. 折腾了半天才发现原来是 Java 的版本没跟上. 本地的 Java 8 和另一台 Java 7 都没事, 唯独这台, java -version
 
 
@@ -298,12 +280,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)
 
 Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.
 
-
-
 升级完以后查看了一下状态
-
 curl -XGET http://localhost:9200/_cluster/health\?pretty\=true
-
 发现一直以来 Elasticsearch 的这个 status 都是黄的, 印象中好像没绿过
 
 
@@ -395,6 +373,7 @@ elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replica
 
 
 
+
  1
  2
  3
@@ -439,9 +418,11 @@ elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replica
 
 
 1
+2
 
 
 high disk watermark [90%] exceeded on [VopDVS8uRPurOowYR78xkQ][Marvel Boy][/usr/local/var/elasticsearch/elasticsearch_xguox/nodes/0] free: 23gb[9.9%], shards will be relocated away from this node
+
 
 
 也是在 配置文件 elasticsearch.yml 添加下面几句就搞定了:
@@ -462,43 +443,30 @@ cluster.routing.allocation.disk.watermark.high: .99
 
 
 
-
 BTW, 现在都流行飙版本号了?
 
-
-
 React 直接跳到 15.X, 这&hellip;
-
 ">
-
-
 <meta itemprop="datePublished" content="2016-04-12T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-04-12T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="927">
+<meta itemprop="wordCount" content="928">
 
 
 
-<meta itemprop="keywords" content="Elasticsearch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Upgrade Elasticsearch to 2.3"/>
 <meta name="twitter:description" content="正式环境和本地一直跑的 1.X, 最近在用 Elasticsearch 的 Aggregations 功能, 发现有一些个语法在 2.X 版本变了, 想来也要跟上潮流了. 于是着手各种升级事宜.
-
 官方有专门的 Rolling upgrades 链接讲如何升级的, 不过, 对于目前在用的情况来说, 貌似也用不上那么麻烦. 好吧, 其实有点谈不上升级, 感觉像是直接卸载了重装差不多 = . =
-
 {% highlight ruby %}
-
 Ubuntu
-
 sudo service elasticsearch stop
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.1.deb
 sudo dpkg -P elasticsearch
 sudo dpkg -i elasticsearch-2.3.1.deb
 sudo service elasticsearch start
 {% endhighlight %}
-
 理论上应该无痛可以跑起来的, 不过, 有一台服务器上, 安装好了以后, Elasticsearch 一直跑不起来
 sudo service elasticsearch start 一直 fail~fail~fail
-
 elasticsearch.log 又啥也没输出. 折腾了半天才发现原来是 Java 的版本没跟上. 本地的 Java 8 和另一台 Java 7 都没事, 唯独这台, java -version
 
 
@@ -514,12 +482,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)
 
 Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.
 
-
-
 升级完以后查看了一下状态
-
 curl -XGET http://localhost:9200/_cluster/health\?pretty\=true
-
 发现一直以来 Elasticsearch 的这个 status 都是黄的, 印象中好像没绿过
 
 
@@ -611,6 +575,7 @@ elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replica
 
 
 
+
  1
  2
  3
@@ -655,9 +620,11 @@ elasticsearch.yml 配置文件中有一段注释: 修改 index.number_of_replica
 
 
 1
+2
 
 
 high disk watermark [90%] exceeded on [VopDVS8uRPurOowYR78xkQ][Marvel Boy][/usr/local/var/elasticsearch/elasticsearch_xguox/nodes/0] free: 23gb[9.9%], shards will be relocated away from this node
+
 
 
 也是在 配置文件 elasticsearch.yml 添加下面几句就搞定了:
@@ -678,13 +645,9 @@ cluster.routing.allocation.disk.watermark.high: .99
 
 
 
-
 BTW, 现在都流行飙版本号了?
 
-
-
 React 直接跳到 15.X, 这&hellip;
-
 "/>
 
 <!--[if lte IE 9]>
@@ -705,25 +668,25 @@ React 直接跳到 15.X, 这&hellip;
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -735,14 +698,14 @@ React 直接跳到 15.X, 这&hellip;
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -760,7 +723,7 @@ React 直接跳到 15.X, 这&hellip;
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -769,7 +732,7 @@ React 直接跳到 15.X, 这&hellip;
 
       <div class="post-meta">
         <span class="post-time"> 12 Apr 2016 </span>
-          <span class="more-meta"> 927 words </span>
+          <span class="more-meta"> 928 words </span>
           <span class="more-meta"> 2 mins read </span>
         
       </div>
@@ -781,48 +744,38 @@ React 直接跳到 15.X, 这&hellip;
     
     <div class="post-content">
       <p>正式环境和本地一直跑的 1.X, 最近在用 Elasticsearch 的 Aggregations 功能, 发现有一些个语法在 2.X 版本变了, 想来也要跟上潮流了. 于是着手各种升级事宜.</p>
-
 <p>官方有专门的 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/rolling-upgrades.html#upgrade-node">Rolling upgrades 链接</a>讲如何升级的, 不过, 对于目前在用的情况来说, 貌似也用不上那么麻烦. 好吧, 其实有点谈不上升级, 感觉像是直接卸载了重装差不多 = . =</p>
-
 <p>{% highlight ruby %}</p>
-
 <h1 id="ubuntu">Ubuntu</h1>
-
 <p>sudo service elasticsearch stop
 wget <a href="https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.1.deb">https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.1.deb</a>
 sudo dpkg -P elasticsearch
 sudo dpkg -i elasticsearch-2.3.1.deb
 sudo service elasticsearch start
 {% endhighlight %}</p>
-
 <p>理论上应该无痛可以跑起来的, 不过, 有一台服务器上, 安装好了以后, Elasticsearch 一直跑不起来
 <code>sudo service elasticsearch start</code> 一直 fail~fail~fail</p>
-
 <p>elasticsearch.log 又啥也没输出. 折腾了半天才发现原来是 Java 的版本没跟上. 本地的 Java 8 和另一台 Java 7 都没事, 唯独这台, <code>java -version</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">java</span> <span class="n">version</span> <span class="s2">&#34;1.6.0_65&#34;</span>
 <span class="no">Java</span><span class="p">(</span><span class="no">TM</span><span class="p">)</span> <span class="no">SE</span> <span class="no">Runtime</span> <span class="no">Environment</span> <span class="p">(</span><span class="n">build</span> <span class="mi">1</span><span class="o">.</span><span class="mi">6</span><span class="o">.</span><span class="mo">0_65</span><span class="o">-</span><span class="n">b14</span><span class="o">-</span><span class="mi">468</span><span class="o">-</span><span class="mi">11</span><span class="no">M4833</span><span class="p">)</span>
-<span class="no">Java</span> <span class="no">HotSpot</span><span class="p">(</span><span class="no">TM</span><span class="p">)</span> <span class="mi">64</span><span class="o">-</span><span class="no">Bit</span> <span class="no">Server</span> <span class="no">VM</span> <span class="p">(</span><span class="n">build</span> <span class="mi">20</span><span class="o">.</span><span class="mi">65</span><span class="o">-</span><span class="n">b04</span><span class="o">-</span><span class="mi">468</span><span class="p">,</span> <span class="n">mixed</span> <span class="n">mode</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="no">Java</span> <span class="no">HotSpot</span><span class="p">(</span><span class="no">TM</span><span class="p">)</span> <span class="mi">64</span><span class="o">-</span><span class="no">Bit</span> <span class="no">Server</span> <span class="no">VM</span> <span class="p">(</span><span class="n">build</span> <span class="mi">20</span><span class="o">.</span><span class="mi">65</span><span class="o">-</span><span class="n">b04</span><span class="o">-</span><span class="mi">468</span><span class="p">,</span> <span class="n">mixed</span> <span class="n">mode</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.</p>
-
-<hr />
-
+</div><p>Elasticsearch 的官方 requirements 说最低是要 Java 7, 像之前一直跑的这个 Java 6 很可能会有各种已知的 bugs, 虽然, 1.X 还是能在这种情况下跑起来, 不过升级到 2.X 就歇菜了.</p>
+<hr>
 <p>升级完以后查看了一下状态</p>
-
 <p><code>curl -XGET http://localhost:9200/_cluster/health\?pretty\=true</code></p>
-
 <p>发现一直以来 Elasticsearch 的这个 status 都是黄的, 印象中好像没绿过</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -842,30 +795,30 @@ sudo service elasticsearch start
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">➜</span> <span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="ss">localhost</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cluster</span><span class="sr">/health\?pretty\=true
-</span><span class="sr">{
-</span><span class="sr">  &#34;cluster_name&#34; : &#34;elasticsearch_xguox&#34;,
-</span><span class="sr">  &#34;status&#34; : &#34;yellow&#34;,
-</span><span class="sr">  &#34;timed_out&#34; : false,
-</span><span class="sr">  &#34;number_of_nodes&#34; : 1,
-</span><span class="sr">  &#34;number_of_data_nodes&#34; : 1,
-</span><span class="sr">  &#34;active_primary_shards&#34; : 6,
-</span><span class="sr">  &#34;active_shards&#34; : 6,
-</span><span class="sr">  &#34;relocating_shards&#34; : 0,
-</span><span class="sr">  &#34;initializing_shards&#34; : 0,
-</span><span class="sr">  &#34;unassigned_shards&#34; : 1,
-</span><span class="sr">  &#34;delayed_unassigned_shards&#34; : 0,
-</span><span class="sr">  &#34;number_of_pending_tasks&#34; : 0,
-</span><span class="sr">  &#34;number_of_in_flight_fetch&#34; : 0,
-</span><span class="sr">  &#34;task_max_waiting_in_queue_millis&#34; : 0,
-</span><span class="sr">  &#34;active_shards_percent_as_number&#34; : 85.71428571428571
-</span><span class="sr">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">➜</span> <span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="ss">localhost</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cluster</span><span class="o">/</span><span class="n">health</span><span class="p">\?</span><span class="n">pretty</span><span class="p">\</span><span class="o">=</span><span class="kp">true</span>
+<span class="p">{</span>
+  <span class="s2">&#34;cluster_name&#34;</span> <span class="p">:</span> <span class="s2">&#34;elasticsearch_xguox&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;status&#34;</span> <span class="p">:</span> <span class="s2">&#34;yellow&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;timed_out&#34;</span> <span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_nodes&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_data_nodes&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&#34;active_primary_shards&#34;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s2">&#34;active_shards&#34;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s2">&#34;relocating_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;initializing_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;unassigned_shards&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&#34;delayed_unassigned_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_pending_tasks&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_in_flight_fetch&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;task_max_waiting_in_queue_millis&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;active_shards_percent_as_number&#34;</span> <span class="p">:</span> <span class="mi">85</span><span class="o">.</span><span class="mi">71428571428571</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>elasticsearch.yml 配置文件中有一段注释: 修改 <code>index.number_of_replicas: 0</code> 然后 reindex 就绿了.</p>
+</div><p>elasticsearch.yml 配置文件中有一段注释: 修改 <code>index.number_of_replicas: 0</code> 然后 reindex 就绿了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -906,11 +859,12 @@ sudo service elasticsearch start
 <span class="c1">#</span>
 <span class="c1"># The &#34;number_of_replicas&#34; can be increased or decreased anytime,</span>
 <span class="c1"># by using the Index Update Settings API.</span>
-<span class="c1">#</span></code></pre></td></tr></table>
+<span class="c1">#</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -930,39 +884,41 @@ sudo service elasticsearch start
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">➜</span> <span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="ss">localhost</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cluster</span><span class="sr">/health\?pretty\=true
-</span><span class="sr">{
-</span><span class="sr">  &#34;cluster_name&#34; : &#34;elasticsearch_xguox&#34;,
-</span><span class="sr">  &#34;status&#34; : &#34;green&#34;,
-</span><span class="sr">  &#34;timed_out&#34; : false,
-</span><span class="sr">  &#34;number_of_nodes&#34; : 1,
-</span><span class="sr">  &#34;number_of_data_nodes&#34; : 1,
-</span><span class="sr">  &#34;active_primary_shards&#34; : 6,
-</span><span class="sr">  &#34;active_shards&#34; : 6,
-</span><span class="sr">  &#34;relocating_shards&#34; : 0,
-</span><span class="sr">  &#34;initializing_shards&#34; : 0,
-</span><span class="sr">  &#34;unassigned_shards&#34; : 0,
-</span><span class="sr">  &#34;delayed_unassigned_shards&#34; : 0,
-</span><span class="sr">  &#34;number_of_pending_tasks&#34; : 0,
-</span><span class="sr">  &#34;number_of_in_flight_fetch&#34; : 0,
-</span><span class="sr">  &#34;task_max_waiting_in_queue_millis&#34; : 0,
-</span><span class="sr">  &#34;active_shards_percent_as_number&#34; : 100.0
-</span><span class="sr">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">➜</span> <span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="ss">localhost</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cluster</span><span class="o">/</span><span class="n">health</span><span class="p">\?</span><span class="n">pretty</span><span class="p">\</span><span class="o">=</span><span class="kp">true</span>
+<span class="p">{</span>
+  <span class="s2">&#34;cluster_name&#34;</span> <span class="p">:</span> <span class="s2">&#34;elasticsearch_xguox&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;status&#34;</span> <span class="p">:</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;timed_out&#34;</span> <span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_nodes&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_data_nodes&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&#34;active_primary_shards&#34;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s2">&#34;active_shards&#34;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s2">&#34;relocating_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;initializing_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;unassigned_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;delayed_unassigned_shards&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_pending_tasks&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;number_of_in_flight_fetch&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;task_max_waiting_in_queue_millis&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&#34;active_shards_percent_as_number&#34;</span> <span class="p">:</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>还有就是, 查看 elasticsearch.log 的时候经常看到类似这样的信息,</p>
+</div><p>还有就是, 查看 elasticsearch.log 的时候经常看到类似这样的信息,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">high</span> <span class="n">disk</span> <span class="n">watermark</span> <span class="o">[</span><span class="mi">90</span><span class="s">%] exceeded on [VopDVS8uRPurOowYR78xkQ]</span><span class="o">[</span><span class="no">Marvel</span> <span class="no">Boy</span><span class="o">][</span><span class="sr">/usr/</span><span class="n">local</span><span class="sr">/var/e</span><span class="n">lasticsearch</span><span class="sr">/elasticsearch_xguox/no</span><span class="n">des</span><span class="sr">/0] free: 23gb[9.9%], shards will be relocated away from this node</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">high</span> <span class="n">disk</span> <span class="n">watermark</span> <span class="o">[</span><span class="mi">90</span><span class="s">%] exceeded on [VopDVS8uRPurOowYR78xkQ]</span><span class="o">[</span><span class="no">Marvel</span> <span class="no">Boy</span><span class="o">][</span><span class="sr">/usr/</span><span class="n">local</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">elasticsearch</span><span class="o">/</span><span class="n">elasticsearch_xguox</span><span class="o">/</span><span class="n">nodes</span><span class="o">/</span><span class="mi">0</span><span class="o">]</span> <span class="ss">free</span><span class="p">:</span> <span class="mi">23</span><span class="n">gb</span><span class="o">[</span><span class="mi">9</span><span class="o">.</span><span class="mi">9</span><span class="o">%]</span><span class="p">,</span> <span class="n">shards</span> <span class="n">will</span> <span class="n">be</span> <span class="n">relocated</span> <span class="n">away</span> <span class="n">from</span> <span class="n">this</span> <span class="n">node</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也是在 配置文件 <code>elasticsearch.yml</code> 添加下面几句就搞定了:</p>
+</div><p>也是在 配置文件 <code>elasticsearch.yml</code> 添加下面几句就搞定了:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -973,57 +929,34 @@ sudo service elasticsearch start
 
 <span class="n">cluster</span><span class="o">.</span><span class="n">routing</span><span class="o">.</span><span class="n">allocation</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">watermark</span><span class="o">.</span><span class="n">low</span><span class="p">:</span> <span class="o">.</span><span class="mi">97</span>
 
-<span class="n">cluster</span><span class="o">.</span><span class="n">routing</span><span class="o">.</span><span class="n">allocation</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">watermark</span><span class="o">.</span><span class="n">high</span><span class="p">:</span> <span class="o">.</span><span class="mi">99</span></code></pre></td></tr></table>
+<span class="n">cluster</span><span class="o">.</span><span class="n">routing</span><span class="o">.</span><span class="n">allocation</span><span class="o">.</span><span class="n">disk</span><span class="o">.</span><span class="n">watermark</span><span class="o">.</span><span class="n">high</span><span class="p">:</span> <span class="o">.</span><span class="mi">99</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <p>BTW, 现在都流行飙版本号了?</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f2ua8tdd6mj20h80imab9.jpg" alt="" /></p>
-
+<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f2ua8tdd6mj20h80imab9.jpg" alt=""></p>
 <p>React 直接跳到 15.X, 这&hellip;</p>
-
-<hr />
-
-<hr />
-
-<!--more-->
-
+<hr>
+<hr>
+<!-- raw HTML omitted -->
 <p>Update: 2016.04.23
 参加完 Elasticsearch 的线下沙龙涨了点点知识回来, 唉, 发现人家那才真的叫玩大数据啊, 各种 Spark, Hadoop, 几十几百台的机器, 上 TB 级别的数据量.</p>
-
 <p>所以, 难怪我这种说升级说的那么轻松的.</p>
-
 <p>Elasticsearch 升级 2.X 前用官方插件检测一下是否兼容
 <a href="https://github.com/elastic/elasticsearch-migration">elasticsearch-migration</a></p>
-
 <p>还有其他一些建议, 顺带贴下图纪念一下手机摄像头已坏 = . =</p>
-
-<p><img src="http://ww2.sinaimg.cn/large/62fdd4d5gw1f36zhmyhqdj241s31cu10.jpg" alt="" /></p>
-
-<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f36zh295l1j241s31c1l1.jpg" alt="" /></p>
-
-<p><img src="http://ww1.sinaimg.cn/large/62fdd4d5gw1f36zgw6243j241s31cx6u.jpg" alt="" /></p>
-
-<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f36zgnrk6tj241s31c1l1.jpg" alt="" /></p>
-
-<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f36zgi9lc4j241s31c4qv.jpg" alt="" /></p>
-
-<p><img src="http://ww3.sinaimg.cn/large/62fdd4d5gw1f36zg9t49gj241s31c4qv.jpg" alt="" /></p>
-
-<hr />
-
+<p><img src="http://ww2.sinaimg.cn/large/62fdd4d5gw1f36zhmyhqdj241s31cu10.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f36zh295l1j241s31c1l1.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/62fdd4d5gw1f36zgw6243j241s31cx6u.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f36zgnrk6tj241s31c1l1.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f36zgi9lc4j241s31c4qv.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/large/62fdd4d5gw1f36zg9t49gj241s31c4qv.jpg" alt=""></p>
+<hr>
 <h5 id="related">Related:</h5>
-
 <p><a href="http://xguox.me/elasticsearch-ik-mmseg-homebrew-ubuntu.html">Elasticsearch 开箱笔记</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-rails.html">Elasticsearch on Rails</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-more-like-this.html">Elasticsearch More Like This 搜索</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-aggregations.html">Elasticsearch Aggregations 聚合分析</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-scroll.html">Elasticsearch Scroll (Ruby)</a></p>
     </div>
 
@@ -1069,7 +1002,7 @@ sudo service elasticsearch start
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -1087,7 +1020,7 @@ sudo service elasticsearch start
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

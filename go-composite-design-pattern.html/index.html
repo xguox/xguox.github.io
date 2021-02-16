@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/go-composite-design-pattern.html/" />
+<link rel="canonical" href="https://xguox.com/go-composite-design-pattern.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Go 的组合模式(Composite Pattern)" />
 <meta property="og:description" content="Go 没有传统面向对象语言(如 Ruby, Java) 的继承特性, 取而代之, 更多的是用 组合模式 来达到类似效果. 组合设计模式 Composite Design Pattern 组合构建的是一个树形的层级对象, 一个" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/go-composite-design-pattern.html/" />
-<meta property="article:published_time" content="2018-09-13T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2018-09-13T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/go-composite-design-pattern.html/" />
+<meta property="article:published_time" content="2018-09-13T16:01:23+08:00" />
+<meta property="article:modified_time" content="2018-09-13T16:01:23+08:00" />
 <meta itemprop="name" content="Go 的组合模式(Composite Pattern)">
 <meta itemprop="description" content="Go 没有传统面向对象语言(如 Ruby, Java) 的继承特性, 取而代之, 更多的是用 组合模式 来达到类似效果. 组合设计模式 Composite Design Pattern 组合构建的是一个树形的层级对象, 一个">
-
-
 <meta itemprop="datePublished" content="2018-09-13T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-09-13T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1049">
+<meta itemprop="wordCount" content="1051">
 
 
 
-<meta itemprop="keywords" content="Go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go 的组合模式(Composite Pattern)"/>
 <meta name="twitter:description" content="Go 没有传统面向对象语言(如 Ruby, Java) 的继承特性, 取而代之, 更多的是用 组合模式 来达到类似效果. 组合设计模式 Composite Design Pattern 组合构建的是一个树形的层级对象, 一个"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 13 Sep 2018 </span>
-          <span class="more-meta"> 1049 words </span>
+          <span class="more-meta"> 1051 words </span>
           <span class="more-meta"> 3 mins read </span>
         
       </div>
@@ -153,22 +149,15 @@
 
     
     <div class="post-content">
-      
-
-<p><strong>Go</strong> 没有传统面向对象语言(如 Ruby, Java) 的继承特性, 取而代之, 更多的是用 <strong>组合模式</strong> 来达到类似效果.</p>
-
+      <p><strong>Go</strong> 没有传统面向对象语言(如 Ruby, Java) 的继承特性, 取而代之, 更多的是用 <strong>组合模式</strong> 来达到类似效果.</p>
 <h5 id="组合设计模式-composite-design-pattern">组合设计模式 Composite Design Pattern</h5>
-
 <p><strong>组合构建的是一个树形的层级对象, 一个对象包含有其他一些拥有各自独立的字段和方法的对象.</strong> 换一个说法讲, <strong>组合代表「拥有 has」 关系, 而继承则代表「是 is」关系.</strong> 这种模式可以解决(多)继承的问题, 典型的比如, 两个实体分别继承自两个不同的类, 而这两个实体之间实际上并没有任何关联关系.</p>
-
 <p>举个例子, Athlete(运动员)类有一个 Train(训练)方法, 然后 SwimmerAthlete(游泳运动员) 继承自 Athlete, 并有自己的 Swim(游泳)方法. 可能还会有一个 Rider(骑手)类也继承自 Athlete, 然后有一个自己的 Ride(骑行)方法.</p>
-
 <p>另外的, 还有一个 Animal(动物)类, 有 Eat, Sleep 等方法. 然后类似有 Dog(🐶) 类继承于它, 并有着特有的 Bark(叫)方法 一切看起来都没什么特别之处, 很常规的面向对象的继承就可以实现.  但是, <strong>问题来了</strong>, 如果有一个 Fish(鱼) 类, 同样也有一个 Swim 方法, 那么就不好办了, Fish 不是 Athlete 啊. Fish 会 Swim 但不会 Train (不抬杠哈). 这时候的最佳实践可能会是定义一个需要实现 Swim 方法的 Swimmer 接口, 然后 SwimmerAthlete 和 Fish 都分别实现这个接口.  但结果即使是一模一样的方法, Swim 还是要被实现两次. 如果有一个 Triathlete(三项全能运动员)类呢? 又得再实现一次一模式样的?</p>
-
 <p><strong>运用组合模式则可以很好的解决这个问题</strong>, 用 Go 有两种实现这种组合的方式, 先来看第一种.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -179,13 +168,13 @@
 
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">Athlete</span><span class="p">)</span> <span class="nf">Train</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Training&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>接下来建立一个 Swimmer 结构体, 这里加上 A 用以标识是第一种区别于后边的第二种.</p>
+</div><p>接下来建立一个 Swimmer 结构体, 这里加上 A 用以标识是第一种区别于后边的第二种.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -194,15 +183,14 @@
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">CompositeSwimmerA</span> <span class="kd">struct</span><span class="p">{</span>
     <span class="nx">MyAthlete</span> <span class="nx">Athlete</span>
     <span class="nx">MySwim</span> <span class="kd">func</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>CompositeSwimmerA 这个类型有一个 <code>Athlete</code> 类型的 <code>MyAthlete</code> 字段, 和一个 <code>func()</code> 类型的 <code>MySwim</code> 字段.</p>
-
+</div><p>CompositeSwimmerA 这个类型有一个 <code>Athlete</code> 类型的 <code>MyAthlete</code> 字段, 和一个 <code>func()</code> 类型的 <code>MySwim</code> 字段.</p>
 <p>定义一个 Swim 方法之后可以赋值到上述的 <code>MySwim</code> 字段.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -223,26 +211,26 @@
     <span class="nx">MySwim</span><span class="p">:</span> <span class="nx">Swim</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="nx">swimmer</span><span class="p">.</span><span class="nx">MyAthlete</span><span class="p">.</span><span class="nf">Train</span><span class="p">()</span>
-<span class="nx">swimmer</span><span class="p">.</span><span class="nf">MySwim</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="nx">swimmer</span><span class="p">.</span><span class="nf">MySwim</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里的 swimmer 对象因为没有赋值给 <code>MyAthlete</code> 字段, 所以默认为<code>Athlete</code> 类型的零值.</p>
+</div><p>这里的 swimmer 对象因为没有赋值给 <code>MyAthlete</code> 字段, 所以默认为<code>Athlete</code> 类型的零值.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="k">go</span> <span class="nx">run</span> <span class="nx">main</span><span class="p">.</span><span class="k">go</span>
 <span class="nx">Training</span>
-<span class="nx">Swimming</span><span class="p">!</span></code></pre></td></tr></table>
+<span class="nx">Swimming</span><span class="p">!</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>那么鱼呢?</p>
+</div><p>那么鱼呢?</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -275,28 +263,27 @@
     <span class="nx">Swim</span><span class="p">:</span> <span class="nx">Swim</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="nx">nimo</span><span class="p">.</span><span class="nf">Eat</span><span class="p">()</span>
-<span class="nx">nimo</span><span class="p">.</span><span class="nf">Swim</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="nx">nimo</span><span class="p">.</span><span class="nf">Swim</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>「继承」了对应的类型并拥有公用的 Swim 方法</p>
+</div><p>「继承」了对应的类型并拥有公用的 Swim 方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="k">go</span> <span class="nx">run</span> <span class="nx">main</span><span class="p">.</span><span class="k">go</span>
 <span class="nx">Eating</span>
-<span class="nx">Swimming</span><span class="p">!</span></code></pre></td></tr></table>
+<span class="nx">Swimming</span><span class="p">!</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里 Fish 的实现与 Athlete 有一些不一样的地方是用了嵌套类型. 顺便就有了我们前面提的第二种方式.</p>
-
+</div><p>这里 Fish 的实现与 Athlete 有一些不一样的地方是用了嵌套类型. 顺便就有了我们前面提的第二种方式.</p>
 <p>定义一个需要实现 Swim 方法的 Swimmer 接口, 以及一个实现了该接口的结构体 <code>SwimmerImpl</code>, 最后嵌套在 <code>CompositeSwimmerB</code> 这个结构体里边(相应鱼的实现也类似).</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -313,6 +300,7 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Swimmer</span> <span class="kd">interface</span> <span class="p">{</span>
@@ -331,19 +319,21 @@
 <span class="kd">type</span> <span class="nx">CompositeSwimmerB</span> <span class="kd">struct</span><span class="p">{</span>
     <span class="nx">Trainer</span>
     <span class="nx">Swimmer</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>这种做法的好处是, 里层字段对象更可控, 不会一不小心变成了零值</strong>, 使用方式:</p>
+</div><p><strong>这种做法的好处是, 里层字段对象更可控, 不会一不小心变成了零值</strong>, 使用方式:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">swimmer</span> <span class="o">:=</span> <span class="nx">CompositeSwimmerB</span><span class="p">{</span>
@@ -352,7 +342,9 @@
 <span class="p">}</span>
 
 <span class="nx">swimmer</span><span class="p">.</span><span class="nf">Train</span><span class="p">()</span>
-<span class="nx">swimmer</span><span class="p">.</span><span class="nf">Swim</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="nx">swimmer</span><span class="p">.</span><span class="nf">Swim</span><span class="p">()</span>
+
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -399,7 +391,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -417,7 +409,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

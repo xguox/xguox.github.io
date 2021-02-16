@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/rails-model-association-inverse_of.html/" />
+<link rel="canonical" href="https://xguox.com/rails-model-association-inverse_of.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="[Rails] Model 关联选项之 :inverse_of" />
 <meta property="og:description" content="在小项目没怎么遇见过的 model 之间的 has_many 关联选项 :inverse_of, 用来指定相对应的 belongs_to 关联的名字, (反之对于 belongs_to 也一样,文邹邹的 (・_・ヾ ). 不能与 :through , :as, :polymorphic 一起使用. 1 2" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rails-model-association-inverse_of.html/" />
-<meta property="article:published_time" content="2015-10-17T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2015-10-17T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/rails-model-association-inverse_of.html/" />
+<meta property="article:published_time" content="2015-10-17T16:01:23+08:00" />
+<meta property="article:modified_time" content="2015-10-17T16:01:23+08:00" />
 <meta itemprop="name" content="[Rails] Model 关联选项之 :inverse_of">
 <meta itemprop="description" content="在小项目没怎么遇见过的 model 之间的 has_many 关联选项 :inverse_of, 用来指定相对应的 belongs_to 关联的名字, (反之对于 belongs_to 也一样,文邹邹的 (・_・ヾ ). 不能与 :through , :as, :polymorphic 一起使用. 1 2">
-
-
 <meta itemprop="datePublished" content="2015-10-17T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2015-10-17T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="351">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Rails] Model 关联选项之 :inverse_of"/>
 <meta name="twitter:description" content="在小项目没怎么遇见过的 model 之间的 has_many 关联选项 :inverse_of, 用来指定相对应的 belongs_to 关联的名字, (反之对于 belongs_to 也一样,文邹邹的 (・_・ヾ ). 不能与 :through , :as, :polymorphic 一起使用. 1 2"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -156,7 +152,7 @@
       <p>在小项目没怎么遇见过的 model 之间的 <strong>has_many</strong> 关联选项 <code>:inverse_of</code>, 用来指定相对应的 <code>belongs_to</code> 关联的名字, (反之对于 belongs_to 也一样,文邹邹的 (・_・ヾ ). 不能与 <code>:through</code> , <code>:as</code>, <code>:polymorphic</code> 一起使用.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -179,11 +175,12 @@
              <span class="ss">:class_name</span> <span class="o">=&gt;</span> <span class="s2">&#34;PurchaseRequest&#34;</span>
   <span class="n">belongs_to</span> <span class="ss">:product</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:request_items</span><span class="p">,</span>
              <span class="ss">:class_name</span> <span class="o">=&gt;</span> <span class="s2">&#34;Product&#34;</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -200,11 +197,12 @@
 </span><span class="sb">[2] pry(main)&gt; product = Product.find 311795
 </span><span class="sb">  Product Load (0.5ms)  SELECT `</span><span class="n">products</span><span class="sb">`.* FROM `</span><span class="n">products</span><span class="sb">` WHERE `</span><span class="n">products</span><span class="sb">`.`</span><span class="nb">id</span><span class="sb">` = 311795
 </span><span class="sb">  AND (`</span><span class="n">products</span><span class="sb">`.deleted_at IS NULL) LIMIT 1
-</span><span class="sb">=&gt; #&lt;Product id: 311795, status: 1, is_popular: false&gt;</span></code></pre></td></tr></table>
+</span><span class="sb">=&gt; #&lt;Product id: 311795, status: 1, is_popular: false&gt;
+</span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -225,11 +223,12 @@
 </span><span class="sb">[4] pry(main)&gt; product.status=3
 </span><span class="sb">=&gt; 3
 </span><span class="sb">[5] pry(main)&gt; purchase_order_item.product.status==product.status
-</span><span class="sb">=&gt; false</span></code></pre></td></tr></table>
+</span><span class="sb">=&gt; false
+</span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -246,11 +245,10 @@
 <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">pry</span><span class="p">(</span><span class="n">main</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">product</span><span class="o">.</span><span class="n">status</span><span class="o">=</span><span class="mi">3</span>
 <span class="o">=&gt;</span> <span class="mi">3</span>
 <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="n">pry</span><span class="p">(</span><span class="n">main</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">pri</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">status</span><span class="o">==</span><span class="n">product</span><span class="o">.</span><span class="n">status</span>
-<span class="o">=&gt;</span> <span class="kp">true</span></code></pre></td></tr></table>
+<span class="o">=&gt;</span> <span class="kp">true</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果没有 <strong>:inverse_of</strong> 的话, 会在数据库中查找多一次, 而如果有 <strong>:inverse_of</strong> 的话, 是直接从内存里面取的.</p>
-
+</div><p>如果没有 <strong>:inverse_of</strong> 的话, 会在数据库中查找多一次, 而如果有 <strong>:inverse_of</strong> 的话, 是直接从内存里面取的.</p>
 <p>好吧, <strong>Rails 4.1</strong> 开始默认是加上了 <code>:inverse_of</code> 的. 只是公司有项目还跑在 Rails 3, 所以, 还是得手工加上这个 选项.</p>
 
     </div>
@@ -297,7 +295,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -315,7 +313,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

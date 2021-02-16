@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/linux-shell-2-1.html/" />
+<link rel="canonical" href="https://xguox.com/linux-shell-2-1.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Linux 的 2&gt;&amp;1" />
 <meta property="og:description" content="Shell 命令缓慢的学习中&hellip; Shell 脚本的 &gt; 表示输出重定向, 而 0 1 2 则分别代表标准输入(stdin), 标准输出(stdout)和标准错误(s" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/linux-shell-2-1.html/" />
-<meta property="article:published_time" content="2015-11-10T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2015-11-10T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/linux-shell-2-1.html/" />
+<meta property="article:published_time" content="2015-11-10T16:01:23+08:00" />
+<meta property="article:modified_time" content="2015-11-10T16:01:23+08:00" />
 <meta itemprop="name" content="Linux 的 2&gt;&amp;1">
 <meta itemprop="description" content="Shell 命令缓慢的学习中&hellip; Shell 脚本的 &gt; 表示输出重定向, 而 0 1 2 则分别代表标准输入(stdin), 标准输出(stdout)和标准错误(s">
-
-
 <meta itemprop="datePublished" content="2015-11-10T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2015-11-10T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="253">
+<meta itemprop="wordCount" content="254">
 
 
 
-<meta itemprop="keywords" content="Linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 的 2&gt;&amp;1"/>
 <meta name="twitter:description" content="Shell 命令缓慢的学习中&hellip; Shell 脚本的 &gt; 表示输出重定向, 而 0 1 2 则分别代表标准输入(stdin), 标准输出(stdout)和标准错误(s"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 10 Nov 2015 </span>
-          <span class="more-meta"> 253 words </span>
+          <span class="more-meta"> 254 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -154,42 +150,38 @@
     
     <div class="post-content">
       <p>Shell 命令缓慢的学习中&hellip;</p>
-
 <p>Shell 脚本的 <code>&gt;</code> 表示输出重定向, 而 <code>0 1 2</code> 则分别代表标准输入(stdin), 标准输出(stdout)和标准错误(stderr),</p>
-
 <p>{% highlight shell %}
 ls 2&gt;1
 {% endhighlight %}</p>
-
 <p>会在当前目录执行 ls, 因为没有标准错误信息, 所以, 会产生一个空白的文件 <code>1</code>.</p>
-
 <p>{% highlight shell %}
 ls xguox 2&gt;1
 {% endhighlight %}</p>
-
 <p>会生成一个名为 <code>1</code> 的文件, 里面的内容是
 <code>ls: xguox: No such file or directory</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">ls</span> <span class="n">xguox</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>不会生成一个名为 <code>1</code> 的文件, 但是会把错误直接作为标准输出(即<code>1</code>)
-<code>ls: xguox: No such file or directory</code></p>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">ls</span> <span class="n">xguox</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>不会生成一个名为 <code>1</code> 的文件, 但是会把错误直接作为标准输出(即<code>1</code>)
+<code>ls: xguox: No such file or directory</code></p>
 <p>所以, 也就可以解读 crontab 里面的命令了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="mi">0</span> <span class="mi">8</span><span class="o">-</span><span class="mi">18</span><span class="o">/</span><span class="mi">5</span>  <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="n">cd</span> <span class="o">~</span><span class="sr">/apps/</span><span class="n">current</span> <span class="o">&amp;&amp;</span> <span class="sr">/bin/</span><span class="n">bash</span> <span class="o">-</span><span class="n">l</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&#34;RAILS_ENV=production bundle exec rake post:auto_post&#34;</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">&gt;</span>  <span class="n">log</span><span class="sr">/init.log</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="mi">0</span> <span class="mi">8</span><span class="o">-</span><span class="mi">18</span><span class="o">/</span><span class="mi">5</span>  <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="n">cd</span> <span class="o">~</span><span class="sr">/apps/</span><span class="n">current</span> <span class="o">&amp;&amp;</span> <span class="sr">/bin/</span><span class="n">bash</span> <span class="o">-</span><span class="n">l</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&#34;RAILS_ENV=production bundle exec rake post:auto_post&#34;</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">&gt;</span>  <span class="n">log</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">log</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>最后,
+</div><p>最后,
 在命令最后加 &amp; , 是让命令在后台执行</p>
 
     </div>
@@ -236,7 +228,7 @@ ls xguox 2&gt;1
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -254,7 +246,7 @@ ls xguox 2&gt;1
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

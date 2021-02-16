@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/rails-5-belongs_to-association-required-by-default.html/" />
+<link rel="canonical" href="https://xguox.com/rails-5-belongs_to-association-required-by-default.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Rails 5 belongs_to 默认 required" />
 <meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class Team &lt; ApplicationRecord has_many :projects end class Project &lt; ApplicationRecord belongs_to :team end [1] pry(main)&gt; Project.create(name: &#39;project_1&#39;) (0.2ms) BEGIN (0.2ms) ROLLBACK =&gt; #&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt; [2] pry(main)&gt; _.errors =&gt; #&lt;ActiveModel::Errors:0x007fb84634c500 @base=#&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt;, @details={:team=&gt;[{:error=&gt;:blank}]}, @messages={:team=&gt;[&#34;must exist&#34;]}&gt;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rails-5-belongs_to-association-required-by-default.html/" />
-<meta property="article:published_time" content="2016-09-24T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-09-24T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/rails-5-belongs_to-association-required-by-default.html/" />
+<meta property="article:published_time" content="2016-09-24T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-09-24T16:01:23+08:00" />
 <meta itemprop="name" content="Rails 5 belongs_to 默认 required">
 <meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class Team &lt; ApplicationRecord has_many :projects end class Project &lt; ApplicationRecord belongs_to :team end [1] pry(main)&gt; Project.create(name: &#39;project_1&#39;) (0.2ms) BEGIN (0.2ms) ROLLBACK =&gt; #&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt; [2] pry(main)&gt; _.errors =&gt; #&lt;ActiveModel::Errors:0x007fb84634c500 @base=#&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt;, @details={:team=&gt;[{:error=&gt;:blank}]}, @messages={:team=&gt;[&#34;must exist&#34;]}&gt;">
-
-
 <meta itemprop="datePublished" content="2016-09-24T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-09-24T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="208">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rails 5 belongs_to 默认 required"/>
 <meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class Team &lt; ApplicationRecord has_many :projects end class Project &lt; ApplicationRecord belongs_to :team end [1] pry(main)&gt; Project.create(name: &#39;project_1&#39;) (0.2ms) BEGIN (0.2ms) ROLLBACK =&gt; #&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt; [2] pry(main)&gt; _.errors =&gt; #&lt;ActiveModel::Errors:0x007fb84634c500 @base=#&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt;, @details={:team=&gt;[{:error=&gt;:blank}]}, @messages={:team=&gt;[&#34;must exist&#34;]}&gt;"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -155,7 +151,7 @@
     <div class="post-content">
       <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -190,13 +186,13 @@
 <span class="o">=&gt;</span> <span class="c1">#&lt;ActiveModel::Errors:0x007fb84634c500</span>
  <span class="vi">@base</span><span class="o">=</span><span class="c1">#&lt;Project:0x007fb8462ddf10 id: nil, team_id: nil, name: &#34;project_1&#34;, created_at: nil, updated_at: nil&gt;,</span>
  <span class="vi">@details</span><span class="o">=</span><span class="p">{</span><span class="ss">:team</span><span class="o">=&gt;[</span><span class="p">{</span><span class="ss">:error</span><span class="o">=&gt;</span><span class="ss">:blank</span><span class="p">}</span><span class="o">]</span><span class="p">},</span>
- <span class="vi">@messages</span><span class="o">=</span><span class="p">{</span><span class="ss">:team</span><span class="o">=&gt;[</span><span class="s2">&#34;must exist&#34;</span><span class="o">]</span><span class="p">}</span><span class="o">&gt;</span></code></pre></td></tr></table>
+ <span class="vi">@messages</span><span class="o">=</span><span class="p">{</span><span class="ss">:team</span><span class="o">=&gt;[</span><span class="s2">&#34;must exist&#34;</span><span class="o">]</span><span class="p">}</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在 Rails 5 以前是可以成功 Save 的, 但是, 从 Rails 5 开始, belongs_to 的关联都默认必须有值, 除非这么写:</p>
+</div><p>在 Rails 5 以前是可以成功 Save 的, 但是, 从 Rails 5 开始, belongs_to 的关联都默认必须有值, 除非这么写:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -215,16 +211,17 @@
    <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="n">ms</span><span class="p">)</span>  <span class="k">BEGIN</span>
   <span class="no">SQL</span> <span class="p">(</span><span class="mi">5</span><span class="o">.</span><span class="mi">4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">INSERT</span> <span class="no">INTO</span> <span class="s2">&#34;projects&#34;</span> <span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;created_at&#34;</span><span class="p">,</span> <span class="s2">&#34;updated_at&#34;</span><span class="p">)</span> <span class="no">VALUES</span> <span class="p">(</span><span class="vg">$1</span><span class="p">,</span> <span class="vg">$2</span><span class="p">,</span> <span class="vg">$3</span><span class="p">)</span> <span class="no">RETURNING</span> <span class="s2">&#34;id&#34;</span>  <span class="o">[[</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;project_1&#34;</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;created_at&#34;</span><span class="p">,</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">28</span> <span class="mo">04</span><span class="p">:</span><span class="mo">05</span><span class="p">:</span><span class="mi">41</span> <span class="no">UTC</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;updated_at&#34;</span><span class="p">,</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">28</span> <span class="mo">04</span><span class="p">:</span><span class="mo">05</span><span class="p">:</span><span class="mi">41</span> <span class="no">UTC</span><span class="o">]]</span>
    <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="n">ms</span><span class="p">)</span>  <span class="no">COMMIT</span>
-<span class="o">=&gt;</span> <span class="c1">#&lt;Project:0x007fff3b2bc388 id: &#34;05051810-fea1-4ae9-b138-05a92e0bb3e9&#34;, team_id: nil, name: &#34;project_1&#34;, created_at: Wed, 28 Sep 2016 04:05:41 UTC +00:00, updated_at: Wed, 28 Sep 2016 04:05:41 UTC +00:00&gt;</span></code></pre></td></tr></table>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Project:0x007fff3b2bc388 id: &#34;05051810-fea1-4ae9-b138-05a92e0bb3e9&#34;, team_id: nil, name: &#34;project_1&#34;, created_at: Wed, 28 Sep 2016 04:05:41 UTC +00:00, updated_at: Wed, 28 Sep 2016 04:05:41 UTC +00:00&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>要使用像原本那样默认可选的话, 在 <code>config/initializers/new_framework_defaults.rb</code> 改一下</p>
+</div><p>要使用像原本那样默认可选的话, 在 <code>config/initializers/new_framework_defaults.rb</code> 改一下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">active_record</span><span class="o">.</span><span class="n">belongs_to_required_by_default</span> <span class="o">=</span> <span class="kp">false</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">active_record</span><span class="o">.</span><span class="n">belongs_to_required_by_default</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -271,7 +268,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -289,7 +286,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/gin-source-code.html/" />
+<link rel="canonical" href="https://xguox.com/gin-source-code.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="从 net/http 入门到 Gin 源码梳理" />
 <meta property="og:description" content="通过 Go 的标准库 net/http 可以轻松几行运行起一个简单的 web 服务, 比如: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 package main import &#34;net/http&#34; func main() { http.Handle(&#34;/&#34;, &amp;MyHandler{}) http.Handle(&#34;/hello&#34;, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(&#34;world&#34;)) })) http.HandleFunc(&#34;/ping&#34;," />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/gin-source-code.html/" />
-<meta property="article:published_time" content="2019-01-10T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2019-01-10T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/gin-source-code.html/" />
+<meta property="article:published_time" content="2019-01-10T16:01:23+08:00" />
+<meta property="article:modified_time" content="2019-01-10T16:01:23+08:00" />
 <meta itemprop="name" content="从 net/http 入门到 Gin 源码梳理">
 <meta itemprop="description" content="通过 Go 的标准库 net/http 可以轻松几行运行起一个简单的 web 服务, 比如: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 package main import &#34;net/http&#34; func main() { http.Handle(&#34;/&#34;, &amp;MyHandler{}) http.Handle(&#34;/hello&#34;, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(&#34;world&#34;)) })) http.HandleFunc(&#34;/ping&#34;,">
-
-
 <meta itemprop="datePublished" content="2019-01-10T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-10T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1820">
+<meta itemprop="wordCount" content="1822">
 
 
 
-<meta itemprop="keywords" content="Go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从 net/http 入门到 Gin 源码梳理"/>
 <meta name="twitter:description" content="通过 Go 的标准库 net/http 可以轻松几行运行起一个简单的 web 服务, 比如: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 package main import &#34;net/http&#34; func main() { http.Handle(&#34;/&#34;, &amp;MyHandler{}) http.Handle(&#34;/hello&#34;, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(&#34;world&#34;)) })) http.HandleFunc(&#34;/ping&#34;,"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 10 Jan 2019 </span>
-          <span class="more-meta"> 1820 words </span>
+          <span class="more-meta"> 1822 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -153,12 +149,10 @@
 
     
     <div class="post-content">
-      
-
-<p>通过 Go 的标准库 <code>net/http</code> 可以轻松几行运行起一个简单的 web 服务, 比如:</p>
+      <p>通过 Go 的标准库 <code>net/http</code> 可以轻松几行运行起一个简单的 web 服务, 比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -205,40 +199,40 @@
 
 <span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">MyHandler</span><span class="p">)</span> <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;MyHandler ServeHTTP&#34;</span><span class="p">))</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上面这段代码分别用了不太一样的方式注册了三个简单的路由路径及相应的请求处理. 说不太一样其实还是有共通的地方的.
+</div><p>上面这段代码分别用了不太一样的方式注册了三个简单的路由路径及相应的请求处理. 说不太一样其实还是有共通的地方的.
 其实就是两个 <code>net/http</code> 包里边的函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">pattern</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handler</span> <span class="nx">Handler</span><span class="p">)</span>
 
-<span class="kd">func</span> <span class="nf">HandleFunc</span><span class="p">(</span><span class="nx">pattern</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handler</span> <span class="kd">func</span><span class="p">(</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="o">*</span><span class="nx">Request</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="kd">func</span> <span class="nf">HandleFunc</span><span class="p">(</span><span class="nx">pattern</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handler</span> <span class="kd">func</span><span class="p">(</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="o">*</span><span class="nx">Request</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这两个函数都接受两个参数, 第一个都是请求的路径 pattern, <strong>Handle</strong> 的第二个参数是实现了 <strong>Handler</strong> 接口的类型, <strong>HandleFunc</strong> 的第二个参数则是一个<strong>函数类型的参数</strong>, 只要传入的函数签名是 <code>func(http.ResponseWriter, *http.Request)</code> 就可以了. 所以, 其实第三个路由方式还可以写成下面这样:</p>
+</div><p>这两个函数都接受两个参数, 第一个都是请求的路径 pattern, <strong>Handle</strong> 的第二个参数是实现了 <strong>Handler</strong> 接口的类型, <strong>HandleFunc</strong> 的第二个参数则是一个<strong>函数类型的参数</strong>, 只要传入的函数签名是 <code>func(http.ResponseWriter, *http.Request)</code> 就可以了. 所以, 其实第三个路由方式还可以写成下面这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">m</span> <span class="o">:=</span> <span class="nx">MyHandler</span><span class="p">{}</span>
 <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/ping&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">.</span><span class="nx">ServeHTTP</span><span class="p">)</span>
-<span class="o">//</span> <span class="nx">ServeHTTP</span> <span class="nx">的签名能匹配得上</span></code></pre></td></tr></table>
+<span class="c1">// ServeHTTP 的签名能匹配得上
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>即使第二个参数不一样, 但实际要做的事情还是一样的, 最后都是丢给 <strong>DefaultServeMux</strong> 完成请求的处理.</p>
+</div><p>即使第二个参数不一样, 但实际要做的事情还是一样的, 最后都是丢给 <strong>DefaultServeMux</strong> 完成请求的处理.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -251,28 +245,27 @@
         <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;http: nil handler&#34;</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="nx">pattern</span><span class="p">,</span> <span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">handler</span><span class="p">))</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>比较特别一些的是第二个路由,</p>
+</div><p>比较特别一些的是第二个路由,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">http</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">))</span>
-<span class="p">})</span></code></pre></td></tr></table>
+<span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里把一个匿名函数转换成为了 <strong>http.HandlerFunc</strong> 类型, 而 <strong>http.HandlerFunc</strong> 类型实现了 <strong>http.Handler</strong>, 因此, 也是一个正确的使用方式.</p>
-
+</div><p>这里把一个匿名函数转换成为了 <strong>http.HandlerFunc</strong> 类型, 而 <strong>http.HandlerFunc</strong> 类型实现了 <strong>http.Handler</strong>, 因此, 也是一个正确的使用方式.</p>
 <p><strong>http.HandlerFunc</strong> 是一个等价于 <code>func(ResponseWriter, *Request)</code> 的类型. (<a href="https://xguox.me/go-type-alias-vs-type-definition.html">每次看到这类写法都要细细想一下是类型定义还是类型别名, 以及有啥不一样, 然后&hellip;又慢慢的忘了</a>)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,19 +286,16 @@
 <span class="c1">// ServeHTTP calls f(w, r).
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="nx">HandlerFunc</span><span class="p">)</span> <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span> <span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
     <span class="nf">f</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h4 id="gin">Gin</h4>
-
 <p><a href="https://github.com/gin-gonic/gin">Gin</a> 是基于 <code>net/http</code> 的 web framework(确切一丢说是基于 <a href="https://github.com/julienschmidt/httprouter">httprouter</a>). 相较于 <code>net/http</code> 默认的路由功能, <strong>httprouter</strong> 提供了更好的拓展性(<a href="https://xguox.me/gin-router-conflicts.html">基于 trie 的路由结构</a>). <strong>httprouter</strong> 的 github 主页上强调了几次 <strong>scale</strong>, P.S. 这里<a href="https://blog.merovius.de/2017/06/18/how-not-to-use-an-http-router.html">有一篇站队 <code>net/http</code> 的路由功能的文章</a>).</p>
-
 <p>类似上面的三个请求服务, 下面是用 Gin 所写的版本(没有使用任何 middleware)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -346,22 +336,21 @@
         <span class="nx">context</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;world&#34;</span><span class="p">)</span>
     <span class="p">})</span>
     <span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>丢完示例以后, 跟着示例代码大概的走一遍 Gin 的全流程. 之后在深入看 RouterGroup 和 middleware 相关的探究.</p>
-
-<hr />
-
+</div><p>丢完示例以后, 跟着示例代码大概的走一遍 Gin 的全流程. 之后在深入看 RouterGroup 和 middleware 相关的探究.</p>
+<hr>
 <p>示例代码用的是 <code>gin.New()</code> 初始化得到一个 <code>*gin.Engine</code>, 这个 Engine 是不带任何 middleware 的, 有时候还会使用 <code>gin.Default()</code> 来初始化, 其实就是空的 Engine 加上了 <strong>Logger</strong> 和 <strong>Recovery</strong> 这俩 middleware 了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Default</span><span class="p">()</span> <span class="o">*</span><span class="nx">Engine</span> <span class="p">{</span>
@@ -369,13 +358,14 @@
     <span class="nx">engine</span> <span class="o">:=</span> <span class="nf">New</span><span class="p">()</span>
     <span class="nx">engine</span><span class="p">.</span><span class="nf">Use</span><span class="p">(</span><span class="nf">Logger</span><span class="p">(),</span> <span class="nf">Recovery</span><span class="p">())</span>
     <span class="k">return</span> <span class="nx">engine</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>gin.Engine</strong> 的结构体定义:</p>
+</div><p><strong>gin.Engine</strong> 的结构体定义:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -386,26 +376,26 @@
     <span class="nx">RouterGroup</span>
     <span class="c1">// ...好吧, 省略一大票
 </span><span class="c1"></span>    <span class="nx">trees</span>   <span class="nx">methodTrees</span> <span class="c1">// 路由 radix trie 数组
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>RouterGroup 是其中的一个嵌套类型, 所以, 前面的示例中:</p>
+</div><p>RouterGroup 是其中的一个嵌套类型, 所以, 前面的示例中:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">context</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">context</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;gin home page&#34;</span><span class="p">)</span>
-<span class="p">})</span></code></pre></td></tr></table>
+<span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>类似的 <code>r.GET</code>, <code>r.POST</code>, <code>r.DELETE</code> 其实调用的是 <strong>gin.Engine</strong> 中的 <code>RouterGroup</code> 对应的方法.</p>
+</div><p>类似的 <code>r.GET</code>, <code>r.POST</code>, <code>r.DELETE</code> 其实调用的是 <strong>gin.Engine</strong> 中的 <code>RouterGroup</code> 对应的方法.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -428,15 +418,14 @@
     <span class="nx">handlers</span> <span class="p">=</span> <span class="nx">group</span><span class="p">.</span><span class="nf">combineHandlers</span><span class="p">(</span><span class="nx">handlers</span><span class="p">)</span>
     <span class="nx">group</span><span class="p">.</span><span class="nx">engine</span><span class="p">.</span><span class="nf">addRoute</span><span class="p">(</span><span class="nx">httpMethod</span><span class="p">,</span> <span class="nx">absolutePath</span><span class="p">,</span> <span class="nx">handlers</span><span class="p">)</span>
     <span class="k">return</span> <span class="nx">group</span><span class="p">.</span><span class="nf">returnObj</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>大概就是注册路由相关的事情, 整理好路径, 合并 handlers, 最后加入到相应的路由表(radix tree).</p>
-
+</div><p>大概就是注册路由相关的事情, 整理好路径, 合并 handlers, 最后加入到相应的路由表(radix tree).</p>
 <p>然后就是, <code>r.Run()</code>,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -453,13 +442,13 @@
     <span class="nf">debugPrint</span><span class="p">(</span><span class="s">&#34;Listening and serving HTTP on %s\n&#34;</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
     <span class="nx">err</span> <span class="p">=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">engine</span><span class="p">)</span>
     <span class="k">return</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其实就还是 <code>net/http</code> 的那套 <code>func ListenAndServe(addr string, handler Handler)</code>, 只不过传入的是 <strong>gin.Engine</strong>, 替代了 <strong>http.DefaultServeMux</strong> (当ListenAndServe 第二个参数为 nil 的时候).</p>
+</div><p>其实就还是 <code>net/http</code> 的那套 <code>func ListenAndServe(addr string, handler Handler)</code>, 只不过传入的是 <strong>gin.Engine</strong>, 替代了 <strong>http.DefaultServeMux</strong> (当ListenAndServe 第二个参数为 nil 的时候).</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -482,13 +471,13 @@
     <span class="nx">engine</span><span class="p">.</span><span class="nf">handleHTTPRequest</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
 
     <span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>之后就是 <code>net/http</code> 包的 <code>server.go</code> 那一套了. TCP Scoket 的监听, 请求与响应.</p>
+</div><p>之后就是 <code>net/http</code> 包的 <code>server.go</code> 那一套了. TCP Scoket 的监听, 请求与响应.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -601,13 +590,13 @@
         <span class="nx">handler</span> <span class="p">=</span> <span class="nx">globalOptionsHandler</span><span class="p">{}</span>
     <span class="p">}</span>
     <span class="nx">handler</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">rw</span><span class="p">,</span> <span class="nx">req</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>最后这个 handler 就是一路带进来的 <strong>gin.Engine</strong>, 回到前面贴过的 <code>func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request)</code></p>
+</div><p>最后这个 handler 就是一路带进来的 <strong>gin.Engine</strong>, 回到前面贴过的 <code>func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request)</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -628,13 +617,13 @@
 
     <span class="nx">engine</span><span class="p">.</span><span class="nf">handleHTTPRequest</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// 通过请求 method 找到 engine.trees 中对应的树 -&gt; 在树中查找对应的路由, 执行相关的 handlers
 </span><span class="c1"></span>    <span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>接下来就是遍布 Gin 项目的 <strong>gin.Context</strong> 登场. 源码注释也说了, Context 是 Gin 最重要的一部分. 它可以让我们在 middleware 之间传递变量, 管理整个请求/响应流程, 比如验证请求的 JSON 以及返回一个 JSON 响应等等.</p>
+</div><p>接下来就是遍布 Gin 项目的 <strong>gin.Context</strong> 登场. 源码注释也说了, Context 是 Gin 最重要的一部分. 它可以让我们在 middleware 之间传递变量, 管理整个请求/响应流程, 比如验证请求的 JSON 以及返回一个 JSON 响应等等.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -660,6 +649,7 @@
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Context</span> <span class="kd">struct</span> <span class="p">{</span>
@@ -687,13 +677,14 @@
     <span class="k">for</span> <span class="nx">s</span> <span class="o">:=</span> <span class="nb">int8</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">handlers</span><span class="p">));</span> <span class="nx">c</span><span class="p">.</span><span class="nx">index</span> <span class="p">&lt;</span> <span class="nx">s</span><span class="p">;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="o">++</span> <span class="p">{</span>
         <span class="nx">c</span><span class="p">.</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">](</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// 执行 handler
 </span><span class="c1"></span>    <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以看出其实主要是对 <code>func(w http.ResponseWriter, r *http.Request)</code> 的一个封装, 其中用于响应的 <code>ResponseWriter</code> 基于 <code>http.ResponseWriter</code> 做了些拓展.</p>
+</div><p>可以看出其实主要是对 <code>func(w http.ResponseWriter, r *http.Request)</code> 的一个封装, 其中用于响应的 <code>ResponseWriter</code> 基于 <code>http.ResponseWriter</code> 做了些拓展.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -722,28 +713,25 @@
     <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span>
     <span class="nx">size</span>   <span class="kt">int</span>
     <span class="nx">status</span> <span class="kt">int</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>gin.Context</strong> 中的一大票返回 Format 方法</p>
-
-<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1fz0q52gh3bj212w14qguf.jpg" alt="" /></p>
+</div><p><strong>gin.Context</strong> 中的一大票返回 Format 方法</p>
+<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1fz0q52gh3bj212w14qguf.jpg" alt=""></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Context</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="nx">code</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">format</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">values</span> <span class="o">...</span><span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
     <span class="nx">c</span><span class="p">.</span><span class="nf">Render</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">render</span><span class="p">.</span><span class="nx">String</span><span class="p">{</span><span class="nx">Format</span><span class="p">:</span> <span class="nx">format</span><span class="p">,</span> <span class="nx">Data</span><span class="p">:</span> <span class="nx">values</span><span class="p">})</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <p>Related:</p>
-
 <ul>
 <li><a href="https://xguox.me/gin-RouterGroup-and-middleware-walkthrough.html">Gin RouterGroup 与 middleware 相关源码</a></li>
 <li><a href="https://chai2010.gitbooks.io/advanced-go-programming-book/content/">https://chai2010.gitbooks.io/advanced-go-programming-book/content/</a></li>
@@ -794,7 +782,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -812,7 +800,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

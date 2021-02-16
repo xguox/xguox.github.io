@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/go-nsq-note-i.html/" />
+<link rel="canonical" href="https://xguox.com/go-nsq-note-i.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="NSQ 笔记" />
 <meta property="og:description" content="NSQ 是一个基于 Go 写的实时分布式消息平台, 打开 NSQ 的官网可以看到简单粗暴的排版介绍四大优势, Distributed(分布式), Scalable(可" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/go-nsq-note-i.html/" />
-<meta property="article:published_time" content="2018-10-22T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2018-10-22T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/go-nsq-note-i.html/" />
+<meta property="article:published_time" content="2018-10-22T16:01:23+08:00" />
+<meta property="article:modified_time" content="2018-10-22T16:01:23+08:00" />
 <meta itemprop="name" content="NSQ 笔记">
 <meta itemprop="description" content="NSQ 是一个基于 Go 写的实时分布式消息平台, 打开 NSQ 的官网可以看到简单粗暴的排版介绍四大优势, Distributed(分布式), Scalable(可">
-
-
 <meta itemprop="datePublished" content="2018-10-22T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-22T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1545">
+<meta itemprop="wordCount" content="1547">
 
 
 
-<meta itemprop="keywords" content="Go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="NSQ 笔记"/>
 <meta name="twitter:description" content="NSQ 是一个基于 Go 写的实时分布式消息平台, 打开 NSQ 的官网可以看到简单粗暴的排版介绍四大优势, Distributed(分布式), Scalable(可"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 22 Oct 2018 </span>
-          <span class="more-meta"> 1545 words </span>
+          <span class="more-meta"> 1547 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -153,105 +149,90 @@
 
     
     <div class="post-content">
-      
-
-<p><strong>NSQ</strong> 是一个基于 Go 写的实时分布式消息平台, 打开 <a href="https://nsq.io/">NSQ 的官网</a>可以看到简单粗暴的排版介绍四大优势, Distributed(分布式), Scalable(可拓展), Ops Friendly(对运维友好), Integrated(易集成).</p>
-
+      <p><strong>NSQ</strong> 是一个基于 Go 写的实时分布式消息平台, 打开 <a href="https://nsq.io/">NSQ 的官网</a>可以看到简单粗暴的排版介绍四大优势, Distributed(分布式), Scalable(可拓展), Ops Friendly(对运维友好), Integrated(易集成).</p>
 <p>macOS 上安装 NSQ 用 <code>brew install nsq</code>  一句就可以了, 或者到 NSQ 的 <a href="https://github.com/nsqio/nsq/releases">Github Releases</a> 下载下来把可执行文件复制到 <strong>PATH</strong> 也行.</p>
-
 <p>官方文档的快速使用:</p>
-
 <ol>
 <li>打开第一个 Shell</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ nsqlookupd</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nsqlookupd
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol start="2">
 <li>打开第二个 Shell</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ nsqd --lookupd-tcp-address=127.0.0.1:4160</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nsqd --lookupd-tcp-address=127.0.0.1:4160
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol start="3">
 <li>第三个 Shell</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ nsqadmin --lookupd-http-address=127.0.0.1:4161</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nsqadmin --lookupd-http-address=127.0.0.1:4161
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol start="4">
 <li>发布一条初始化数据, 并在集群中创建一个 topic(如果不存在):</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ curl -d &#39;hello world 1&#39; &#39;http://127.0.0.1:4151/pub?topic=test&#39;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ curl -d &#39;hello world 1&#39; &#39;http://127.0.0.1:4151/pub?topic=test&#39;
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol start="5">
 <li>再开一个 Shell 执行 <strong>nsq_to_file</strong></li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ nsq_to_file --topic=test --output-dir=/tmp --lookupd-http-address=127.0.0.1:4161</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nsq_to_file --topic=test --output-dir=/tmp --lookupd-http-address=127.0.0.1:4161
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol start="6">
 <li>发布更多消息到 <strong>nsqd</strong></li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ curl -d &#39;hello world 2&#39; &#39;http://127.0.0.1:4151/pub?topic=test&#39;
-$ curl -d &#39;hello world 3&#39; &#39;http://127.0.0.1:4151/pub?topic=test&#39;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ curl -d &#39;hello world 2&#39; &#39;http://127.0.0.1:4151/pub?topic=test&#39;
+$ curl -d &#39;hello world 3&#39; &#39;http://127.0.0.1:4151/pub?topic=test&#39;
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol start="7">
 <li>打开 <code>http://127.0.0.1:4171/</code> 可以看到管理的 UI, 验证刚刚执行的一些数据, 也可以查看 <code>/tmp</code> 里边 <code>test.*.log</code> 的内容</li>
 </ol>
-
-<hr />
-
+<hr>
 <h4 id="topic-and-channels">Topic and Channels</h4>
-
 <p>NSQ 的消息传递支持 <strong>multicast(多播)</strong> 和 <strong>load-balanced(负载均衡)</strong> 两种方式组合的消息路由</p>
-
 <p>multicast: 一则消息的发布会被所有订阅者接收到
 load-balanced: 一则消息的发布会只会被其中的一个订阅者接收到</p>
-
 <p>当一个 consumer 被创建以后, 订阅的是 <strong>topic/channel</strong> 的组合, 而当 producer 被创建以后, 所发布的消息是到 <strong>topic</strong> 这一层的, 然后再复制到每一个不同的 <strong>channel</strong>.</p>
-
 <p>比如, 有 Consumer1, Consumer2, Consumer3 都订阅了 <code>a_topic/a_channel</code>, 当 Producer1 发布消息到 <code>a_topic</code> 时, 每一则只会被这三个 Consumer 之中的一个接收到, 当发布三则消息的时候, 每个 Consumer 都收到一个. 这是 <strong>load-balanced(负载均衡)</strong>.</p>
-
 <p>再有, 假设当 Consumer1 订阅了 <code>a_topic/channel1</code>, Consumer2 订阅了 <code>a_topic/channel2</code>, Consumer3 订阅了 <code>a_topic/channel3</code>, 此时, 每次 Producer1 发布消息到 <code>a_topic</code>, 这三个 Consumer 都将接收到. 这是 <strong>multicast(多播)</strong>.</p>
-
 <p>组合起来, <a href="https://nsq.io/overview/design.html">官网的例子</a>,</p>
-
-<p><img src="https://f.cloud.github.com/assets/187441/1700696/f1434dc8-6029-11e3-8a66-18ca4ea10aca.gif" alt="" /></p>
-
+<p><img src="https://f.cloud.github.com/assets/187441/1700696/f1434dc8-6029-11e3-8a66-18ca4ea10aca.gif" alt=""></p>
 <ul>
 <li>Consumer1 订阅了 <code>clicks/metrics</code></li>
 <li>Consumer2 订阅了 <code>clicks/metrics</code></li>
@@ -259,33 +240,21 @@ load-balanced: 一则消息的发布会只会被其中的一个订阅者接收�
 <li>Consumer4 订阅了 <code>clicks/spam_analytics</code></li>
 <li>Consumer5 订阅了 <code>clicks/archives</code></li>
 </ul>
-
 <p>当 Producer 发布一则消息 A, Consumer 1/2/3 之中的一个(动图中的第二个 Consumer)会接收到, 另外 Consumer4 和 Consumer5 也都会收到消息 A. 当发布消息 B 时, Consumer4 和 Consumer5 都会接收到消息 B, 而 Consumer 1/2/3 依然只有一个会接收到消息 B(动图中的第一个 Consumer),</p>
-
-<hr />
-
+<hr>
 <p>NSQ 自带有一系列的 helper 应用, <strong>nsqlookupd</strong>, 用来管理 nsqd 所发布的 topics 以方便客户端发现与查找并且对感兴趣的 topic 进行订阅. 解耦发布与订阅之间的依赖关系, 各自做好自己的事就够了, 有什么都冲着 nsqlookupd 这个进程去.</p>
-
 <p>可以通过 <code>nsqlookupd --help</code> 查询到详细的用法, 各个参数的作用. 最主要的就是 <strong>-http-address</strong>(nsqadmin 各种管理用, 默认 0.0.0.0:4161) 和 <strong>-tcp-address</strong>(nsqd 用, 默认 0.0.0.0:4160)</p>
-
 <p><a href="https://nsq.io/components/nsqd.html"><strong>nsqd</strong></a> 是一个负责处理消息的接收, 排队, 以及投递给客户端的守护进程. 尽管 nsqd 可以独立运行, 但是通常和 nsqlookupd 实例配置再一个集群中. 这样的 <strong>nsqd</strong> 进程会有一个与 <strong>nsqlookupd</strong> 的 TCP 长连接, 间隔定时往 nsqlookupd 推送自己的状态信息, 从而 nsqlookupd 就可以告知用户 nsqd 的地址信息.</p>
-
 <p>nsqd 会默认监听一个 tcp 端口(4150)和一个 http 端口(4151), 和可选的 https 端口.</p>
-
 <p><strong>nsqadmin</strong>, 简单拿 bootstrap 包装了一下各种管理统计数据的 Web UI.</p>
-
 <p>hello world 例子中的 <strong>nsq_to_file</strong> 创建一个订阅指定 topic 的 Consumer, 并写入指定的 file, 除了这个之外还有 <code>nsq_to_http</code>, <code>nsq_to_nsq</code></p>
-
-<hr />
-
+<hr>
 <h4 id="go-nsq">go-nsq</h4>
-
 <p>官方包 <a href="https://github.com/nsqio/go-nsq">https://github.com/nsqio/go-nsq</a>, 上面提到的 nsq_to_file 的, 本身就是拿这个<a href="https://github.com/nsqio/nsq/tree/master/apps">官方包</a>写的 = 。 = 好吧, nsq 就是 Go 写的.</p>
-
 <h5 id="producer">Producer</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -336,13 +305,13 @@ load-balanced: 一则消息的发布会只会被其中的一个订阅者接收�
         <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;publish error: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
     <span class="p">}</span>
     <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="consumer">Consumer</h5>
+</div><h5 id="consumer">Consumer</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -382,6 +351,8 @@ load-balanced: 一则消息的发布会只会被其中的一个订阅者接收�
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">config</span> <span class="o">:=</span> <span class="nx">nsq</span><span class="p">.</span><span class="nf">NewConfig</span><span class="p">()</span>
@@ -423,7 +394,10 @@ load-balanced: 一则消息的发布会只会被其中的一个订阅者接收�
 <span class="c1">// Stop will initiate a graceful stop of the Consumer (permanent)
 </span><span class="c1">//
 </span><span class="c1">// NOTE: receive on StopChan to block until this process completes
-</span><span class="c1"></span><span class="o">//</span> <span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Consumer</span><span class="p">)</span> <span class="nf">Stop</span><span class="p">()</span> <span class="p">{</span></code></pre></td></tr></table>
+</span><span class="c1">// func (r *Consumer) Stop() {
+</span><span class="c1"></span>
+
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -470,7 +444,7 @@ load-balanced: 一则消息的发布会只会被其中的一个订阅者接收�
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -488,7 +462,7 @@ load-balanced: 一则消息的发布会只会被其中的一个订阅者接收�
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

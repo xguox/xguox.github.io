@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/go-linked-list-lru-cache.html/" />
+<link rel="canonical" href="https://xguox.com/go-linked-list-lru-cache.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Golang, 链表, LRU 缓存淘汰策略" />
 <meta property="og:description" content="当缓存的空间即将达到临界值的时候, 需要将一些旧的数据清理掉, 哪些该去, 哪些该留, 常用的缓存淘汰策略有下面三种: FIFO(First In，First Out) 先进先出策" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/go-linked-list-lru-cache.html/" />
-<meta property="article:published_time" content="2018-10-15T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2018-10-15T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/go-linked-list-lru-cache.html/" />
+<meta property="article:published_time" content="2018-10-15T16:01:23+08:00" />
+<meta property="article:modified_time" content="2018-10-15T16:01:23+08:00" />
 <meta itemprop="name" content="Golang, 链表, LRU 缓存淘汰策略">
 <meta itemprop="description" content="当缓存的空间即将达到临界值的时候, 需要将一些旧的数据清理掉, 哪些该去, 哪些该留, 常用的缓存淘汰策略有下面三种: FIFO(First In，First Out) 先进先出策">
-
-
 <meta itemprop="datePublished" content="2018-10-15T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-15T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1221">
+<meta itemprop="wordCount" content="1229">
 
 
 
-<meta itemprop="keywords" content="Go,Algorithm," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go,Algorithm," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang, 链表, LRU 缓存淘汰策略"/>
 <meta name="twitter:description" content="当缓存的空间即将达到临界值的时候, 需要将一些旧的数据清理掉, 哪些该去, 哪些该留, 常用的缓存淘汰策略有下面三种: FIFO(First In，First Out) 先进先出策"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 15 Oct 2018 </span>
-          <span class="more-meta"> 1221 words </span>
+          <span class="more-meta"> 1229 words </span>
           <span class="more-meta"> 3 mins read </span>
         
       </div>
@@ -154,30 +150,23 @@
 
     
     <div class="post-content">
-      
-
-<p>当缓存的空间即将达到临界值的时候, 需要将一些旧的数据清理掉, 哪些该去, 哪些该留, 常用的缓存淘汰策略有下面三种:</p>
-
+      <p>当缓存的空间即将达到临界值的时候, 需要将一些旧的数据清理掉, 哪些该去, 哪些该留, 常用的缓存淘汰策略有下面三种:</p>
 <ul>
 <li>FIFO(First In，First Out) 先进先出策略</li>
 <li>LFU(Least Frequently Used) 最少使用策略</li>
 <li>LRU(Least Recently Used) 最近最少使用策略</li>
 </ul>
-
-<p>这里<strong>基于 Go 分别使用单向链表(Singly Linked List)和双向链表(Doubly Linked List)</strong>实现最后的这个 <strong>LRU 最近最少使用策略</strong>.</p>
-
+<p>这里**基于 Go 分别使用单向链表(Singly Linked List)和双向链表(Doubly Linked List)**实现最后的这个 <strong>LRU 最近最少使用策略</strong>.</p>
 <p>各种术语加上英文缩写看着好像很流弊, 用人话描述这个策略的基本思路其实也不难理解:</p>
-
 <ol>
 <li><strong>新的数据插入到链表头部</strong></li>
 <li><strong>当链表中的数据被访问以后, 将该数据重置到链表头部</strong></li>
 <li><strong>当链表达到临界值时候, 将链表尾部的数据丢弃</strong></li>
 </ol>
-
-<h5 id="单向链表-singly-linked-list">单向链表(Singly Linked List)</h5>
+<h5 id="单向链表singly-linked-list">单向链表(Singly Linked List)</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -292,6 +281,7 @@
 </span><span class="lnt">113
 </span><span class="lnt">114
 </span><span class="lnt">115
+</span><span class="lnt">116
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -408,17 +398,16 @@
     <span class="nx">lru</span><span class="p">.</span><span class="nf">searchNode</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="nx">lru</span><span class="p">.</span><span class="nf">searchNode</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
     <span class="nx">lru</span><span class="p">.</span><span class="nb">print</span><span class="p">()</span> <span class="c1">// 99 -&gt; 2 -&gt; 22222 -&gt;
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>实际上, 也不会有人只用一个单向链表来实现 LRU (练习用 Go 写链表 = 。 = ), 插入和删除<strong>本身</strong>的时间复杂度虽然都是 O(1), 但是, 如果要插入或者删除特定位置的节点, 还得遍历查找, 时间复杂度 O(n). 所以, 一般都会连同使用哈希表来优化查找.</p>
+</span><span class="c1"></span><span class="p">}</span>
 
-<h5 id="双向链表-doubly-linked-list">双向链表(Doubly Linked List)</h5>
-
+</code></pre></td></tr></table>
+</div>
+</div><p>实际上, 也不会有人只用一个单向链表来实现 LRU (练习用 Go 写链表 = 。 = ), 插入和删除<strong>本身</strong>的时间复杂度虽然都是 O(1), 但是, 如果要插入或者删除特定位置的节点, 还得遍历查找, 时间复杂度 O(n). 所以, 一般都会连同使用哈希表来优化查找.</p>
+<h5 id="双向链表doubly-linked-list">双向链表(Doubly Linked List)</h5>
 <p>事实是, <a href="https://golang.org/src/container/list/list.go">Go 已经内建有双向链表</a>, 所以, 直接用就是了. 😜</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -510,9 +499,14 @@
 </span><span class="lnt">90
 </span><span class="lnt">91
 </span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre class="chroma"><code class="language-go" data-lang="go">
+
+<span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;container/list&#34;</span>
@@ -603,10 +597,11 @@
 	<span class="nx">lru</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;sony&#34;</span><span class="p">,</span> <span class="s">&#34;a7r&#34;</span><span class="p">)</span>
 	<span class="nx">lru</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;gfx&#34;</span><span class="p">)</span>
 	<span class="nx">lru</span><span class="p">.</span><span class="nb">print</span><span class="p">()</span> <span class="c1">// &amp;{gfx 50s} -&gt; &amp;{sony a7r} -&gt; &amp;{x xt3} -&gt; &amp;{n 200} -&gt; &amp;{y fujifilm} -&gt;
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>最后, 这里的实现并不是并发安全的 = 。 =</p>
+</div><p>最后, 这里的实现并不是并发安全的 = 。 =</p>
 
     </div>
 
@@ -653,7 +648,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -671,7 +666,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

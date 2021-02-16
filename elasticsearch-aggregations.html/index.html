@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/elasticsearch-aggregations.html/" />
+<link rel="canonical" href="https://xguox.com/elasticsearch-aggregations.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Elasticsearch Aggregations 聚合分析" />
 <meta property="og:description" content="Elasticsearch 除了全文搜索以外还有一个主要功能, 就是数据的聚合分析, Aggregations. 有点类似于 SQL 中的 GROUP BY. Elasticsearch 的 Aggregations API 给出了一大堆的用法. 1.X 主要分两类: Bucket Aggregations 和 Metrics Aggregations, 2.X 多了一类" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/elasticsearch-aggregations.html/" />
-<meta property="article:published_time" content="2016-03-31T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-03-31T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/elasticsearch-aggregations.html/" />
+<meta property="article:published_time" content="2016-03-31T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-03-31T16:01:23+08:00" />
 <meta itemprop="name" content="Elasticsearch Aggregations 聚合分析">
 <meta itemprop="description" content="Elasticsearch 除了全文搜索以外还有一个主要功能, 就是数据的聚合分析, Aggregations. 有点类似于 SQL 中的 GROUP BY. Elasticsearch 的 Aggregations API 给出了一大堆的用法. 1.X 主要分两类: Bucket Aggregations 和 Metrics Aggregations, 2.X 多了一类">
-
-
 <meta itemprop="datePublished" content="2016-03-31T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-03-31T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1405">
+<meta itemprop="wordCount" content="1403">
 
 
 
-<meta itemprop="keywords" content="Elasticsearch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Elasticsearch Aggregations 聚合分析"/>
 <meta name="twitter:description" content="Elasticsearch 除了全文搜索以外还有一个主要功能, 就是数据的聚合分析, Aggregations. 有点类似于 SQL 中的 GROUP BY. Elasticsearch 的 Aggregations API 给出了一大堆的用法. 1.X 主要分两类: Bucket Aggregations 和 Metrics Aggregations, 2.X 多了一类"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 31 Mar 2016 </span>
-          <span class="more-meta"> 1405 words </span>
+          <span class="more-meta"> 1403 words </span>
           <span class="more-meta"> 3 mins read </span>
         
       </div>
@@ -153,23 +149,16 @@
 
     
     <div class="post-content">
-      
-
-<p><strong>Elasticsearch</strong> 除了全文搜索以外还有一个主要功能, 就是数据的聚合分析, <strong>Aggregations</strong>. 有点类似于 SQL 中的 <code>GROUP BY</code>.</p>
-
+      <p><strong>Elasticsearch</strong> 除了全文搜索以外还有一个主要功能, 就是数据的聚合分析, <strong>Aggregations</strong>. 有点类似于 SQL 中的 <code>GROUP BY</code>.</p>
 <p>Elasticsearch 的 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/1.7/search-aggregations.html">Aggregations API</a> 给出了一大堆的用法.</p>
-
 <p>1.X 主要分两类: <strong>Bucket Aggregations</strong> 和 <strong>Metrics Aggregations</strong>, 2.X 多了一类 <strong>Pipeline aggregations</strong>. Pipeline aggregations 比较新, 官方的说法是在未来的改动会较大, 甚至会移除, 所以, 暂时不讨论先.</p>
-
 <p><strong>Metrics Aggregations</strong> 顾名思义, 主要是用于计算特定的度量字段, 其实也不一定是文档的某个特定字段值, 可以是文档通过 script 生成的值. Metrics Aggregations 是不能有子聚合的(sub-aggregations)</p>
-
-<p><strong>Bucket Aggregations</strong> 英语的 Bucket 有&rsquo;桶&rsquo;的意思, 按照官方的说法, Bucket Aggregations 定义了一些特定的条件, 比如 &lsquo;country&rsquo; 字段值为 &lsquo;Canada&rsquo;, 或者 &lsquo;gender&rsquo; 字段值为 &lsquo;Male&rsquo;, &lsquo;comments_count&rsquo; 在区间 <code>[{ to: 50 },{ from: 50, to: 150 }, { from: 150, to: 500 }]</code> 之中等等, 只要文档满足这些条件就丢进这个桶(Bucket)里面.   Bucketing aggregations 可以有子聚合(sub-aggregations), sub-aggregations 可以是 Bucketing aggregations 也可以是 Metrics Aggregations. 子聚合是在父聚合&rdquo;桶里面&rdquo;的文档集合上继续做聚合分析的.
+<p><strong>Bucket Aggregations</strong> 英语的 Bucket 有&rsquo;桶&rsquo;的意思, 按照官方的说法, Bucket Aggregations 定义了一些特定的条件, 比如 &lsquo;country&rsquo; 字段值为 &lsquo;Canada&rsquo;, 或者 &lsquo;gender&rsquo; 字段值为 &lsquo;Male&rsquo;, &lsquo;comments_count&rsquo; 在区间 <code>[{ to: 50 },{ from: 50, to: 150 }, { from: 150, to: 500 }]</code> 之中等等, 只要文档满足这些条件就丢进这个桶(Bucket)里面.   Bucketing aggregations 可以有子聚合(sub-aggregations), sub-aggregations 可以是 Bucketing aggregations 也可以是 Metrics Aggregations. 子聚合是在父聚合&quot;桶里面&quot;的文档集合上继续做聚合分析的.
 大部分情况下, 配合这两种聚合类型一起用才能发挥更多功效.</p>
-
 <h5 id="aggregations-的语法结构">Aggregations 的语法结构:</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,13 +182,11 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>如果喜欢敲多几个字母的话, <code>aggs</code> 可以用 <code>aggregations</code>来代替.</p>
-
+</div><p>如果喜欢敲多几个字母的话, <code>aggs</code> 可以用 <code>aggregations</code>来代替.</p>
 <p>举个栗子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -273,11 +260,10 @@
 </span><span class="s1">&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>返回结果:</p>
+</div><p>返回结果:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -347,13 +333,11 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p><code>size: 0</code> 是指只返回聚合结果, 不加这个条件的话, [&ldquo;hits&rdquo;][&ldquo;hits&rdquo;] 对应的值会是一个包含所有匹配文档的数组.</p>
-
+</div><p><code>size: 0</code> 是指只返回聚合结果, 不加这个条件的话, [&ldquo;hits&rdquo;][&ldquo;hits&rdquo;] 对应的值会是一个包含所有匹配文档的数组.</p>
 <h5 id="当使用-filter-aggregation-时候">当使用 Filter Aggregation 时候</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -473,13 +457,11 @@
 </span><span class="s1">&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="elasticsearch-aggregation-不支持分页">Elasticsearch Aggregation 不支持分页</h5>
-
+</div><h5 id="elasticsearch-aggregation-不支持分页">Elasticsearch Aggregation 不支持分页</h5>
 <p>默认结果是只返回 <code>doc_count</code> 前十的的 keys, 如果要使结果返回所有的 keys 的话, 需要加上 <code>&quot;size&quot;: 0</code>, 比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -505,11 +487,10 @@
 </span><span class="s1">}&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>如果不加 <code>&quot;size&quot;: 0</code>, 返回是这样子的:</p>
+</div><p>如果不加 <code>&quot;size&quot;: 0</code>, 返回是这样子的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -615,26 +596,16 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>一直以来都有很多人抱怨为嘛不给 Aggregation 加上分页, 这里有讨论<a href="https://github.com/elastic/elasticsearch/issues/4915">https://github.com/elastic/elasticsearch/issues/4915</a>
+</div><p>一直以来都有很多人抱怨为嘛不给 Aggregation 加上分页, 这里有讨论<a href="https://github.com/elastic/elasticsearch/issues/4915">https://github.com/elastic/elasticsearch/issues/4915</a>
 目前数据量不算太巨大的时候, 还是可以搞假分页的(仅仅视觉上), 不过每次还是把所有的结果都取出来了.</p>
-
-<hr />
-
+<hr>
 <h3 id="related">Related:</h3>
-
 <p><a href="http://xguox.me/elasticsearch-ik-mmseg-homebrew-ubuntu.html">Elasticsearch 开箱笔记</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-rails.html">Elasticsearch on Rails</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-more-like-this.html">Elasticsearch More Like This 搜索</a></p>
-
 <p><a href="http://xguox.me/upgrade-elasticsearch-2-3.html">Upgrade Elasticsearch to 2.3</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-scroll.html">Elasticsearch Scroll (Ruby)</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-custom-analyzer.html">Elasticsearch analysis &amp; 自定义 analyzers</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-Changing-Mapping-with-Zero-Downtime.html">Elasticsearch 如何不用停机情况下完成 mapping 的修改</a></p>
 
     </div>
@@ -681,7 +652,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -699,7 +670,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

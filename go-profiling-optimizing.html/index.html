@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/go-profiling-optimizing.html/" />
+<link rel="canonical" href="https://xguox.com/go-profiling-optimizing.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Go 程序的性能监控与分析 pprof" />
 <meta property="og:description" content="Go 开箱就提供了一系列的性能监控 API 以及用于分析的工具, 可以快捷而有效地观察应用各个细节的 CPU 与内存使用概况, 包括生成一些可视化的数据(需要额外安" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/go-profiling-optimizing.html/" />
-<meta property="article:published_time" content="2019-01-23T01:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2019-01-23T01:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/go-profiling-optimizing.html/" />
+<meta property="article:published_time" content="2019-01-23T01:01:23+08:00" />
+<meta property="article:modified_time" content="2019-01-23T01:01:23+08:00" />
 <meta itemprop="name" content="Go 程序的性能监控与分析 pprof">
 <meta itemprop="description" content="Go 开箱就提供了一系列的性能监控 API 以及用于分析的工具, 可以快捷而有效地观察应用各个细节的 CPU 与内存使用概况, 包括生成一些可视化的数据(需要额外安">
-
-
 <meta itemprop="datePublished" content="2019-01-23T01:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-23T01:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1549">
 
 
 
-<meta itemprop="keywords" content="Go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go 程序的性能监控与分析 pprof"/>
 <meta name="twitter:description" content="Go 开箱就提供了一系列的性能监控 API 以及用于分析的工具, 可以快捷而有效地观察应用各个细节的 CPU 与内存使用概况, 包括生成一些可视化的数据(需要额外安"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -153,16 +149,12 @@
 
     
     <div class="post-content">
-      
-
-<p>Go 开箱就提供了一系列的性能监控 API 以及用于分析的工具, 可以快捷而有效地观察应用各个细节的 CPU 与内存使用概况, 包括生成一些可视化的数据(需要额外安装 <a href="https://www.graphviz.org/">Graphviz</a>).</p>
-
+      <p>Go 开箱就提供了一系列的性能监控 API 以及用于分析的工具, 可以快捷而有效地观察应用各个细节的 CPU 与内存使用概况, 包括生成一些可视化的数据(需要额外安装 <a href="https://www.graphviz.org/">Graphviz</a>).</p>
 <p><a href="https://gist.github.com/xguox/dcabd3573b39bf64bc7b961d4a64f478">例子 gist</a> 来自之前的 <a href="https://xguox.me/trie-implementing-ruby-vs-golang.html/">Trie 的实现, Ruby vs Go</a>.</p>
-
 <p><code>main</code> 函数加上了下面几行:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -175,19 +167,17 @@
 </span><span class="c1"></span><span class="nx">cpuProfile</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;cpu_profile&#34;</span><span class="p">)</span>
 <span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">cpuProfile</span><span class="p">)</span>
 <span class="k">defer</span> <span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
-<span class="o">//</span> <span class="o">...</span></code></pre></td></tr></table>
+<span class="c1">// ...
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>这里 <code>os.Create(&quot;cpu_profile&quot;)</code> 指定生成的数据文件, 然后 <code>pprof.StartCPUProfile</code> 看名字就知道是开始对 CPU 的使用进行监控. 有开始就有结束, 一般直接跟着 <code>defer pprof.StopCPUProfile()</code> 省的后面忘了. 编译执行一次以后会在目录下生成监控数据并记录到 <strong>cpu_profile</strong>. 接着就可以使用 <strong>pprof</strong> 来解读分析这些监控生成的数据.</p>
-
+</div><p>这里 <code>os.Create(&quot;cpu_profile&quot;)</code> 指定生成的数据文件, 然后 <code>pprof.StartCPUProfile</code> 看名字就知道是开始对 CPU 的使用进行监控. 有开始就有结束, 一般直接跟着 <code>defer pprof.StopCPUProfile()</code> 省的后面忘了. 编译执行一次以后会在目录下生成监控数据并记录到 <strong>cpu_profile</strong>. 接着就可以使用 <strong>pprof</strong> 来解读分析这些监控生成的数据.</p>
 <blockquote>
 <p>When CPU profiling is enabled, the Go program stops about 100 times per second and records a sample consisting of the program counters on the currently executing goroutine&rsquo;s stack.</p>
 </blockquote>
-
 <h1 id="cpu-profiling">CPU Profiling</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -200,17 +190,15 @@
 <span class="nx">Time</span><span class="p">:</span> <span class="nx">Jan</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2019</span> <span class="nx">at</span> <span class="mi">3</span><span class="p">:</span><span class="mo">02</span><span class="nf">pm</span> <span class="p">(</span><span class="nx">CST</span><span class="p">)</span>
 <span class="nx">Duration</span><span class="p">:</span> <span class="mf">518.52</span><span class="nx">ms</span><span class="p">,</span> <span class="nx">Total</span> <span class="nx">samples</span> <span class="p">=</span> <span class="mi">570</span><span class="nf">ms</span> <span class="p">(</span><span class="mf">109.93</span><span class="o">%</span><span class="p">)</span>
 <span class="nx">Entering</span> <span class="nx">interactive</span> <span class="nf">mode</span> <span class="p">(</span><span class="kd">type</span> <span class="s">&#34;help&#34;</span> <span class="k">for</span> <span class="nx">commands</span><span class="p">,</span> <span class="s">&#34;o&#34;</span> <span class="k">for</span> <span class="nx">options</span><span class="p">)</span>
-<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>因为是在多核环境, 所以, 取样时间(Total samples) 占比大于 100% 也属于正常的. 交互操作模式提供了一大票的命令, 执行一下 <code>help</code> 就有相应的文档了. 比如输出报告到各种格式(pdf, png, gif), 方块越大个表示消耗越大.</p>
-
-<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzfdl1w0vkj21jo1dyh48.jpg" alt="" /></p>
-
+</div><p>因为是在多核环境, 所以, 取样时间(Total samples) 占比大于 100% 也属于正常的. 交互操作模式提供了一大票的命令, 执行一下 <code>help</code> 就有相应的文档了. 比如输出报告到各种格式(pdf, png, gif), 方块越大个表示消耗越大.</p>
+<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzfdl1w0vkj21jo1dyh48.jpg" alt=""></p>
 <p>又或者列出 CPU 占比最高的一些(默认十个)运行结点的 <code>top</code> 命令, 也可以加上需要的结点数比如 <code>top15</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -239,64 +227,47 @@
     <span class="mi">20</span><span class="nx">ms</span>  <span class="mf">3.51</span><span class="o">%</span> <span class="mf">75.44</span><span class="o">%</span>       <span class="mi">20</span><span class="nx">ms</span>  <span class="mf">3.51</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.</span><span class="nx">findObject</span>
     <span class="mi">20</span><span class="nx">ms</span>  <span class="mf">3.51</span><span class="o">%</span> <span class="mf">78.95</span><span class="o">%</span>      <span class="mi">230</span><span class="nx">ms</span> <span class="mf">40.35</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.</span><span class="nx">gcDrain</span>
     <span class="mi">20</span><span class="nx">ms</span>  <span class="mf">3.51</span><span class="o">%</span> <span class="mf">82.46</span><span class="o">%</span>       <span class="mi">20</span><span class="nx">ms</span>  <span class="mf">3.51</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.</span><span class="nx">pthread_cond_wait</span>
-    <span class="mi">10</span><span class="nx">ms</span>  <span class="mf">1.75</span><span class="o">%</span> <span class="mf">84.21</span><span class="o">%</span>       <span class="mi">10</span><span class="nx">ms</span>  <span class="mf">1.75</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.(</span><span class="o">*</span><span class="nx">gcWork</span><span class="p">).</span><span class="nf">tryGetFast</span> <span class="p">(</span><span class="nx">inline</span><span class="p">)</span></code></pre></td></tr></table>
+    <span class="mi">10</span><span class="nx">ms</span>  <span class="mf">1.75</span><span class="o">%</span> <span class="mf">84.21</span><span class="o">%</span>       <span class="mi">10</span><span class="nx">ms</span>  <span class="mf">1.75</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.(</span><span class="o">*</span><span class="nx">gcWork</span><span class="p">).</span><span class="nf">tryGetFast</span> <span class="p">(</span><span class="nx">inline</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li><strong>flat</strong>: 是指该函数执行耗时, 程序总耗时 570ms, <code>main.NewNode</code> 的 200ms 占了 35.09%</li>
 <li><strong>sum</strong>: 当前函数与排在它上面的其他函数的 flat 占比总和, 比如 <code>35.09% + 12.28% = 47.37%</code></li>
 <li><strong>cum</strong>: 是指该函数加上在该函数调用之前累计的总耗时, 这个看图片格式的话会更清晰一些.</li>
 </ul>
-
 <p>可以看到, 这里最耗 CPU 时间的是 <code>main.NewNode</code> 这个操作.</p>
-
 <p>除此外还有 <code>list</code> 命令可以根据匹配的参数列出指定的函数相关数据, 比如:</p>
-
-<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1fzfdmog0otj22801e07er.jpg" alt="" /></p>
-
+<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1fzfdmog0otj22801e07er.jpg" alt=""></p>
 <h1 id="memory-profiling">Memory Profiling</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// ...
 </span><span class="c1"></span><span class="nx">memProfile</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;mem_profile&#34;</span><span class="p">)</span>
-<span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">memProfile</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">memProfile</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>类似 CPU 的监控, 要监控内存的分配回收使用情况, 只要调用 <code>pprof.WriteHeapProfile(memProfile)</code></p>
-
-<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1fzfcrz69vwj22801e0nce.jpg" alt="" /></p>
-
+</div><p>类似 CPU 的监控, 要监控内存的分配回收使用情况, 只要调用 <code>pprof.WriteHeapProfile(memProfile)</code></p>
+<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1fzfcrz69vwj22801e0nce.jpg" alt=""></p>
 <p>然后是跟上面一样的生成图片:</p>
-
-<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzfcvmtt83j21y617aayy.jpg" alt="" /></p>
-
+<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzfcvmtt83j21y617aayy.jpg" alt=""></p>
 <p><strong>Type: inuse_space</strong> 是监控内存的默认选项, 还可以选 <strong>-alloc_space</strong>, <strong>-inuse_objects</strong>, <strong>-alloc_objects</strong></p>
-
 <p>inuse_space 是正在使用的内存大小, alloc_space是从头到尾一共分配了的内存大小(包括已经回收了的), 后缀为 <code>_objects</code> 的是相应的对象数</p>
-
-<h1 id="net-http-pprof">net/http/pprof</h1>
-
+<h1 id="nethttppprof">net/http/pprof</h1>
 <p>对于 http 服务的监控有一些些的不同, 不过 Go 已经对 pprof 做了一些封装在 <code>net/http/pprof</code></p>
-
 <p><a href="https://gist.github.com/xguox/f0603d9e3ef48148d4bd84fa209c6de5">例子 gist</a> 来自<a href="https://xguox.me/gin-source-code.html/">从 net/http 入门到 Gin 源码梳理</a></p>
-
 <p>引入多一行 <code>_ &quot;net/http/pprof&quot;</code>, 启用服务以后就可以在路径 <code>/debug/pprof/</code> 看到相应的监控数据. 类似下面(已经很贴心的把各自的描述信息写在下边了):</p>
-
 <p>用 wrk (brew install wrk) 模拟测试</p>
-
 <p><code>wrk -c 200 -t 4 -d 3m http://localhost:8080/hello</code></p>
-
-<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzfftiaid1j22801e0akx.jpg" alt="" /></p>
-
-<p>还是没有前面的那些可视化图形 UI 直观, 不过可以通过 <strong><a href="http://localhost:8080/debug/pprof/profile">http://localhost:8080/debug/pprof/profile</a></strong> (其他几个指标也差不多, heap, alloc&hellip;)生成一个类似前面的 CPU profile 文件监控 <strong>30s</strong> 内的数据. 然后就可以用 <code>go tool pprof</code>来解读了.</p>
+<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzfftiaid1j22801e0akx.jpg" alt=""></p>
+<p>还是没有前面的那些可视化图形 UI 直观, 不过可以通过 <strong>http://localhost:8080/debug/pprof/profile</strong> (其他几个指标也差不多, heap, alloc&hellip;)生成一个类似前面的 CPU profile 文件监控 <strong>30s</strong> 内的数据. 然后就可以用 <code>go tool pprof</code>来解读了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -377,15 +348,14 @@
     <span class="mf">0.13</span><span class="nx">GB</span>  <span class="mf">0.58</span><span class="o">%</span> <span class="mf">99.25</span><span class="o">%</span>     <span class="mf">0.13</span><span class="nx">GB</span>  <span class="mf">0.58</span><span class="o">%</span>  <span class="nx">main</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">func1</span>
     <span class="mf">0.12</span><span class="nx">GB</span>  <span class="mf">0.56</span><span class="o">%</span> <span class="mf">99.82</span><span class="o">%</span>     <span class="mf">0.12</span><span class="nx">GB</span>  <span class="mf">0.56</span><span class="o">%</span>  <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewWriterSize</span> <span class="p">(</span><span class="nx">inline</span><span class="p">)</span>
          <span class="mi">0</span>     <span class="mi">0</span><span class="o">%</span> <span class="mf">99.82</span><span class="o">%</span>     <span class="mf">0.13</span><span class="nx">GB</span>  <span class="mf">0.59</span><span class="o">%</span>  <span class="nx">net</span><span class="o">/</span><span class="nx">http</span><span class="p">.(</span><span class="o">*</span><span class="nx">ServeMux</span><span class="p">).</span><span class="nf">ServeHTTP</span>
-<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="gin-pprof">gin pprof</h2>
-
+</div><h2 id="gin-pprof">gin pprof</h2>
 <p><code>import _ &quot;net/http/pprof&quot;</code> 实际上是为了执行包 <strong>net/http/pprof</strong> 中的 init 函数.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -402,39 +372,32 @@
     <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/profile&#34;</span><span class="p">,</span> <span class="nx">Profile</span><span class="p">)</span>
     <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/symbol&#34;</span><span class="p">,</span> <span class="nx">Symbol</span><span class="p">)</span>
     <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/trace&#34;</span><span class="p">,</span> <span class="nx">Trace</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>因此, <strong>Gin</strong> 项目要使用 <strong>pprof</strong> 的话可以参考<a href="https://github.com/DeanThompson/ginpprof/blob/master/pprof.go">这里</a></p>
-
+</div><p>因此, <strong>Gin</strong> 项目要使用 <strong>pprof</strong> 的话可以参考<a href="https://github.com/DeanThompson/ginpprof/blob/master/pprof.go">这里</a></p>
 <h1 id="flame-graph-火焰图">Flame Graph 火焰图</h1>
-
 <p><a href="https://github.com/uber/go-torch">go-torch</a> 在 <strong>Go 1.11</strong> 之前是作为非官方的可视化工具存在的, 它可以为监控数据生成一个类似下面这样的图形界面, 红红火火的, 因而得名. 从 <strong>Go 1.11</strong> 开始, 火焰图被集成进入 Go 官方的 <strong>pprof</strong> 库.</p>
-
-<p><img src="https://camo.githubusercontent.com/496577fa999cda41f65a01923afc75ed02993845/687474703a2f2f756265722e6769746875622e696f2f676f2d746f7263682f6d6574612e737667" alt="" /></p>
-
+<p><img src="https://camo.githubusercontent.com/496577fa999cda41f65a01923afc75ed02993845/687474703a2f2f756265722e6769746875622e696f2f676f2d746f7263682f6d6574612e737667" alt=""></p>
 <blockquote>
 <p>go-torch is deprecated, use pprof instead</p>
-
+</blockquote>
+<blockquote>
 <p>As of Go 1.11, flamegraph visualizations are available in go tool pprof directly!</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="o">-</span><span class="nx">http</span><span class="p">=</span><span class="s">&#34;:8081&#34;</span> <span class="p">[</span><span class="nx">binary</span><span class="p">]</span> <span class="p">[</span><span class="nx">profile</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="o">-</span><span class="nx">http</span><span class="p">=</span><span class="s">&#34;:8081&#34;</span> <span class="p">[</span><span class="nx">binary</span><span class="p">]</span> <span class="p">[</span><span class="nx">profile</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在浏览器打开 <strong><a href="http://localhost:8081/ui/flamegraph">http://localhost:8081/ui/flamegraph</a></strong>, 就可以看到下面这样的反过来的火焰图.</p>
-
+</div><p>在浏览器打开 <strong>http://localhost:8081/ui/flamegraph</strong>, 就可以看到下面这样的反过来的火焰图.</p>
 <p>长条形的颜色只是为了好看, 颜色的深浅是随机的 = 。=  长度越长代表占用 CPU 时间越长</p>
-
-<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1fzgbuz1x3nj227y0swaj2.jpg" alt="" /></p>
-
+<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1fzgbuz1x3nj227y0swaj2.jpg" alt=""></p>
 <p>然后, <strong>pprof</strong> 命令行的 <strong>top</strong> 以及 <strong>list</strong> 正则也可以在这里边完成, 还有 <strong>svg</strong> 图形.</p>
-
-<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzgbuzpge6j21le0ocq8b.jpg" alt="" /></p>
+<p><img src="http://wx3.sinaimg.cn/large/62fdd4d5gy1fzgbuzpge6j21le0ocq8b.jpg" alt=""></p>
 
     </div>
 
@@ -480,7 +443,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -498,7 +461,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

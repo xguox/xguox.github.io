@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/elasticsearch-build-development-cluster-with-vagrant.html/" />
+<link rel="canonical" href="https://xguox.com/elasticsearch-build-development-cluster-with-vagrant.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="本地用 Vagrant 搭建 Elasticsearch 集群" />
 <meta property="og:description" content="Vagrant 在 Ruby/Rails 社区老早之前就听的挺多的, 但今天才开始尝试折腾. 当前下载的版本是 1.8.5, 虚拟机用的是 VirtualBox 5.1. 一开始尝试用 &lsquo;hashicorp/precise32&rsquo; 这个 box, 但是, 在设置 private_network 的时候貌似有 bug, 1 2" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/elasticsearch-build-development-cluster-with-vagrant.html/" />
-<meta property="article:published_time" content="2016-09-27T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-09-27T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/elasticsearch-build-development-cluster-with-vagrant.html/" />
+<meta property="article:published_time" content="2016-09-27T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-09-27T16:01:23+08:00" />
 <meta itemprop="name" content="本地用 Vagrant 搭建 Elasticsearch 集群">
 <meta itemprop="description" content="Vagrant 在 Ruby/Rails 社区老早之前就听的挺多的, 但今天才开始尝试折腾. 当前下载的版本是 1.8.5, 虚拟机用的是 VirtualBox 5.1. 一开始尝试用 &lsquo;hashicorp/precise32&rsquo; 这个 box, 但是, 在设置 private_network 的时候貌似有 bug, 1 2">
-
-
 <meta itemprop="datePublished" content="2016-09-27T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-09-27T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1879">
+<meta itemprop="wordCount" content="1881">
 
 
 
-<meta itemprop="keywords" content="Elasticsearch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="本地用 Vagrant 搭建 Elasticsearch 集群"/>
 <meta name="twitter:description" content="Vagrant 在 Ruby/Rails 社区老早之前就听的挺多的, 但今天才开始尝试折腾. 当前下载的版本是 1.8.5, 虚拟机用的是 VirtualBox 5.1. 一开始尝试用 &lsquo;hashicorp/precise32&rsquo; 这个 box, 但是, 在设置 private_network 的时候貌似有 bug, 1 2"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 27 Sep 2016 </span>
-          <span class="more-meta"> 1879 words </span>
+          <span class="more-meta"> 1881 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -153,16 +149,12 @@
 
     
     <div class="post-content">
-      
-
-<p><strong>Vagrant</strong> 在 Ruby/Rails 社区老早之前就听的挺多的, 但今天才开始尝试折腾.</p>
-
+      <p><strong>Vagrant</strong> 在 Ruby/Rails 社区老早之前就听的挺多的, 但今天才开始尝试折腾.</p>
 <p>当前下载的版本是 1.8.5, 虚拟机用的是 VirtualBox 5.1.</p>
-
 <p>一开始尝试用 <strong>&lsquo;hashicorp/precise32&rsquo;</strong> 这个 box, 但是, 在设置 private_network 的时候貌似有 bug,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -173,32 +165,28 @@
 <span class="n">on</span> <span class="n">the</span> <span class="n">detect</span> <span class="n">guest</span> <span class="no">OS</span> <span class="s1">&#39;linux&#39;</span><span class="p">,</span> <span class="n">but</span> <span class="n">the</span> <span class="n">guest</span> <span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span>
 <span class="n">support</span> <span class="n">that</span> <span class="n">capability</span><span class="o">.</span> <span class="no">This</span> <span class="n">capability</span> <span class="n">is</span> <span class="n">required</span> <span class="k">for</span> <span class="n">your</span>
 <span class="n">configuration</span> <span class="n">of</span> <span class="no">Vagrant</span><span class="o">.</span> <span class="no">Please</span> <span class="n">either</span> <span class="n">reconfigure</span> <span class="no">Vagrant</span> <span class="n">to</span>
-<span class="n">avoid</span> <span class="n">this</span> <span class="n">capability</span> <span class="ow">or</span> <span class="n">fix</span> <span class="n">the</span> <span class="n">issue</span> <span class="n">by</span> <span class="n">creating</span> <span class="n">the</span> <span class="n">capability</span><span class="o">.</span></code></pre></td></tr></table>
+<span class="n">avoid</span> <span class="n">this</span> <span class="n">capability</span> <span class="ow">or</span> <span class="n">fix</span> <span class="n">the</span> <span class="n">issue</span> <span class="n">by</span> <span class="n">creating</span> <span class="n">the</span> <span class="n">capability</span><span class="o">.</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>只好换一个 box, 选的是 <strong>&lsquo;ubuntu/xenial64&rsquo;</strong>, 但, <code>vagrant up</code> 装了半天, 那速度简直了.  最后只好自己单独去下载 box,</p>
-
+</div><p>只好换一个 box, 选的是 <strong>&lsquo;ubuntu/xenial64&rsquo;</strong>, 但, <code>vagrant up</code> 装了半天, 那速度简直了.  最后只好自己单独去下载 box,</p>
 <p><a href="https://atlas.hashicorp.com/ubuntu/boxes/xenial64/versions/20170331.0.0/providers/virtualbox.box">https://atlas.hashicorp.com/ubuntu/boxes/xenial64/versions/20170331.0.0/providers/virtualbox.box</a></p>
-
 <p>自己在家开下载软件, 几 M 每秒杠杠的, 要是靠慢慢 up 的话我就可以洗洗睡了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">vagrant</span> <span class="n">box</span> <span class="n">add</span> <span class="n">xenial64</span> <span class="o">~</span><span class="sr">/Downloads/</span><span class="n">virtualbox</span><span class="o">.</span><span class="n">box</span>
-<span class="n">vagrant</span> <span class="n">init</span> <span class="n">xenial64</span></code></pre></td></tr></table>
+<span class="n">vagrant</span> <span class="n">init</span> <span class="n">xenial64</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>完事以后, 如果只是试玩一下 <strong>Vagrant</strong> 的话可以直接  <code>vagrant up</code>.</p>
-
+</div><p>完事以后, 如果只是试玩一下 <strong>Vagrant</strong> 的话可以直接  <code>vagrant up</code>.</p>
 <p>这里因为准备要建三个虚拟机.</p>
-
 <p>所以, 改了一下 <strong>Vagrantfile</strong>, 前面就是因为设置 <code>es.vm.network :private_network, ip: '192.168.10.111'</code> 所以换了这个 box.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -273,21 +261,22 @@
       <span class="n">v</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s1">&#39;modifyvm&#39;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s1">&#39;--name&#39;</span><span class="p">,</span> <span class="s1">&#39;es32&#39;</span><span class="o">]</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">vagrant</span> <span class="n">up</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">vagrant</span> <span class="n">up</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里三台虚拟机分别是, &lsquo;es1&rsquo;, &lsquo;es2&rsquo;, &lsquo;es3&rsquo;, 每个虚拟机分的内存是 1G. 后面要在虚拟机上安装的流程理论上是可以写进一个 shell 脚本, 让 Vagrant 在 up 的时候执行的, 不过我还是自己一台一台跑了. 主要是, 网络问题, 安装 Java 的时候特别蛋疼吧.
+</div><p>这里三台虚拟机分别是, &lsquo;es1&rsquo;, &lsquo;es2&rsquo;, &lsquo;es3&rsquo;, 每个虚拟机分的内存是 1G. 后面要在虚拟机上安装的流程理论上是可以写进一个 shell 脚本, 让 Vagrant 在 up 的时候执行的, 不过我还是自己一台一台跑了. 主要是, 网络问题, 安装 Java 的时候特别蛋疼吧.
 up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌麻烦, 网络好的可以写成 shell 脚本, 不用一直重复)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -305,38 +294,38 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="ss">ppa</span><span class="p">:</span><span class="n">webupd8team</span><span class="sr">/java
-</span><span class="sr">sudo apt-get update
-</span><span class="sr">
-</span><span class="sr"># 这里一会快一会慢. 也花了不少时间, 网络问题
-</span><span class="sr">
-</span><span class="sr">sudo apt-get install oracle-java8-installer
-</span><span class="sr"># java -version
-</span><span class="sr"># java version &#34;1.8.0_101&#34;
-</span><span class="sr"># Java(TM) SE Runtime Environment (build 1.8.0_101-b13)
-</span><span class="sr"># Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)
-</span><span class="sr">
-</span><span class="sr">wget https://download.elasticsearch.org/e</span><span class="n">lasticsearch</span><span class="sr">/elasticsearch/e</span><span class="n">lasticsearch</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">deb</span>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="ss">ppa</span><span class="p">:</span><span class="n">webupd8team</span><span class="o">/</span><span class="n">java</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+
+<span class="c1"># 这里一会快一会慢. 也花了不少时间, 网络问题</span>
+
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">oracle</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">installer</span>
+<span class="c1"># java -version</span>
+<span class="c1"># java version &#34;1.8.0_101&#34;</span>
+<span class="c1"># Java(TM) SE Runtime Environment (build 1.8.0_101-b13)</span>
+<span class="c1"># Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)</span>
+
+<span class="n">wget</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">download</span><span class="o">.</span><span class="n">elasticsearch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">elasticsearch</span><span class="o">/</span><span class="n">elasticsearch</span><span class="o">/</span><span class="n">elasticsearch</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">deb</span>
 
 <span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">elasticsearch</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">deb</span>
 
-<span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">rc</span><span class="o">.</span><span class="n">d</span> <span class="n">elasticsearch</span> <span class="n">defaults</span> <span class="mi">95</span> <span class="mi">10</span></code></pre></td></tr></table>
+<span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">rc</span><span class="o">.</span><span class="n">d</span> <span class="n">elasticsearch</span> <span class="n">defaults</span> <span class="mi">95</span> <span class="mi">10</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然之后是配置文件,
+</div><p>然之后是配置文件,
 一开始时候, 三个虚拟机分别是三个 nodes, 一个 client node, 一个 master node, 一个 data node, 后来索性把自己的 host 机也搞上了. 我自己本机的 ip 用的是 <code>192.168.10.1</code></p>
-
 <p>先把自己这个 host机旧的 <code>elasticsearch.yml</code> 备份, 再开始配置集群.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cp</span> <span class="n">elasticsearch</span><span class="o">.</span><span class="n">yml</span> <span class="n">elasticsearch</span><span class="o">.</span><span class="n">yml</span><span class="o">.</span><span class="n">bak</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cp</span> <span class="n">elasticsearch</span><span class="o">.</span><span class="n">yml</span> <span class="n">elasticsearch</span><span class="o">.</span><span class="n">yml</span><span class="o">.</span><span class="n">bak</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -380,17 +369,18 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 </span><span class="lnt">42
 </span><span class="lnt">43
 </span><span class="lnt">44
+</span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c">################################### Cluster ###################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>cluster.name<span class="p">:</span><span class="w"> </span>my-application<span class="w">
+</span><span class="w"></span><span class="k">cluster.name</span><span class="p">:</span><span class="w"> </span>my-application<span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">#################################### Node #####################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>node.name<span class="p">:</span><span class="w"> </span>es-client<span class="w">
-</span><span class="w"></span>node.client<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w"></span>node.data<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="k">node.name</span><span class="p">:</span><span class="w"> </span>es-client<span class="w">
+</span><span class="w"></span><span class="k">node.client</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="k">node.data</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c"># You can exploit these settings to design advanced cluster topologies.</span><span class="w">
 </span><span class="w"></span><span class="c">#</span><span class="w">
@@ -415,29 +405,28 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 </span><span class="w">
 </span><span class="w"></span><span class="c">#################################### Paths ####################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>path.data<span class="p">:</span><span class="w"> </span>/usr/local/var/elasticsearch/<span class="w">
-</span><span class="w"></span>path.logs<span class="p">:</span><span class="w"> </span>/usr/local/var/log/elasticsearch/<span class="w">
-</span><span class="w"></span>path.plugins<span class="p">:</span><span class="w"> </span>/usr/local/var/lib/elasticsearch/plugins<span class="w">
+</span><span class="w"></span><span class="k">path.data</span><span class="p">:</span><span class="w"> </span>/usr/local/var/elasticsearch/<span class="w">
+</span><span class="w"></span><span class="k">path.logs</span><span class="p">:</span><span class="w"> </span>/usr/local/var/log/elasticsearch/<span class="w">
+</span><span class="w"></span><span class="k">path.plugins</span><span class="p">:</span><span class="w"> </span>/usr/local/var/lib/elasticsearch/plugins<span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">############################## Network And HTTP ###############################</span><span class="w">
-</span><span class="w"></span>network.host<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;_local_&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">network.host</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;_local_&#34;</span><span class="p">]</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">################################## Discovery ##################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.multicast.enabled<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.unicast.hosts<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="k">discovery.zen.ping.multicast.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="k">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>host 机作为 <strong>client node</strong>, 接下来的话是 master node 和 data node,</p>
-
+</div><p>host 机作为 <strong>client node</strong>, 接下来的话是 master node 和 data node,</p>
 <blockquote>
 <p>By default a node is both a master-eligible node and a data node. This is very convenient for small clusters but, as the cluster grows, it becomes important to consider separating dedicated master-eligible nodes from dedicated data nodes.</p>
 </blockquote>
-
 <p>&lsquo;es1&rsquo; 的 <strong>elasticsearch.yml</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -454,31 +443,33 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c">################################### Cluster ###################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>cluster.name<span class="p">:</span><span class="w"> </span>my-application<span class="w">
+</span><span class="w"></span><span class="k">cluster.name</span><span class="p">:</span><span class="w"> </span>my-application<span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">#################################### Node #####################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>node.name<span class="p">:</span><span class="w"> </span>es-mster<span class="w">
+</span><span class="w"></span><span class="k">node.name</span><span class="p">:</span><span class="w"> </span>es-mster<span class="w">
 </span><span class="w"></span><span class="c">#node.master: true</span><span class="w">
-</span><span class="w"></span>node.data<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="k">node.data</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">############################## Network And HTTP ###############################</span><span class="w">
-</span><span class="w"></span>network.host<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">network.host</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">]</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">################################## Discovery ##################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.multicast.enabled<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.unicast.hosts<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="k">discovery.zen.ping.multicast.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="k">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>&lsquo;es2&rsquo; 的 <strong>elasticsearch.yml</strong></p>
+</div><p>&lsquo;es2&rsquo; 的 <strong>elasticsearch.yml</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -498,26 +489,26 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 <td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c">################################### Cluster ###################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>cluster.name<span class="p">:</span><span class="w"> </span>my-application<span class="w">
+</span><span class="w"></span><span class="k">cluster.name</span><span class="p">:</span><span class="w"> </span>my-application<span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">#################################### Node #####################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>node.name<span class="p">:</span><span class="w"> </span>es-data-<span class="m">1</span><span class="w">
-</span><span class="w"></span>node.data<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="k">node.name</span><span class="p">:</span><span class="w"> </span>es-data<span class="m">-1</span><span class="w">
+</span><span class="w"></span><span class="k">node.data</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">############################## Network And HTTP ###############################</span><span class="w">
-</span><span class="w"></span>network.host<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">network.host</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">]</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">################################## Discovery ##################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.multicast.enabled<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.unicast.hosts<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="k">discovery.zen.ping.multicast.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="k">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>&lsquo;es3&rsquo; 的 <strong>elasticsearch.yml</strong></p>
+</div><p>&lsquo;es3&rsquo; 的 <strong>elasticsearch.yml</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -537,67 +528,50 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 <td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c">################################### Cluster ###################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>cluster.name<span class="p">:</span><span class="w"> </span>my-application<span class="w">
+</span><span class="w"></span><span class="k">cluster.name</span><span class="p">:</span><span class="w"> </span>my-application<span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">#################################### Node #####################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>node.name<span class="p">:</span><span class="w"> </span>es-data-<span class="m">2</span><span class="w">
-</span><span class="w"></span>node.data<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="k">node.name</span><span class="p">:</span><span class="w"> </span>es-data<span class="m">-2</span><span class="w">
+</span><span class="w"></span><span class="k">node.data</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">############################## Network And HTTP ###############################</span><span class="w">
-</span><span class="w"></span>network.host<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w"></span><span class="k">network.host</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">################################## Discovery ##################################</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.multicast.enabled<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w"></span>discovery.zen.ping.unicast.hosts<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="k">discovery.zen.ping.multicast.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="k">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.10.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.111&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.10.112&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;192.168.10.113&#34;</span><span class="p">]</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>全部 Elasticsearch 重启, 因为自己的 host 机原本就装了 kopf 插件, 所以, 直接浏览器打开.</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/62fdd4d5jw1f88gde5vzvj22801e0dqs.jpg" alt="" /></p>
-
+</div><p>全部 Elasticsearch 重启, 因为自己的 host 机原本就装了 kopf 插件, 所以, 直接浏览器打开.</p>
+<p><img src="http://ww1.sinaimg.cn/large/62fdd4d5jw1f88gde5vzvj22801e0dqs.jpg" alt=""></p>
 <p>实心星星是 mater node, 空心星星是 Master-eligible node.</p>
-
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a></p>
-
 <p><strong>Master-eligible node</strong></p>
-
 <blockquote>
 <p>A node that has node.master set to true (default), which makes it eligible to be elected as the master node, which controls the cluster.</p>
 </blockquote>
-
 <p><strong>Data node</strong></p>
-
 <blockquote>
 <p>A node that has node.data set to true (default). Data nodes hold data and perform data related operations such as CRUD, search, and aggregations.</p>
 </blockquote>
-
 <p><strong>Client node</strong></p>
-
 <blockquote>
 <p>A client node has both node.master and node.data set to false. It can neither hold data nor become the master node. It behaves as a “smart router” and is used to forward cluster-level requests to the master node and data-related requests (such as search) to the appropriate data nodes.</p>
 </blockquote>
-
 <p>随意找点东西索引,</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f88gdhuxikj22801e045r.jpg" alt="" /></p>
-
+<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f88gdhuxikj22801e045r.jpg" alt=""></p>
 <p>0, 1, 2, 3, 4 那些是分片, 其中, 亮的是 Primary Shards, 暗的是 Replica Shards. 默认的每个 index 都是 5 个 Primary Shards, 对应的 5 个 Replica Shards.
 得益于  Replica Shards 任意一台机器挂了, 数据也还是完整的.</p>
-
 <p>BTW, 除了监控插件以外, 比如一些分词插件, 得每个 node 也即是每台机器都要安装一遍.</p>
-
 <h5 id="插曲">插曲</h5>
-
 <p>一开始设置的集群只有三个虚拟机, 分别是 client node, master node(node.data: false), data node. 添加索引以后集群状态一直是黄的. 一堆的 <strong>unassigned_shards</strong> 导致的 <code>&quot;status&quot; : &quot;yellow&quot;</code>.  因为只有一个 data node, 只能用来存 Primary Shards, 没地方存 Replica Shards. 最简单地, 把 master node 也作为 data node 用就绿了. 虽然官方说 master 和 data 最好分开.</p>
-
 <h5 id="关于-elasticsearch-的集群">关于 Elasticsearch 的集群</h5>
-
 <p>当只有单台机器, 也就是我们一般在本地跑的时候, 通常只有是一个集群下面仅有一个 node.  master node  data node 都是这个 node, 集群状态一直就是黄的, 因为, 默认的配置是, 每个索引的每个 shard 都有一个 replica.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -605,54 +579,48 @@ up 了以后, <code>vagrant ssh es1(2,3)</code> 分别执行下面这堆. (嫌�
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">green
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">green
 All primary and replica shards are active.
 
 yellow
 All primary shards are active, but not all replica shards are active.
 
 red
-Not all primary shards are active.</pre></td></tr></table>
+Not all primary shards are active.
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>单台机器跑的时候, 单个 node 也就只能存 Primary Shards, 没地方存 Replica Shards, 所以就出现了 Unassigned 的 Shards, 也就黄了. 要想变回绿的话, 配置 <code>index.number_of_replicas</code> 为 0 就好了.</p>
+</div><p>单台机器跑的时候, 单个 node 也就只能存 Primary Shards, 没地方存 Replica Shards, 所以就出现了 Unassigned 的 Shards, 也就黄了. 要想变回绿的话, 配置 <code>index.number_of_replicas</code> 为 0 就好了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c"># Set the number of replicas (additional copies) of an index (1 by default):</span><span class="w">
 </span><span class="w"></span><span class="c">#</span><span class="w">
-</span><span class="w"></span>index.number_of_replicas<span class="p">:</span><span class="w"> </span><span class="m">0</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="k">index.number_of_replicas</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="容错">容错</h5>
-
+</div><h5 id="容错">容错</h5>
 <p>假设设定了,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;number_of_shards&#34;</span> <span class="err">:</span> <span class="mi">3</span><span class="err">,</span>
-<span class="s2">&#34;number_of_replicas&#34;</span> <span class="err">:</span> <span class="mi">2</span></code></pre></td></tr></table>
+<span class="s2">&#34;number_of_replicas&#34;</span> <span class="err">:</span> <span class="mi">2</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>集群如图:</p>
-
-<p><img src="http://ww2.sinaimg.cn/large/62fdd4d5jw1f89bxwsba0j20ku069q36.jpg" alt="" /></p>
-
+</div><p>集群如图:</p>
+<p><img src="http://ww2.sinaimg.cn/large/62fdd4d5jw1f89bxwsba0j20ku069q36.jpg" alt=""></p>
 <p>如果任意一台 down 了.</p>
-
-<p><img src="http://ww3.sinaimg.cn/large/62fdd4d5jw1f89bxyiluaj20ku0690sv.jpg" alt="" /></p>
-
+<p><img src="http://ww3.sinaimg.cn/large/62fdd4d5jw1f89bxyiluaj20ku0690sv.jpg" alt=""></p>
 <p>这里 down 的是 master node, 索引在丢失主分片时不能正常工作. 此时检查集群 health，看到状态会是 red, 但 Elasticsearch 很快就会从剩下的 <strong>master-eligible nodes</strong> 里面选出一个新的 master node, 然后<strong>集群状态变黄</strong>.</p>
-
 <p>这里因为指定了<strong>每个主分片要有两个副本分片</strong>, 但是, 因为现在每个主分片只剩下一个副本分片了, 所以, 还是不能绿. 不过, 假设这个时候剩余这两个 node 又不幸 down 掉某个的话, 我们的集群状态还是黄的, 并且可以正常跑起来, 没有任何数据丢失. 等到重启 Node 1 以后, 如果 Node 1 的数据并没有在 down 掉之后丢失旧数据，就可以尝试再利用起来，并只会从主分片上复制在故障期间有数据变更的那一部分数据.</p>
 
     </div>
@@ -699,7 +667,7 @@ Not all primary shards are active.</pre></td></tr></table>
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -717,7 +685,7 @@ Not all primary shards are active.</pre></td></tr></table>
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

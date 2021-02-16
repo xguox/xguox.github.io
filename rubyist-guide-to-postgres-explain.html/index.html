@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/rubyist-guide-to-postgres-explain.html/" />
+<link rel="canonical" href="https://xguox.com/rubyist-guide-to-postgres-explain.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="给 Rubyist 的 Postgresql Explain 教程" />
 <meta property="og:description" content="如果想知道你的数据库查询为啥变得越来越慢了， 那没有啥比 postgres 的 EXPLAIN 更好使的了。 其实也没啥神秘的。 就是让 postgres 告诉咱们，它是怎么去执行这个查询的。你甚至" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rubyist-guide-to-postgres-explain.html/" />
-<meta property="article:published_time" content="2017-04-27T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2017-04-27T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/rubyist-guide-to-postgres-explain.html/" />
+<meta property="article:published_time" content="2017-04-27T16:01:23+08:00" />
+<meta property="article:modified_time" content="2017-04-27T16:01:23+08:00" />
 <meta itemprop="name" content="给 Rubyist 的 Postgresql Explain 教程">
 <meta itemprop="description" content="如果想知道你的数据库查询为啥变得越来越慢了， 那没有啥比 postgres 的 EXPLAIN 更好使的了。 其实也没啥神秘的。 就是让 postgres 告诉咱们，它是怎么去执行这个查询的。你甚至">
-
-
 <meta itemprop="datePublished" content="2017-04-27T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2017-04-27T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="2199">
+<meta itemprop="wordCount" content="2225">
 
 
 
-<meta itemprop="keywords" content="Ruby,Postgres,Translation," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby,Postgres,Translation," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="给 Rubyist 的 Postgresql Explain 教程"/>
 <meta name="twitter:description" content="如果想知道你的数据库查询为啥变得越来越慢了， 那没有啥比 postgres 的 EXPLAIN 更好使的了。 其实也没啥神秘的。 就是让 postgres 告诉咱们，它是怎么去执行这个查询的。你甚至"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 27 Apr 2017 </span>
-          <span class="more-meta"> 2199 words </span>
+          <span class="more-meta"> 2225 words </span>
           <span class="more-meta"> 5 mins read </span>
         
       </div>
@@ -155,20 +151,14 @@
 
     
     <div class="post-content">
-      
-
-<p>如果想知道你的数据库查询为啥变得越来越慢了， 那没有啥比 <strong>postgres</strong> 的 <code>EXPLAIN</code> 更好使的了。</p>
-
+      <p>如果想知道你的数据库查询为啥变得越来越慢了， 那没有啥比 <strong>postgres</strong> 的 <code>EXPLAIN</code> 更好使的了。</p>
 <p>其实也没啥神秘的。 就是让 postgres 告诉咱们，它是怎么去执行这个查询的。你甚至可以进行实际查询然后比较实际的和预期性能差别。</p>
-
 <h3 id="sound-familiar">Sound familiar?</h3>
-
 <p>也许你已经见识过 <strong>EXPLAIN</strong>. 早在 Rails 3.2 开始， Rails 会自动 **<em>EXPLAIN</em> 那些耗时大于 500ms 的查询。</p>
-
 <p>但问题是，其输出的结果有些隐秘。 举个例子，这是从 rails development blog 拿来的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,19 +183,16 @@
          <span class="no">Index</span> <span class="ss">Cond</span><span class="p">:</span> <span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
    <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">posts</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span><span class="o">..</span><span class="mi">28</span><span class="o">.</span><span class="mi">88</span> <span class="n">rows</span><span class="o">=</span><span class="mi">8</span> <span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
          <span class="ss">Filter</span><span class="p">:</span> <span class="p">(</span><span class="n">posts</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">6</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="mi">6</span> <span class="n">rows</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>所以， 这是什么鬼？</p>
-
+</div><p>所以， 这是什么鬼？</p>
 <p>在这篇文章我们将会分析类似这样的输出结果，及其给我们的 Ruby Web 开发所带来的影响。</p>
-
 <h3 id="the-syntax">The syntax</h3>
-
 <p>如果正在使用的是 Rails, 那么可以在任意 ActiveRecord 查询后面加上 <code>.explain</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -222,15 +209,14 @@
 <span class="o">--------------------------------------------------------------------------</span>
  <span class="no">Index</span> <span class="no">Scan</span> <span class="n">using</span> <span class="n">users_pkey</span> <span class="n">on</span> <span class="n">users</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mi">29</span><span class="o">..</span><span class="mi">8</span><span class="o">.</span><span class="mi">30</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span>
    <span class="no">Index</span> <span class="ss">Cond</span><span class="p">:</span> <span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>虽然，<code>EXPLAIN</code> 方法使用起来很方便， 但是， 它并没有给你一些我们可以在 postgres 中可以用到的高级选项。</p>
-
+</div><p>虽然，<code>EXPLAIN</code> 方法使用起来很方便， 但是， 它并没有给你一些我们可以在 postgres 中可以用到的高级选项。</p>
 <p>要在 postgres 中直接使用 <strong>EXPLAIN</strong>， 首先用 <code>psql -d yourdb</code> 进入到你的数据库中，然后再执行下面这条语句:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -243,15 +229,14 @@
 <span class="o">--------------------------------------------------------------------------</span>
  <span class="no">Index</span> <span class="no">Scan</span> <span class="n">using</span> <span class="n">users_pkey</span> <span class="n">on</span> <span class="n">users</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mi">29</span><span class="o">..</span><span class="mi">8</span><span class="o">.</span><span class="mi">30</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span>
    <span class="no">Index</span> <span class="ss">Cond</span><span class="p">:</span> <span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样我们就能得到一些关于 postgres 如何执行查询的信息，包括最少需要做多少工作来完成这个查询。</p>
-
+</div><p>这样我们就能得到一些关于 postgres 如何执行查询的信息，包括最少需要做多少工作来完成这个查询。</p>
 <p>只用 <strong>EXPLAIN</strong> 的话并不会真正的执行这条语句，想要真正执行语句， 并给出预期与实际运行结果的对比则需要用 <code>EXPLAIN ANALYZE</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -264,17 +249,15 @@
 <span class="o">------------------------------------------------------------------------------------</span>
  <span class="no">Index</span> <span class="no">Scan</span> <span class="n">using</span> <span class="n">users_pkey</span> <span class="n">on</span> <span class="n">users</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mi">29</span><span class="o">..</span><span class="mi">8</span><span class="o">.</span><span class="mi">30</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span> <span class="p">(</span><span class="n">actual</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">043</span><span class="o">..</span><span class="mi">0</span><span class="o">.</span><span class="mo">044</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span> <span class="n">loops</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
    <span class="no">Index</span> <span class="ss">Cond</span><span class="p">:</span> <span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
- <span class="no">Total</span> <span class="ss">runtime</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">117</span> <span class="n">ms</span></code></pre></td></tr></table>
+ <span class="no">Total</span> <span class="ss">runtime</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">117</span> <span class="n">ms</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="interpreting-the-output">Interpreting the output</h3>
-
+</div><h3 id="interpreting-the-output">Interpreting the output</h3>
 <p>Postgres 很聪明的呢，他可以找到最高效的方式来执行你的查询。换句话说，他会生成一个「查询计划」，然后 <code>explain</code>只是负责把这个计划输出出来。</p>
-
 <p>考虑以下情况:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -291,42 +274,38 @@
    <span class="o">-&gt;</span>  <span class="no">Sort</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">892</span><span class="o">.</span><span class="mi">98</span><span class="o">..</span><span class="mi">919</span><span class="o">.</span><span class="mi">16</span> <span class="n">rows</span><span class="o">=</span><span class="mi">104</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span>
          <span class="no">Sort</span> <span class="ss">Key</span><span class="p">:</span> <span class="n">created_at</span>
          <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">users</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span><span class="o">..</span><span class="mi">666</span><span class="o">.</span><span class="mi">71</span> <span class="n">rows</span><span class="o">=</span><span class="mi">104</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">4</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="mi">4</span> <span class="n">rows</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个输出由两部分组成:</p>
-
+</div><p>这个输出由两部分组成:</p>
 <ol>
 <li>「节点列表」(node list) 描述了执行该查询时候所发生的一系列动作</li>
 <li>性能预估，描述了这个列表中的每个动作的耗时。</li>
 </ol>
-
 <h3 id="the-node-list">The node list</h3>
-
 <p>去掉所有的性能评估以后， 也就只剩下节点列表了，如下所示:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Limit</span>
    <span class="o">-&gt;</span>  <span class="no">Sort</span> <span class="p">(</span><span class="no">Sort</span> <span class="ss">Key</span><span class="p">:</span> <span class="n">created_at</span><span class="p">)</span>
-         <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">users</span></code></pre></td></tr></table>
+         <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">users</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这有点像是一个 Postgres 写的「程序」用来执行查询操作。 其中包含了三个动作， &ldquo;limit&rdquo;, &ldquo;sort&rdquo; 和 &ldquo;seq scan&rdquo;。 子节点中的输出结果会被向上传送到父节点。 用 Ruby 的话来说就是:</p>
+</div><p>这有点像是一个 Postgres 写的「程序」用来执行查询操作。 其中包含了三个动作， &ldquo;limit&rdquo;, &ldquo;sort&rdquo; 和 &ldquo;seq scan&rdquo;。 子节点中的输出结果会被向上传送到父节点。 用 Ruby 的话来说就是:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">all_users</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="ss">:created_at</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">all_users</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="ss">:created_at</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Postgres 会在查询计划中使用许多不同的动作。 但你并不需要掌握所有的这些动作的含义，记住下面这几个就好了:</p>
-
+</div><p>Postgres 会在查询计划中使用许多不同的动作。 但你并不需要掌握所有的这些动作的含义，记住下面这几个就好了:</p>
 <ul>
 <li>Index Scan: 通过索引来获取记录。 类似在 Ruby 的 Hash 中查找某一项。</li>
 <li>Seq Scan: 通过遍历结果集来获取记录。</li>
@@ -335,36 +314,29 @@
 <li>Aggregate: 当执行像 count, max, min 这类操作时候会用到</li>
 <li>Bitmap Heap Scan: Uses a bitmap to represent matching records. Operations like and-ing and or-ing can sometimes be done more easily to the bitmap than to the actual records.</li>
 </ul>
-
 <p><a href="https://github.com/digoal/blog/blob/master/201702/20170221_02.md">https://github.com/digoal/blog/blob/master/201702/20170221_02.md</a></p>
-
 <h3 id="performance-estimates">Performance estimates</h3>
-
 <p>节点列表中， 每个节点都有一组性能评估。一般长这样子的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Limit</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">892</span><span class="o">.</span><span class="mi">98</span><span class="o">..</span><span class="mi">893</span><span class="o">.</span><span class="mo">01</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Limit</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">892</span><span class="o">.</span><span class="mi">98</span><span class="o">..</span><span class="mi">893</span><span class="o">.</span><span class="mo">01</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这些数字代表意思:</p>
-
+</div><p>这些数字代表意思:</p>
 <ul>
 <li><strong>Cost</strong>: 该动作的执行成本。它没有具体的单位， 只能和其他同样是 <strong>Cost</strong> 的数字进行对比</li>
 <li><strong>Rows</strong>: 执行该操作一共需要遍历多少行记录。</li>
 <li><strong>Width</strong>: 每一行大概有多少字节。</li>
 </ul>
-
 <p>最常用到的参数应该是 <strong>Rows</strong>。它可以清楚的让我们知道查询的性能。 如果这个值等于 1， 那么该查询性能杠杠的。 如果发现这个值等于表中记录的总数，那么这个查询性能就会随着表的增大变的越来越慢了。</p>
-
 <h3 id="actual-performance-values">Actual performance values</h3>
-
 <p>使用 <strong>EXPLAIN ANALYZE</strong> 时， 会真正的去执行查询，然后就会出现两组数字。前一组是像上面的预估值，后一组则是实际值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -385,21 +357,19 @@
          <span class="no">Sort</span> <span class="ss">Method</span><span class="p">:</span> <span class="n">top</span><span class="o">-</span><span class="n">N</span> <span class="n">heapsort</span>  <span class="ss">Memory</span><span class="p">:</span> <span class="mi">31</span><span class="n">kB</span>
          <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">users</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span><span class="o">..</span><span class="mi">666</span><span class="o">.</span><span class="mi">71</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10471</span> <span class="n">width</span><span class="o">=</span><span class="mi">812</span><span class="p">)</span> <span class="p">(</span><span class="n">actual</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mi">203</span><span class="o">..</span><span class="mi">15</span><span class="o">.</span><span class="mi">221</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10472</span> <span class="n">loops</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
  <span class="no">Total</span> <span class="ss">runtime</span><span class="p">:</span> <span class="mi">22</span><span class="o">.</span><span class="mi">519</span> <span class="n">ms</span>
-<span class="p">(</span><span class="mi">6</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="mi">6</span> <span class="n">rows</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>Actual time: 执行该动作耗费的时长(ms)</li>
 <li>Rows: 执行该操作实际遍历了多少行记录。</li>
 <li>Loops: 有时候某个动作会发生不止一次， 此时， loops 会大于 1</li>
 </ul>
-
 <h3 id="more-verbose-output">More verbose output</h3>
-
 <p>默认情况下 <strong>EXPLAIN</strong> 给的是一个比较精简的版本。其实， 你可以让从他那得到更多更详细的信息。甚至可以让他的输出信息格式化为 JSON 或者 YAML.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -450,92 +420,85 @@
 </span><span class="w">                </span>QUERY<span class="w"> </span>PLAN<span class="w">
 </span><span class="w"></span>-----------------------------------------<span class="sd">-
 </span><span class="sd"> - Plan:                                 +</span><span class="w">
-</span><span class="w">     </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Limit&#34;</span><span class="w">                  </span><span class="sd">+
+</span><span class="w">     </span><span class="k">Node Type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Limit&#34;</span><span class="w">                  </span><span class="sd">+
 </span><span class="sd">     Startup Cost: 892.98                +</span><span class="w">
-</span><span class="w">     </span>Total<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">893.01</span><span class="w">                  </span><span class="sd">+
+</span><span class="w">     </span><span class="k">Total Cost</span><span class="p">:</span><span class="w"> </span><span class="m">893.01</span><span class="w">                  </span><span class="sd">+
 </span><span class="sd">     Plan Rows: 10                       +</span><span class="w">
-</span><span class="w">     </span>Plan<span class="w"> </span>Width<span class="p">:</span><span class="w"> </span><span class="m">812</span><span class="w">                     </span><span class="sd">+
+</span><span class="w">     </span><span class="k">Plan Width</span><span class="p">:</span><span class="w"> </span><span class="m">812</span><span class="w">                     </span><span class="sd">+
 </span><span class="sd">     Actual Startup Time: 12.945         +</span><span class="w">
-</span><span class="w">     </span>Actual<span class="w"> </span>Total<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.947</span><span class="w">           </span><span class="sd">+
+</span><span class="w">     </span><span class="k">Actual Total Time</span><span class="p">:</span><span class="w"> </span><span class="m">12.947</span><span class="w">           </span><span class="sd">+
 </span><span class="sd">     Actual Rows: 10                     +</span><span class="w">
-</span><span class="w">     </span>Actual<span class="w"> </span>Loops<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                     </span><span class="sd">+
+</span><span class="w">     </span><span class="k">Actual Loops</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                     </span><span class="sd">+
 </span><span class="sd">     Plans:                              +</span><span class="w">
-</span><span class="w">       </span>-<span class="w"> </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sort&#34;</span><span class="w">               </span><span class="sd">+
+</span><span class="w">       </span>- <span class="k">Node Type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sort&#34;</span><span class="w">               </span><span class="sd">+
 </span><span class="sd">         Parent Relationship: &#34;Outer&#34;    +</span><span class="w">
-</span><span class="w">         </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">892.98</span><span class="w">            </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Startup Cost</span><span class="p">:</span><span class="w"> </span><span class="m">892.98</span><span class="w">            </span><span class="sd">+
 </span><span class="sd">         Total Cost: 919.16              +</span><span class="w">
-</span><span class="w">         </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">                </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Plan Rows</span><span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">                </span><span class="sd">+
 </span><span class="sd">         Plan Width: 812                 +</span><span class="w">
-</span><span class="w">         </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">12.944</span><span class="w">     </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Actual Startup Time</span><span class="p">:</span><span class="w"> </span><span class="m">12.944</span><span class="w">     </span><span class="sd">+
 </span><span class="sd">         Actual Total Time: 12.946       +</span><span class="w">
-</span><span class="w">         </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                 </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Actual Rows</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                 </span><span class="sd">+
 </span><span class="sd">         Actual Loops: 1                 +</span><span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Key<span class="p">:</span><span class="w">                       </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Sort Key</span><span class="p">:</span><span class="w">                       </span><span class="sd">+
 </span><span class="sd">           - &#34;created_at&#34;                +</span><span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Method<span class="p">:</span><span class="w"> </span><span class="s2">&#34;top-N heapsort&#34;</span><span class="w">   </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Sort Method</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;top-N heapsort&#34;</span><span class="w">   </span><span class="sd">+
 </span><span class="sd">         Sort Space Used: 31             +</span><span class="w">
-</span><span class="w">         </span>Sort<span class="w"> </span>Space<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Memory&#34;</span><span class="w">       </span><span class="sd">+
+</span><span class="w">         </span><span class="k">Sort Space Type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Memory&#34;</span><span class="w">       </span><span class="sd">+
 </span><span class="sd">         Plans:                          +</span><span class="w">
-</span><span class="w">           </span>-<span class="w"> </span>Node<span class="w"> </span>Type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;Seq Scan&#34;</span><span class="w">       </span><span class="sd">+
+</span><span class="w">           </span>- <span class="k">Node Type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Seq Scan&#34;</span><span class="w">       </span><span class="sd">+
 </span><span class="sd">             Parent Relationship: &#34;Outer&#34;+</span><span class="w">
-</span><span class="w">             </span>Relation<span class="w"> </span>Name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;users&#34;</span><span class="w">      </span><span class="sd">+
+</span><span class="w">             </span><span class="k">Relation Name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;users&#34;</span><span class="w">      </span><span class="sd">+
 </span><span class="sd">             Alias: &#34;users&#34;              +</span><span class="w">
-</span><span class="w">             </span>Startup<span class="w"> </span>Cost<span class="p">:</span><span class="w"> </span><span class="m">0.00</span><span class="w">          </span><span class="sd">+
+</span><span class="w">             </span><span class="k">Startup Cost</span><span class="p">:</span><span class="w"> </span><span class="m">0.00</span><span class="w">          </span><span class="sd">+
 </span><span class="sd">             Total Cost: 666.71          +</span><span class="w">
-</span><span class="w">             </span>Plan<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">            </span><span class="sd">+
+</span><span class="w">             </span><span class="k">Plan Rows</span><span class="p">:</span><span class="w"> </span><span class="m">10471</span><span class="w">            </span><span class="sd">+
 </span><span class="sd">             Plan Width: 812             +</span><span class="w">
-</span><span class="w">             </span>Actual<span class="w"> </span>Startup<span class="w"> </span>Time<span class="p">:</span><span class="w"> </span><span class="m">0.008</span><span class="w">  </span><span class="sd">+
+</span><span class="w">             </span><span class="k">Actual Startup Time</span><span class="p">:</span><span class="w"> </span><span class="m">0.008</span><span class="w">  </span><span class="sd">+
 </span><span class="sd">             Actual Total Time: 5.823    +</span><span class="w">
-</span><span class="w">             </span>Actual<span class="w"> </span>Rows<span class="p">:</span><span class="w"> </span><span class="m">10472</span><span class="w">          </span><span class="sd">+
+</span><span class="w">             </span><span class="k">Actual Rows</span><span class="p">:</span><span class="w"> </span><span class="m">10472</span><span class="w">          </span><span class="sd">+
 </span><span class="sd">             Actual Loops: 1             +</span><span class="w">
-</span><span class="w">   </span>Triggers<span class="p">:</span><span class="w">                             </span><span class="sd">+
+</span><span class="w">   </span><span class="k">Triggers</span><span class="p">:</span><span class="w">                             </span><span class="sd">+
 </span><span class="sd">   Total Runtime: 13.001</span><span class="w">
-</span><span class="w"></span>(<span class="m">1</span><span class="w"> </span>row)</code></pre></td></tr></table>
+</span><span class="w"></span>(<span class="m">1</span><span class="w"> </span>row)<span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>还可以这样，<code>EXPLAIN (ANALYZE, VERBOSE, FORMAT YAML) SELECT ...</code></p>
-
+</div><p>还可以这样，<code>EXPLAIN (ANALYZE, VERBOSE, FORMAT YAML) SELECT ...</code></p>
 <h3 id="visualization-tools">Visualization tools</h3>
-
 <p>Explain 会生成一大堆的输出。 尤其当查询比较复杂的时候，更是难以解析。</p>
-
 <p>有一些免费的工具可以帮上忙。他们会帮助解析并生成一些漂亮的图表给你。甚至会给出一些标记指出潜在的性能问题。<a href="http://tatiyants.com/pev/#/plans/new">比如这个</a></p>
-
-<p><img src="http://www.rubyletter.com/images/2016/12/explain.png" alt="" /></p>
-
+<p><img src="http://www.rubyletter.com/images/2016/12/explain.png" alt=""></p>
 <h3 id="examples">Examples</h3>
-
 <p>把上面提到的汇总一起举个例子。你是否发现某一些 Rails 的通用做法会生成一些性能不佳的数据库查询?</p>
-
 <h4 id="the-counting-conundrum">The counting conundrum</h4>
-
 <p>下面的用法应该是非常常见的吧:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Total</span> <span class="no">Faults</span> <span class="o">&lt;%=</span> <span class="no">Fault</span><span class="o">.</span><span class="n">count</span> <span class="o">%&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Total</span> <span class="no">Faults</span> <span class="o">&lt;%=</span> <span class="no">Fault</span><span class="o">.</span><span class="n">count</span> <span class="o">%&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>对应生成的 SQL 语句如下:</p>
+</div><p>对应生成的 SQL 语句如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">from</span> <span class="n">faults</span><span class="p">;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">from</span> <span class="n">faults</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>给 <strong>EXPLAIN</strong> 一下，看看发生了些什么事情。</p>
+</div><p>给 <strong>EXPLAIN</strong> 一下，看看发生了些什么事情。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># explain select count(*) from faults;</span>
@@ -543,26 +506,25 @@
 <span class="o">-------------------------------------------------------------------</span>
  <span class="no">Aggregate</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">1840</span><span class="o">.</span><span class="mi">31</span><span class="o">..</span><span class="mi">1840</span><span class="o">.</span><span class="mi">32</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span> <span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
    <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">faults</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span><span class="o">..</span><span class="mi">1784</span><span class="o">.</span><span class="mi">65</span> <span class="n">rows</span><span class="o">=</span><span class="mi">22265</span> <span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>Woah! 简单的一个 count 查询，竟然遍历了  22,265 行， 也就是整个表。 在 Postgres , count 都是全表查的。</p>
+<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>Woah! 简单的一个 count 查询，竟然遍历了  22,265 行， 也就是整个表。 在 Postgres , count 都是全表查的。</p>
 <h4 id="the-sorting-scandal">The sorting scandal</h4>
-
 <p>下面这个也常见吧， 根据某个字段进行排序。 比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Fault</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&#34;created_at desc&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Fault</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&#34;created_at desc&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其实你只想要 10 条记录而已。 但， 为了得到这 10 条记录， 你需要对整个表进行排序。 从下面可以看出 <strong>Sort</strong> 操作遍历了 22,265 行记录.</p>
+</div><p>其实你只想要 10 条记录而已。 但， 为了得到这 10 条记录， 你需要对整个表进行排序。 从下面可以看出 <strong>Sort</strong> 操作遍历了 22,265 行记录.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -577,13 +539,13 @@
  <span class="no">Limit</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">2265</span><span class="o">.</span><span class="mi">79</span><span class="o">..</span><span class="mi">2265</span><span class="o">.</span><span class="mi">81</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span> <span class="n">width</span><span class="o">=</span><span class="mi">1855</span><span class="p">)</span>
    <span class="o">-&gt;</span>  <span class="no">Sort</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">2265</span><span class="o">.</span><span class="mi">79</span><span class="o">..</span><span class="mi">2321</span><span class="o">.</span><span class="mi">45</span> <span class="n">rows</span><span class="o">=</span><span class="mi">22265</span> <span class="n">width</span><span class="o">=</span><span class="mi">1855</span><span class="p">)</span>
          <span class="no">Sort</span> <span class="ss">Key</span><span class="p">:</span> <span class="n">created_at</span>
-         <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">faults</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span><span class="o">..</span><span class="mi">1784</span><span class="o">.</span><span class="mi">65</span> <span class="n">rows</span><span class="o">=</span><span class="mi">22265</span> <span class="n">width</span><span class="o">=</span><span class="mi">1855</span><span class="p">)</span></code></pre></td></tr></table>
+         <span class="o">-&gt;</span>  <span class="no">Seq</span> <span class="no">Scan</span> <span class="n">on</span> <span class="n">faults</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span><span class="o">..</span><span class="mi">1784</span><span class="o">.</span><span class="mi">65</span> <span class="n">rows</span><span class="o">=</span><span class="mi">22265</span> <span class="n">width</span><span class="o">=</span><span class="mi">1855</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通过添加索引，我们就可以把 **<em>Sort</em> 这个操作换成更高效的 <strong>Index Scan</strong></p>
+</div><p>通过添加索引，我们就可以把 **<em>Sort</em> 这个操作换成更高效的 <strong>Index Scan</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -602,13 +564,11 @@
 <span class="o">---------------------------------------------------------------------------------------------------------</span>
  <span class="no">Limit</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mi">29</span><span class="o">..</span><span class="mi">2</span><span class="o">.</span><span class="mi">66</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span> <span class="n">width</span><span class="o">=</span><span class="mi">1855</span><span class="p">)</span>
    <span class="o">-&gt;</span>  <span class="no">Index</span> <span class="no">Scan</span> <span class="n">using</span> <span class="n">index_faults_on_created_at</span> <span class="n">on</span> <span class="n">faults</span>  <span class="p">(</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mi">29</span><span class="o">..</span><span class="mi">5288</span><span class="o">.</span><span class="mo">04</span> <span class="n">rows</span><span class="o">=</span><span class="mi">22265</span> <span class="n">width</span><span class="o">=</span><span class="mi">1855</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="mi">2</span> <span class="n">rows</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="conclusion">Conclusion</h3>
-
+</div><h3 id="conclusion">Conclusion</h3>
 <p>强烈建议多一些使用 <code>EXPLAIN</code> 这个命令， 这样， 当数据越来越大，时候不至于措手无策。</p>
-
 <p>译自: <a href="http://www.rubyletter.com/blog/2017/03/13/rubyist-guide-to-postgres-explain.html">A Rubyist&rsquo;s Guide to Postgresql&rsquo;s Explain</a></p>
 
     </div>
@@ -657,7 +617,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -675,7 +635,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

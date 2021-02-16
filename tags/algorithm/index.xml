@@ -1,49 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithm on XguoX - 写点 Ruby 糊口饭吃</title>
-    <link>https://xguox.me/tags/algorithm/</link>
+    <link>https://xguox.com/tags/algorithm/</link>
     <description>Recent content in Algorithm on XguoX - 写点 Ruby 糊口饭吃</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 04 Mar 2019 00:01:23 +0800</lastBuildDate>
     
-	<atom:link href="https://xguox.me/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://xguox.com/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>二叉树的数组表示</title>
-      <link>https://xguox.me/binary-tree-on-array.html/</link>
+      <link>https://xguox.com/binary-tree-on-array.html/</link>
       <pubDate>Mon, 04 Mar 2019 00:01:23 +0800</pubDate>
       
-      <guid>https://xguox.me/binary-tree-on-array.html/</guid>
+      <guid>https://xguox.com/binary-tree-on-array.html/</guid>
       <description>如果节点 X 存储在数组中下标为 i 的位置, 下标为 2 * i 的位置存储的就是左子节点, 下标为 2 * i + 1 的位置存储的就是右子节点. 反过来, 下标为 i/2 的位置</description>
     </item>
     
     <item>
       <title>Trie 的实现, Ruby vs Go</title>
-      <link>https://xguox.me/trie-implementing-ruby-vs-golang.html/</link>
+      <link>https://xguox.com/trie-implementing-ruby-vs-golang.html/</link>
       <pubDate>Thu, 03 Jan 2019 16:01:23 +0800</pubDate>
       
-      <guid>https://xguox.me/trie-implementing-ruby-vs-golang.html/</guid>
+      <guid>https://xguox.com/trie-implementing-ruby-vs-golang.html/</guid>
       <description>上一篇看到 Trie 的数据结构, 想着用 Ruby 和 Go 大概实现一下对比看看, 顺便看看一下 Benchmark. (挺没意义的一个事 = 。 =) 普通的 trie 是一个字符一个结点, 压缩 trie 的结点可</description>
     </item>
     
     <item>
       <title>Go 实现 Skip List(跳表)</title>
-      <link>https://xguox.me/go-skip-list.html/</link>
+      <link>https://xguox.com/go-skip-list.html/</link>
       <pubDate>Sat, 10 Nov 2018 16:01:23 +0800</pubDate>
       
-      <guid>https://xguox.me/go-skip-list.html/</guid>
+      <guid>https://xguox.com/go-skip-list.html/</guid>
       <description>在链表中查找数据的时间复杂度是 O(n), 在上面这个链表, 假设要查找到节点 37, 就得从第一个节点开始, 遍历 7 次, 如果通过给链表节点加一层索引, 每两个节点提</description>
     </item>
     
     <item>
       <title>Golang, 链表, LRU 缓存淘汰策略</title>
-      <link>https://xguox.me/go-linked-list-lru-cache.html/</link>
+      <link>https://xguox.com/go-linked-list-lru-cache.html/</link>
       <pubDate>Mon, 15 Oct 2018 16:01:23 +0800</pubDate>
       
-      <guid>https://xguox.me/go-linked-list-lru-cache.html/</guid>
+      <guid>https://xguox.com/go-linked-list-lru-cache.html/</guid>
       <description>当缓存的空间即将达到临界值的时候, 需要将一些旧的数据清理掉, 哪些该去, 哪些该留, 常用的缓存淘汰策略有下面三种: FIFO(First In，First Out) 先进先出策</description>
     </item>
     

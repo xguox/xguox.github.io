@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://xguox.me/sitemap.xml
+Sitemap: https://xguox.com/sitemap.xml

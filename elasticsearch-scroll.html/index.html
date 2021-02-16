@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/elasticsearch-scroll.html/" />
+<link rel="canonical" href="https://xguox.com/elasticsearch-scroll.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Elasticsearch Scroll (Ruby)" />
 <meta property="og:description" content="Elasticsearch 通过 from 和 size 参数来实现分页. size 表示返回的结果数量, 默认为 10, from 则表示从起始结果算起要跳过的结果数量, 默认为 0. 所以, 默认情况下如果返回结果数是 10" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/elasticsearch-scroll.html/" />
-<meta property="article:published_time" content="2016-04-23T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-04-23T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/elasticsearch-scroll.html/" />
+<meta property="article:published_time" content="2016-04-23T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-04-23T16:01:23+08:00" />
 <meta itemprop="name" content="Elasticsearch Scroll (Ruby)">
 <meta itemprop="description" content="Elasticsearch 通过 from 和 size 参数来实现分页. size 表示返回的结果数量, 默认为 10, from 则表示从起始结果算起要跳过的结果数量, 默认为 0. 所以, 默认情况下如果返回结果数是 10">
-
-
 <meta itemprop="datePublished" content="2016-04-23T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-04-23T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1181">
 
 
 
-<meta itemprop="keywords" content="Elasticsearch,Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Elasticsearch,Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Elasticsearch Scroll (Ruby)"/>
 <meta name="twitter:description" content="Elasticsearch 通过 from 和 size 参数来实现分页. size 表示返回的结果数量, 默认为 10, from 则表示从起始结果算起要跳过的结果数量, 默认为 0. 所以, 默认情况下如果返回结果数是 10"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -154,24 +150,16 @@
 
     
     <div class="post-content">
-      
-
-<p><strong>Elasticsearch</strong> 通过 <code>from</code> 和 <code>size</code> 参数来实现分页. <code>size</code> 表示返回的结果数量, 默认为 10, <code>from</code> 则表示从起始结果算起要跳过的结果数量, 默认为 0. 所以, 默认情况下如果返回结果数是 10 个以上, 我们得到的只有前十个结果.</p>
-
+      <p><strong>Elasticsearch</strong> 通过 <code>from</code> 和 <code>size</code> 参数来实现分页. <code>size</code> 表示返回的结果数量, 默认为 10, <code>from</code> 则表示从起始结果算起要跳过的结果数量, 默认为 0. 所以, 默认情况下如果返回结果数是 10 个以上, 我们得到的只有前十个结果.</p>
 <p>1.X 的时候不过请求的页数多深, 结果数多大都会給你返回结果, 只是越到后面的页数越大或者结果数越多, 执行的效率会逐渐变慢而已.</p>
-
 <p><strong>页数越大之所以返回效率越差</strong>, 是因为 Elasticsearch 分页的工作方式是从所有主分片的索引中返回排在最前面的 <code>size</code> 数量的结果, 然后再把各个分片结果合并以后再排序, 然后再返回前 <code>size</code> 个结果.</p>
-
 <p>假设还是默认值, 如果想返回第 1000 页的话, 也就是排在 10001 - 10010 的结果. 而并不是直接一拿就拿到排在第 10001 之后的结果集, 而是返回 10010个结果然而排序, 然后丢弃掉前面的 10000 个结果.</p>
-
 <p>这是只有一个主分片的情况是这么工作的, 而如果假设是 5 个主分片的话. 还是请求第 1000页, 那么 Elasticsearch 要在这 5 个主分片下搜索结果, 然后每个分片得到 10010 个结果, 合并以后排序这 50050 个结果, 最后丢弃前面的 50040 个.</p>
-
 <p>所以, 不管是 Google 还是百度, 都会限定返回的结果页数. 用 Google 搜索 <code>Elasticsearch</code> 返回了  466,000 条结果, 然而只给我们前 15 页的.</p>
-
 <p>然后, <strong>升到 2.X 以后</strong>, 如果请求产生的结果数超过一万个的话, 会抛出这样的错误信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -211,11 +199,10 @@
 <span class="o">:</span><span class="nx">status</span><span class="p">=&gt;</span><span class="mi">500</span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Elasticsearch 也很 nice 的建议我们使用 Scroll API.</p>
+</div><p>Elasticsearch 也很 nice 的建议我们使用 Scroll API.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -242,11 +229,12 @@
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">search</span> <span class="ss">index</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span>
                        <span class="ss">scroll</span><span class="p">:</span> <span class="s1">&#39;5m&#39;</span><span class="p">,</span>
-                       <span class="ss">body</span><span class="p">:</span> <span class="p">{</span> <span class="ss">query</span><span class="p">:</span> <span class="p">{</span> <span class="ss">match</span><span class="p">:</span> <span class="p">{</span> <span class="ss">title</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span> <span class="p">}</span> <span class="p">},</span> <span class="ss">sort</span><span class="p">:</span> <span class="s1">&#39;_id&#39;</span> <span class="p">}</span></code></pre></td></tr></table>
+                       <span class="ss">body</span><span class="p">:</span> <span class="p">{</span> <span class="ss">query</span><span class="p">:</span> <span class="p">{</span> <span class="ss">match</span><span class="p">:</span> <span class="p">{</span> <span class="ss">title</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span> <span class="p">}</span> <span class="p">},</span> <span class="ss">sort</span><span class="p">:</span> <span class="s1">&#39;_id&#39;</span> <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -292,18 +280,18 @@
      <span class="p">{</span><span class="s2">&#34;_index&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;test&#34;</span><span class="p">,</span> <span class="s2">&#34;_type&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;test&#34;</span><span class="p">,</span> <span class="s2">&#34;_id&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;44&#34;</span><span class="p">,</span> <span class="s2">&#34;_score&#34;</span><span class="p">=&gt;</span><span class="nx">nil</span><span class="p">,</span> <span class="s2">&#34;_source&#34;</span><span class="p">=&gt;{</span><span class="s2">&#34;title&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;Test 43&#34;</span><span class="p">},</span> <span class="s2">&#34;sort&#34;</span><span class="p">=&gt;[</span><span class="nx">nil</span><span class="p">]}]}}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>可以看到每一次 scroll 返回的结果都带有 <code>_scroll_id</code>, 然后后续接着利用这个 <code>_scroll_id</code> 来滚动搜索.</p>
+</div><p>可以看到每一次 scroll 返回的结果都带有 <code>_scroll_id</code>, 然后后续接着利用这个 <code>_scroll_id</code> 来滚动搜索.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">scroll</span> <span class="ss">scroll</span><span class="p">:</span> <span class="s1">&#39;5m&#39;</span><span class="p">,</span> <span class="ss">scroll_id</span><span class="p">:</span> <span class="n">result</span><span class="o">[</span><span class="s1">&#39;_scroll_id&#39;</span><span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">scroll</span> <span class="ss">scroll</span><span class="p">:</span> <span class="s1">&#39;5m&#39;</span><span class="p">,</span> <span class="ss">scroll_id</span><span class="p">:</span> <span class="n">result</span><span class="o">[</span><span class="s1">&#39;_scroll_id&#39;</span><span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -345,14 +333,12 @@
      <span class="p">{</span><span class="s2">&#34;_index&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;test&#34;</span><span class="p">,</span> <span class="s2">&#34;_type&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;test&#34;</span><span class="p">,</span> <span class="s2">&#34;_id&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;99&#34;</span><span class="p">,</span> <span class="s2">&#34;_score&#34;</span><span class="p">=&gt;</span><span class="nx">nil</span><span class="p">,</span> <span class="s2">&#34;_source&#34;</span><span class="p">=&gt;{</span><span class="s2">&#34;title&#34;</span><span class="p">=&gt;</span><span class="s2">&#34;Test 98&#34;</span><span class="p">},</span> <span class="s2">&#34;sort&#34;</span><span class="p">=&gt;[</span><span class="nx">nil</span><span class="p">]}]}}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p><code>scroll: '5m'</code> 是指这个 _scroll_id 的有效时长为 5分钟, 除了分钟以外, 年月日时分秒都可以.
+</div><p><code>scroll: '5m'</code> 是指这个 _scroll_id 的有效时长为 5分钟, 除了分钟以外, 年月日时分秒都可以.
 btw, 官方说每次 scroll 以后产生新的 _scroll_id, 不知道是不是理解错误, 除非开启一个新的 scroll 会生成新的 _scroll_id, 不然, 如果在有效时间内继续滚动的话返回的 _scroll_id 是一样的.</p>
-
 <p>如果只对查询的结果总体感兴趣而不需要对总体排序的话, 可以使用更为高效的 <code>scan</code> 模式,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -369,27 +355,18 @@ btw, 官方说每次 scroll 以后产生新的 _scroll_id, 不知道是不是理
   <span class="nb">puts</span> <span class="s2">&#34;--- BATCH </span><span class="si">#{</span><span class="n">defined?</span><span class="p">(</span><span class="vg">$i</span><span class="p">)</span> <span class="p">?</span> <span class="vg">$i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">:</span> <span class="vg">$i</span> <span class="o">=</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> -------------------------------------------------&#34;</span>
   <span class="nb">puts</span> <span class="n">r</span><span class="o">[</span><span class="s1">&#39;hits&#39;</span><span class="o">][</span><span class="s1">&#39;hits&#39;</span><span class="o">].</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">d</span><span class="o">|</span> <span class="n">d</span><span class="o">[</span><span class="s1">&#39;_source&#39;</span><span class="o">][</span><span class="s1">&#39;title&#39;</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">inspect</span>
   <span class="nb">puts</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h5 id="related">Related:</h5>
-
 <p><a href="http://xguox.me/elasticsearch-ik-mmseg-homebrew-ubuntu.html">Elasticsearch 开箱笔记</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-rails.html">Elasticsearch on Rails</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-more-like-this.html">Elasticsearch More Like This 搜索</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-aggregations.html">Elasticsearch Aggregations 聚合分析</a></p>
-
 <p><a href="http://xguox.me/upgrade-elasticsearch-2-3.html">Upgrade Elasticsearch to 2.3</a></p>
-
 <p><a href="https://github.com/elastic/elasticsearch-ruby/blob/master/elasticsearch-api/lib/elasticsearch/api/actions/scroll.rb">https://github.com/elastic/elasticsearch-ruby/blob/master/elasticsearch-api/lib/elasticsearch/api/actions/scroll.rb</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-custom-analyzer.html">Elasticsearch analysis &amp; 自定义 analyzers</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-Changing-Mapping-with-Zero-Downtime.html">Elasticsearch 如何不用停机情况下完成 mapping 的修改</a></p>
 
     </div>
@@ -437,7 +414,7 @@ btw, 官方说每次 scroll 以后产生新的 _scroll_id, 不知道是不是理
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -455,7 +432,7 @@ btw, 官方说每次 scroll 以后产生新的 _scroll_id, 不知道是不是理
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

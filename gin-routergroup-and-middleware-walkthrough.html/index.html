@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/gin-routergroup-and-middleware-walkthrough.html/" />
+<link rel="canonical" href="https://xguox.com/gin-routergroup-and-middleware-walkthrough.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Gin RouterGroup 与 middleware 相关源码" />
 <meta property="og:description" content="拿上一篇用的例子改一下, 看看 Gin 的RouterGroup 与 middleware 是怎么工作的. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 package main import ( &#34;github.com/gin-gonic/gin&#34; &#34;net/http&#34; ) func main() { r :=" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/gin-routergroup-and-middleware-walkthrough.html/" />
-<meta property="article:published_time" content="2019-01-11T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2019-01-11T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/gin-routergroup-and-middleware-walkthrough.html/" />
+<meta property="article:published_time" content="2019-01-11T16:01:23+08:00" />
+<meta property="article:modified_time" content="2019-01-11T16:01:23+08:00" />
 <meta itemprop="name" content="Gin RouterGroup 与 middleware 相关源码">
 <meta itemprop="description" content="拿上一篇用的例子改一下, 看看 Gin 的RouterGroup 与 middleware 是怎么工作的. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 package main import ( &#34;github.com/gin-gonic/gin&#34; &#34;net/http&#34; ) func main() { r :=">
-
-
 <meta itemprop="datePublished" content="2019-01-11T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-11T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="1126">
 
 
 
-<meta itemprop="keywords" content="Go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gin RouterGroup 与 middleware 相关源码"/>
 <meta name="twitter:description" content="拿上一篇用的例子改一下, 看看 Gin 的RouterGroup 与 middleware 是怎么工作的. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 package main import ( &#34;github.com/gin-gonic/gin&#34; &#34;net/http&#34; ) func main() { r :="/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -156,7 +152,7 @@
       <p>拿<a href="https://xguox.me/gin-source-code.html">上一篇</a>用的例子改一下, 看看 Gin 的<strong>RouterGroup</strong> 与 <strong>middleware</strong> 是怎么工作的.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -201,13 +197,13 @@
     <span class="p">})</span>
 
     <span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>New</strong> 函数返回的是一个没有附加任何 middleware 的 <strong>gin.Engine</strong> 指针. 其中这个  Engine 的<strong>嵌套类型 RouterGroup</strong> 被赋值为:</p>
+</div><p><strong>New</strong> 函数返回的是一个没有附加任何 middleware 的 <strong>gin.Engine</strong> 指针. 其中这个  Engine 的<strong>嵌套类型 RouterGroup</strong> 被赋值为:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -218,13 +214,13 @@
     <span class="nx">Handlers</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
     <span class="nx">basePath</span><span class="p">:</span> <span class="s">&#34;/&#34;</span><span class="p">,</span>
     <span class="nx">root</span><span class="p">:</span>     <span class="kc">true</span><span class="p">,</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>Handlers</strong> 是一组 <code>gin.HandlerFunc</code>,</p>
+</div><p><strong>Handlers</strong> 是一组 <code>gin.HandlerFunc</code>,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -235,15 +231,14 @@
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">HandlerFunc</span> <span class="kd">func</span><span class="p">(</span><span class="o">*</span><span class="nx">Context</span><span class="p">)</span>
 
 <span class="c1">// HandlersChain defines a HandlerFunc array.
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">HandlersChain</span> <span class="p">[]</span><span class="nx">HandlerFunc</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">HandlersChain</span> <span class="p">[]</span><span class="nx">HandlerFunc</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>basePath</code> 就是这一组路由的路径前缀, 类似 <strong>Rails</strong> 路由中的 scope 或者基于 scope 的 namespace 加上的路径前缀.</p>
-
+</div><p><code>basePath</code> 就是这一组路由的路径前缀, 类似 <strong>Rails</strong> 路由中的 scope 或者基于 scope 的 namespace 加上的路径前缀.</p>
 <p>跟 <code>r.GET</code>, <code>r.POST</code> 一样, 其实 <code>r.Group</code> 也是 <code>gin.Engine</code> 里面的 RouterGroup 嵌套类型的方法. 作用就是构建一个有共通前缀路径的 <strong>RouterGroup</strong>, 并且这组路由<strong>在该前缀路径下</strong>使用着特定的一些 middleware.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -258,24 +253,24 @@
         <span class="nx">basePath</span><span class="p">:</span> <span class="nx">group</span><span class="p">.</span><span class="nf">calculateAbsolutePath</span><span class="p">(</span><span class="nx">relativePath</span><span class="p">),</span>
         <span class="nx">engine</span><span class="p">:</span>   <span class="nx">group</span><span class="p">.</span><span class="nx">engine</span><span class="p">,</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>middleware 可以在使用 <code>Group</code> 方法时候作为其第二个参数传入进来, 也可以单独使用 <code>Use</code> 方法.</p>
+</div><p>middleware 可以在使用 <code>Group</code> 方法时候作为其第二个参数传入进来, 也可以单独使用 <code>Use</code> 方法.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go">    <span class="nx">admin</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/admin&#34;</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nf">Logger</span><span class="p">())</span>
-    <span class="nx">admin</span><span class="p">.</span><span class="nf">Use</span><span class="p">(</span><span class="nx">gin</span><span class="p">.</span><span class="nf">Logger</span><span class="p">())</span></code></pre></td></tr></table>
+    <span class="nx">admin</span><span class="p">.</span><span class="nf">Use</span><span class="p">(</span><span class="nx">gin</span><span class="p">.</span><span class="nf">Logger</span><span class="p">())</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>Use</code> 是直接 <code>append</code> 到 RouterGroup 的 <code>Handlers</code> 最后的, 而 <code>Group</code> 会稍复杂一些调用 <code>group.combineHandlers(handlers)</code>,</p>
+</div><p><code>Use</code> 是直接 <code>append</code> 到 RouterGroup 的 <code>Handlers</code> 最后的, 而 <code>Group</code> 会稍复杂一些调用 <code>group.combineHandlers(handlers)</code>,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -306,19 +301,16 @@
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">group</span> <span class="o">*</span><span class="nx">RouterGroup</span><span class="p">)</span> <span class="nf">Use</span><span class="p">(</span><span class="nx">middleware</span> <span class="o">...</span><span class="nx">HandlerFunc</span><span class="p">)</span> <span class="nx">IRoutes</span> <span class="p">{</span>
     <span class="nx">group</span><span class="p">.</span><span class="nx">Handlers</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">group</span><span class="p">.</span><span class="nx">Handlers</span><span class="p">,</span> <span class="nx">middleware</span><span class="o">...</span><span class="p">)</span>
     <span class="k">return</span> <span class="nx">group</span><span class="p">.</span><span class="nf">returnObj</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>不过, 除了限制 handlers 的总数以外, 没看懂这个 copy 来 copy 去, 跟直接 append 有啥区别 = 。 =</p>
-
-<hr />
-
+</div><p>不过, 除了限制 handlers 的总数以外, 没看懂这个 copy 来 copy 去, 跟直接 append 有啥区别 = 。 =</p>
+<hr>
 <p>所以, 说了半天, 其实在 <strong>Gin</strong> 里边 <strong>middleware</strong> 就是 <code>HandlerFunc</code>.</p>
-
 <p>比如 <code>admin.Use(gin.Logger())</code>, <strong>Logger</strong> 函数的返回值就是 <strong>HandlerFunc</strong>, 即签名为 <code>func(*Context)</code> 的函数类型</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -329,15 +321,14 @@
 </span><span class="c1">// By default gin.DefaultWriter = os.Stdout.
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">Logger</span><span class="p">()</span> <span class="nx">HandlerFunc</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nf">LoggerWithConfig</span><span class="p">(</span><span class="nx">LoggerConfig</span><span class="p">{})</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>同样的, 当我们要<strong>自定义</strong>一些 middleware 的时候, 不管处理的逻辑怎么着, 最后都是返回一个有且仅有一个 <code>*gin.Context</code> 参数, 且没有返回值的函数类型.</p>
-
+</div><p>同样的, 当我们要<strong>自定义</strong>一些 middleware 的时候, 不管处理的逻辑怎么着, 最后都是返回一个有且仅有一个 <code>*gin.Context</code> 参数, 且没有返回值的函数类型.</p>
 <p>这里先看下如果不是使用 Gin 框架, 只是 <code>net/http</code> 的话, 实现类似 middleware 的功能.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -402,15 +393,14 @@
         <span class="nx">next</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
         <span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;after: next.ServeHTTP(w, r)&#34;</span><span class="p">)</span>
     <span class="p">})</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个输入参数 <code>http.Handler</code>, 返回值也是 <code>http.Handler</code> 的函数就完成了一个简(mei)单(yong)的 middleware 编写了. 其中输入的参数 <code>http.Handler</code> 则是下一层要执行的操作.</p>
-
+</div><p>这个输入参数 <code>http.Handler</code>, 返回值也是 <code>http.Handler</code> 的函数就完成了一个简(mei)单(yong)的 middleware 编写了. 其中输入的参数 <code>http.Handler</code> 则是下一层要执行的操作.</p>
 <p>然后, Gin 主页的 README 就有一个自定义 middleware 例子直接拿来了:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -481,23 +471,19 @@
     <span class="p">})</span>
     <span class="c1">// Listen and serve on 0.0.0.0:8080
 </span><span class="c1"></span>    <span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>对比下来, 不管是 <strong>net/http</strong> 的实现还是 <strong>Gin</strong> 的实现其实都是</p>
-
+</div><p>对比下来, 不管是 <strong>net/http</strong> 的实现还是 <strong>Gin</strong> 的实现其实都是</p>
 <blockquote>
 <p>不断地进行函数压栈再出栈</p>
 </blockquote>
-
 <p>但因为有了 <strong>gin.Context</strong> 的封装和串联, 所以, 写起来要好看一些.</p>
-
-<hr />
-
+<hr>
 <p>所以, 最后调用的时候, 关键点在 <code>func (c *Context) Next()</code>, <strong>Context</strong> 的 index 默认为 -1,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -552,13 +538,11 @@
     <span class="k">for</span> <span class="nx">s</span> <span class="o">:=</span> <span class="nb">int8</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">handlers</span><span class="p">));</span> <span class="nx">c</span><span class="p">.</span><span class="nx">index</span> <span class="p">&lt;</span> <span class="nx">s</span><span class="p">;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="o">++</span> <span class="p">{</span>
         <span class="nx">c</span><span class="p">.</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">](</span><span class="nx">c</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <p>Related:</p>
-
 <ul>
 <li><a href="https://xguox.me/gin-source-code.html">从 net/http 入门到 Gin 源码梳理</a></li>
 <li><a href="https://chai2010.gitbooks.io/advanced-go-programming-book/content/">https://chai2010.gitbooks.io/advanced-go-programming-book/content/</a></li>
@@ -609,7 +593,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -627,7 +611,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

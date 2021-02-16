@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/import-vs-require.html/" />
+<link rel="canonical" href="https://xguox.com/import-vs-require.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="@import vs require" />
 <meta property="og:description" content="因为项目是我中途参入进来的, 所以并没有注意到 CSS(Sass) 的组织一直都是用的 Sprockets 的方式去 require, 尽管这期间写了不少的CSS(Sass), 包括后来当添加一些个变量" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/import-vs-require.html/" />
-<meta property="article:published_time" content="2014-07-01T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2014-07-01T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/import-vs-require.html/" />
+<meta property="article:published_time" content="2014-07-01T16:01:23+08:00" />
+<meta property="article:modified_time" content="2014-07-01T16:01:23+08:00" />
 <meta itemprop="name" content="@import vs require">
 <meta itemprop="description" content="因为项目是我中途参入进来的, 所以并没有注意到 CSS(Sass) 的组织一直都是用的 Sprockets 的方式去 require, 尽管这期间写了不少的CSS(Sass), 包括后来当添加一些个变量">
-
-
 <meta itemprop="datePublished" content="2014-07-01T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2014-07-01T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="149">
 
 
 
-<meta itemprop="keywords" content="CSS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="CSS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="@import vs require"/>
 <meta name="twitter:description" content="因为项目是我中途参入进来的, 所以并没有注意到 CSS(Sass) 的组织一直都是用的 Sprockets 的方式去 require, 尽管这期间写了不少的CSS(Sass), 包括后来当添加一些个变量"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -154,11 +150,8 @@
     
     <div class="post-content">
       <p>因为项目是我中途参入进来的, 所以并没有注意到 CSS(Sass) 的组织一直都是用的 Sprockets 的方式去 require, 尽管这期间写了不少的CSS(Sass), 包括后来当添加一些个变量之后才发现不对劲,  老是报错 Sass 里头变量 undefined.</p>
-
-<p><img src="http://ww4.sinaimg.cn/mw690/62fdd4d5gw1eikut0ruixj210c0bstba.jpg" alt="" /></p>
-
+<p><img src="http://ww4.sinaimg.cn/mw690/62fdd4d5gw1eikut0ruixj210c0bstba.jpg" alt=""></p>
 <p>才知道原来使用链式调用的话,  variables or mixins 的作用域只在其定义的文件内.</p>
-
 <p>而使用 @import 的话则是创建了一个全局的作用域. Guides 看得不够仔细啊!</p>
 
     </div>
@@ -205,7 +198,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -223,7 +216,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

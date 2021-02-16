@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/golang-delve-visual-studio-code.html/" />
+<link rel="canonical" href="https://xguox.com/golang-delve-visual-studio-code.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Golang, Delve &amp; Visual Studio Code" />
 <meta property="og:description" content="从 Ruby 切换到 Go 一个不顺手的地方是没有 REPL 随手实验, 虽说有 Go Playground, 但还是喜欢 Local 多一些, 而且有一些操作线上很难甚至完成不了的. 另外一个不顺手地方是「没有" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/golang-delve-visual-studio-code.html/" />
-<meta property="article:published_time" content="2018-07-23T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2018-07-23T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/golang-delve-visual-studio-code.html/" />
+<meta property="article:published_time" content="2018-07-23T16:01:23+08:00" />
+<meta property="article:modified_time" content="2018-07-23T16:01:23+08:00" />
 <meta itemprop="name" content="Golang, Delve &amp; Visual Studio Code">
 <meta itemprop="description" content="从 Ruby 切换到 Go 一个不顺手的地方是没有 REPL 随手实验, 虽说有 Go Playground, 但还是喜欢 Local 多一些, 而且有一些操作线上很难甚至完成不了的. 另外一个不顺手地方是「没有">
-
-
 <meta itemprop="datePublished" content="2018-07-23T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2018-07-23T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="786">
 
 
 
-<meta itemprop="keywords" content="Go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang, Delve &amp; Visual Studio Code"/>
 <meta name="twitter:description" content="从 Ruby 切换到 Go 一个不顺手的地方是没有 REPL 随手实验, 虽说有 Go Playground, 但还是喜欢 Local 多一些, 而且有一些操作线上很难甚至完成不了的. 另外一个不顺手地方是「没有"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -154,39 +150,35 @@
     
     <div class="post-content">
       <p>从 Ruby 切换到 Go 一个不顺手的地方是没有 REPL 随手实验, 虽说有 <a href="https://play.golang.org/">Go Playground</a>, 但还是喜欢 Local 多一些, 而且有一些操作线上很难甚至完成不了的. 另外一个不顺手地方是「没有」 pry 这样的 debug 利器. 其实不是没有, 只是我对 Go 的生态没了解多少. 所以今天扯一点 <a href="https://github.com/derekparker/delve">Delve</a>, 其实官方有 GDB, 但是貌似对 goroutine 不友好, 好吧, 官方自己说的, 所以, 直奔了 <strong>Delve</strong>.</p>
-
 <p>作为测试用直接拿之前看的<a href="https://schier.co/blog/2015/04/26/a-simple-web-scraper-in-go.html">一篇短文</a> 源码, 提取出来放到 <a href="https://gist.github.com/xguox/2dc50f58e7c9149cb9d8c9d1e59b1181">gist</a> 了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="k">go</span> <span class="nx">get</span> <span class="o">-</span><span class="nx">u</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">derekparker</span><span class="o">/</span><span class="nx">delve</span><span class="o">/</span><span class="nx">cmd</span><span class="o">/</span><span class="nx">dlv</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="k">go</span> <span class="nx">get</span> <span class="o">-</span><span class="nx">u</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">derekparker</span><span class="o">/</span><span class="nx">delve</span><span class="o">/</span><span class="nx">cmd</span><span class="o">/</span><span class="nx">dlv</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如无意外, <code>which dlv</code> 在 <strong>$GOPATH/bin</strong> 下就会多了一个 <strong>dlv</strong> 的二进制可执行文件, 执行 <code>dlv</code> 就有挺详细的文档了. 再深入一些还可以执行类似 <code>dlv attach --help</code></p>
-
-<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1ftlbqw0n8dj22801e0wqa.jpg" alt="" /></p>
-
+</div><p>如无意外, <code>which dlv</code> 在 <strong>$GOPATH/bin</strong> 下就会多了一个 <strong>dlv</strong> 的二进制可执行文件, 执行 <code>dlv</code> 就有挺详细的文档了. 再深入一些还可以执行类似 <code>dlv attach --help</code></p>
+<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1ftlbqw0n8dj22801e0wqa.jpg" alt=""></p>
 <p>最简单的用法,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="err">➜</span> <span class="nx">dlv</span> <span class="nx">debug</span> <span class="nx">scraper</span><span class="p">.</span><span class="k">go</span>
 <span class="nx">Type</span> <span class="err">&#39;</span><span class="nx">help</span><span class="err">&#39;</span> <span class="k">for</span> <span class="nx">list</span> <span class="nx">of</span> <span class="nx">commands</span><span class="p">.</span>
-<span class="p">(</span><span class="nx">dlv</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="nx">dlv</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这提示信息比 pry 要详细多得多, 毕竟只是看 help 文档描述功能也多不少, 还有一大票 alias, 瞬间感动.</p>
-
-<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1ftlbwn1muaj22801e0n9k.jpg" alt="" /></p>
+</div><p>这提示信息比 pry 要详细多得多, 毕竟只是看 help 文档描述功能也多不少, 还有一大票 alias, 瞬间感动.</p>
+<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1ftlbwn1muaj22801e0n9k.jpg" alt=""></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -219,15 +211,14 @@
     <span class="mi">79</span><span class="p">:</span>		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">seedUrls</span><span class="p">)</span>
     <span class="mi">80</span><span class="p">:</span>		<span class="c1">// Channels
 </span><span class="c1"></span>    <span class="mi">81</span><span class="p">:</span>		<span class="nx">chUrls</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
-<span class="p">(</span><span class="nx">dlv</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">(</span><span class="nx">dlv</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>到了这里很经常习惯性就 enter 下一步, 然后其实就退出了 = . =, 这里还得多一步 <strong>next</strong> 操作先.</p>
-
+</div><p>到了这里很经常习惯性就 enter 下一步, 然后其实就退出了 = . =, 这里还得多一步 <strong>next</strong> 操作先.</p>
 <p>或者直接定位到哪一行,不过还是得先 next, 只要 next 了一次以后就可以直接一直 enter&hellip;这个倒是很方便的呢</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -258,13 +249,13 @@
     <span class="mi">80</span><span class="p">:</span>		<span class="c1">// Channels
 </span><span class="c1"></span>    <span class="mi">81</span><span class="p">:</span>		<span class="nx">chUrls</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
     <span class="mi">82</span><span class="p">:</span>		<span class="nx">chFinished</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
-    <span class="mi">83</span><span class="p">:</span></code></pre></td></tr></table>
+    <span class="mi">83</span><span class="p">:</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>习惯于 pry 的我到这里很自然就输入变量名获取值,然后就歇菜了,得用 <strong>print 或者 p</strong></p>
+</div><p>习惯于 pry 的我到这里很自然就输入变量名获取值,然后就歇菜了,得用 <strong>print 或者 p</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -273,23 +264,16 @@
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="p">(</span><span class="nx">dlv</span><span class="p">)</span> <span class="nx">foundUrls</span>
 <span class="nx">Command</span> <span class="nx">failed</span><span class="p">:</span> <span class="nx">command</span> <span class="nx">not</span> <span class="nf">available</span>
 <span class="p">(</span><span class="nx">dlv</span><span class="p">)</span> <span class="nx">p</span> <span class="nx">foundUrls</span>
-<span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">bool</span> <span class="p">[]</span></code></pre></td></tr></table>
+<span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">bool</span> <span class="p">[]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>进入某个方法的 <strong>step 或者缩写 s</strong>, 甚至是输出所有局部变量的 <strong>locals</strong>, 总之在 Go 里边找到了 pry 更好的感觉了.</p>
-
-<hr />
-
+</div><p>进入某个方法的 <strong>step 或者缩写 s</strong>, 甚至是输出所有局部变量的 <strong>locals</strong>, 总之在 Go 里边找到了 pry 更好的感觉了.</p>
+<hr>
 <p>然后是 Visual Studio Code, 在 VS Code 里边写 Go 的话基本都会装 M$ 的官方 go 拓展吧, 点 <strong>调试 &gt; 打开配置</strong> 说是要配置啥不过我这里默认的就可行了.</p>
-
-<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1ftlbqy3m9vj22801e04cv.jpg" alt="" /></p>
-
-<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1ftlbqysm64j22801e0tln.jpg" alt="" /></p>
-
+<p><img src="http://wx2.sinaimg.cn/large/62fdd4d5gy1ftlbqy3m9vj22801e04cv.jpg" alt=""></p>
+<p><img src="http://wx4.sinaimg.cn/large/62fdd4d5gy1ftlbqysm64j22801e0tln.jpg" alt=""></p>
 <p>在行号前面打个断点, 然后启动调试, 或者 Fn + F5, 之后如果想查看某个变量的值 直接 hover 到变量名就可以了.</p>
-
-<p><img src="http://wx1.sinaimg.cn/large/62fdd4d5gy1ftlbqzl0tij22801e0nd1.jpg" alt="" /></p>
-
+<p><img src="http://wx1.sinaimg.cn/large/62fdd4d5gy1ftlbqzl0tij22801e0nd1.jpg" alt=""></p>
 <p>不过这里要注意的是启动调试得把编辑器 focus 在 <code>main.go</code> 才可以, 断点还是可以打在任意地方的, 不然就会报 <strong>Failed to continue: Check the debug console for details. Can not debug non-main package Process exiting with code: 1</strong></p>
 
     </div>
@@ -336,7 +320,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -354,7 +338,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

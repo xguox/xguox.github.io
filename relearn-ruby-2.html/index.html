@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/relearn-ruby-2.html/" />
+<link rel="canonical" href="https://xguox.com/relearn-ruby-2.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="重拾Ruby (II)" />
 <meta property="og:description" content="继续复习 &#43; 笔记, 今天要写的是 Dynamic Classes &amp; Methods Struct 一般的, 定义一个类的做法如下： 1 2 3 4 5 6 7 8 9 class Game attr_accessor :name, :year, :system def initialize(name, year, system) self.name = name self.year = year self.system = system end end 而鉴于以上这" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/relearn-ruby-2.html/" />
-<meta property="article:published_time" content="2013-11-05T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2013-11-05T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/relearn-ruby-2.html/" />
+<meta property="article:published_time" content="2013-11-05T16:01:23+08:00" />
+<meta property="article:modified_time" content="2013-11-05T16:01:23+08:00" />
 <meta itemprop="name" content="重拾Ruby (II)">
 <meta itemprop="description" content="继续复习 &#43; 笔记, 今天要写的是 Dynamic Classes &amp; Methods Struct 一般的, 定义一个类的做法如下： 1 2 3 4 5 6 7 8 9 class Game attr_accessor :name, :year, :system def initialize(name, year, system) self.name = name self.year = year self.system = system end end 而鉴于以上这">
-
-
 <meta itemprop="datePublished" content="2013-11-05T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2013-11-05T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="988">
+<meta itemprop="wordCount" content="992">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="重拾Ruby (II)"/>
 <meta name="twitter:description" content="继续复习 &#43; 笔记, 今天要写的是 Dynamic Classes &amp; Methods Struct 一般的, 定义一个类的做法如下： 1 2 3 4 5 6 7 8 9 class Game attr_accessor :name, :year, :system def initialize(name, year, system) self.name = name self.year = year self.system = system end end 而鉴于以上这"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 5 Nov 2013 </span>
-          <span class="more-meta"> 988 words </span>
+          <span class="more-meta"> 992 words </span>
           <span class="more-meta"> 2 mins read </span>
         
       </div>
@@ -153,16 +149,12 @@
 
     
     <div class="post-content">
-      
-
-<p>继续复习 + 笔记, 今天要写的是 Dynamic Classes &amp; Methods</p>
-
+      <p>继续复习 + 笔记, 今天要写的是 Dynamic Classes &amp; Methods</p>
 <h5 id="struct">Struct</h5>
-
 <p>一般的, 定义一个类的做法如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -181,22 +173,24 @@
     <span class="nb">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
     <span class="nb">self</span><span class="o">.</span><span class="n">system</span> <span class="o">=</span> <span class="nb">system</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>而鉴于以上这个例子的数据结构比较简单, 所以其实我们可以使用Struct来写之:</p>
+</div><p>而鉴于以上这个例子的数据结构比较简单, 所以其实我们可以使用Struct来写之:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Game</span> <span class="o">=</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:year</span><span class="p">,</span> <span class="ss">:system</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Game</span> <span class="o">=</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:year</span><span class="p">,</span> <span class="ss">:system</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果需要添加实例方法则可以这么干:</p>
+</div><p>如果需要添加实例方法则可以这么干:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -207,15 +201,14 @@
   <span class="k">def</span> <span class="nf">to_s</span>
     <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">,</span><span class="si">#{</span><span class="n">year</span><span class="si">}</span><span class="s2">,</span><span class="si">#{</span><span class="nb">system</span><span class="si">}</span><span class="s2">&#34;</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果需要定义的 data 比 behavior 要多的话, 推荐使用 Struct 来创建类, 反之则使用传统的方法.</p>
-
-<h5 id="alias-method">alias_method</h5>
+</div><p>如果需要定义的 data 比 behavior 要多的话, 推荐使用 Struct 来创建类, 反之则使用传统的方法.</p>
+<h5 id="alias_method">alias_method</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -246,13 +239,13 @@
     <span class="vi">@tweets</span>
   <span class="k">end</span>
 
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>由于 tweets 和 contents 两个方法体其实是一样的只是方法名不同, 为免重复我们可以这么干</p>
+</div><p>由于 tweets 和 contents 两个方法体其实是一样的只是方法名不同, 为免重复我们可以这么干</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -285,13 +278,13 @@
 
   <span class="n">alias_method</span> <span class="ss">:contents</span><span class="p">,</span> <span class="ss">:tweets</span>
 
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>更多例子, 假设如下在 Timeline 类</p>
+</div><p>更多例子, 假设如下在 Timeline 类</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -299,6 +292,7 @@
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Timeline</span>
@@ -308,13 +302,14 @@
   <span class="k">def</span> <span class="nf">print</span>
     <span class="nb">puts</span> <span class="n">tweets</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们需要给 print 方法添加 authentication .如果由于某些原因我们不想改动现有的方法的话, 可以重新打开<code>Timeline</code> 这个类,然后使用 <code>alias_method</code></p>
+</div><p>我们需要给 print 方法添加 authentication .如果由于某些原因我们不想改动现有的方法的话, 可以重新打开<code>Timeline</code> 这个类,然后使用 <code>alias_method</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -347,13 +342,13 @@
   <span class="k">def</span> <span class="nf">authenticate!</span>
     <span class="c1"># do sth authentication</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>但是,需要注意的是,重新打开一个类是个危险的做法. 所以, 另一种做法是使用继承.</p>
+</div><p>但是,需要注意的是,重新打开一个类是个危险的做法. 所以, 另一种做法是使用继承.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -374,17 +369,15 @@
   <span class="k">def</span> <span class="nf">authenticate!</span>
     <span class="c1"># do sth authentication</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>好吧, 尴尬了,貌似 alias_method 没看到什么更实际的意义了 =.=</p>
-
-<h5 id="define-method">define_method</h5>
-
+</div><p>好吧, 尴尬了,貌似 alias_method 没看到什么更实际的意义了 =.=</p>
+<h5 id="define_method">define_method</h5>
 <p>下边例子, 可以看到比较多的重复代码,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -409,13 +402,13 @@
 
   <span class="k">def</span> <span class="nf">deleted</span>
     <span class="vi">@status</span> <span class="o">=</span> <span class="p">:</span> <span class="n">deleted</span>
-  <span class="k">end</span></code></pre></td></tr></table>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用 define_method 可以杠杠的减少这些重复. 并且,当需要添加新的 state 时候只需添加到 states 数组中即可.</p>
+</div><p>使用 define_method 可以杠杠的减少这些重复. 并且,当需要添加新的 state 时候只需添加到 states 数组中即可.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -434,13 +427,13 @@
       <span class="vi">@status</span> <span class="o">=</span> <span class="n">status</span>
     <span class="k">end</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="send">send</h5>
+</div><h5 id="send">send</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -473,31 +466,23 @@
 <span class="k">end</span>
 
 <span class="n">tweets</span> <span class="o">=</span> <span class="sx">%w{ &#39;Compiling!&#39; &#39;Bundling...&#39;}</span>
-<span class="n">timeline</span> <span class="o">=</span> <span class="no">Timeline</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tweets</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="n">timeline</span> <span class="o">=</span> <span class="no">Timeline</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tweets</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>timeline.contents</code>
+</div><p><code>timeline.contents</code>
 一般的, 我们是这么调用 contents 方法.</p>
-
 <p>除此外,我们还可以使用 send</p>
-
 <p><code>timeline.send(:contents)</code></p>
-
 <p>等同于</p>
-
 <p><code>timeline.send(&quot;contents&quot;)</code></p>
-
 <p>另外,我们还可以用 send 来调用 private  或者 protected
 <code>timeline.direct_message</code></p>
-
 <p>如果不希望调用 private 和 protected 的方法则可以用 <code>public_send</code></p>
-
 <p>尴尬,更具体用途有待挖掘.</p>
-
 <h5 id="method-方法">method 方法</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -535,6 +520,7 @@
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
+</span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Timeline</span>
@@ -574,17 +560,16 @@
  <span class="c1"># 通过 &amp; 把 method 对象转换成 block</span>
  <span class="c1"># same as</span>
  <span class="c1"># show_method.call(0)</span>
- <span class="c1"># show_method.call(1)</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>在 Ruby 中, 任何东西都是 object, 任意的一个方法同样,也是一个 object</p>
+ <span class="c1"># show_method.call(1)</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>在 Ruby 中, 任何东西都是 object, 任意的一个方法同样,也是一个 object</p>
 <h4 id="practice">Practice</h4>
-
 <p>重构</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -599,6 +584,7 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Library</span>
@@ -615,10 +601,11 @@
   <span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
     <span class="n">games</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>好吧,没掌握熟练,各种转晕了</p>
+</div><p>好吧,没掌握熟练,各种转晕了</p>
 
     </div>
 
@@ -664,7 +651,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -682,7 +669,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

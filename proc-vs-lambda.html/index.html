@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/proc-vs-lambda.html/" />
+<link rel="canonical" href="https://xguox.com/proc-vs-lambda.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Lambda 和 Proc 的区别在哪儿" />
 <meta property="og:description" content="proc是代码块的对象形式,它的行为就像一个代码块.Lambda的的行为略有不同,它的行为更像方法而非代码块.调用一个proc则像对代码块进" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/proc-vs-lambda.html/" />
-<meta property="article:published_time" content="2011-11-18T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2011-11-18T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/proc-vs-lambda.html/" />
+<meta property="article:published_time" content="2011-11-18T16:01:23+08:00" />
+<meta property="article:modified_time" content="2011-11-18T16:01:23+08:00" />
 <meta itemprop="name" content="Lambda 和 Proc 的区别在哪儿">
 <meta itemprop="description" content="proc是代码块的对象形式,它的行为就像一个代码块.Lambda的的行为略有不同,它的行为更像方法而非代码块.调用一个proc则像对代码块进">
-
-
 <meta itemprop="datePublished" content="2011-11-18T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2011-11-18T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="1233">
+<meta itemprop="wordCount" content="1231">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Lambda 和 Proc 的区别在哪儿"/>
 <meta name="twitter:description" content="proc是代码块的对象形式,它的行为就像一个代码块.Lambda的的行为略有不同,它的行为更像方法而非代码块.调用一个proc则像对代码块进"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 18 Nov 2011 </span>
-          <span class="more-meta"> 1233 words </span>
+          <span class="more-meta"> 1231 words </span>
           <span class="more-meta"> 3 mins read </span>
         
       </div>
@@ -153,16 +149,12 @@
 
     
     <div class="post-content">
-      
-
-<p>proc是代码块的对象形式,它的行为就像一个代码块.Lambda的的行为略有不同,它的行为更像方法而非代码块.调用一个proc则像对代码块进行yield,而调用一个lambda则像调用一个方法.在Ruby1.9中的,可以通过Proc对象的实例方法 lambda? 来判定该实例是一个proc还是lambda,如果返回值为真,那么它是一个lambda,否则为一个proc.</p>
-
-<h5 id="代码块-proc和lambda中的return语句">代码块、proc和lambda中的return语句</h5>
-
+      <p>proc是代码块的对象形式,它的行为就像一个代码块.Lambda的的行为略有不同,它的行为更像方法而非代码块.调用一个proc则像对代码块进行yield,而调用一个lambda则像调用一个方法.在Ruby1.9中的,可以通过Proc对象的实例方法 lambda? 来判定该实例是一个proc还是lambda,如果返回值为真,那么它是一个lambda,否则为一个proc.</p>
+<h5 id="代码块proc和lambda中的return语句">代码块、proc和lambda中的return语句</h5>
 <p>在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回,它还会从调用迭代器的方法返回.例如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -175,13 +167,13 @@
     <span class="mi">1</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">puts</span> <span class="s2">&#34;entering block&#34;</span><span class="p">;</span><span class="k">return</span><span class="p">}</span>
     <span class="nb">puts</span> <span class="s2">&#34;exiting method&#34;</span>
   <span class="k">end</span>
-  <span class="nb">test</span></code></pre></td></tr></table>
+  <span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>proc与代码块类似,因此如果调用的proc执行一个return语句,它会试图从代码块(这个代码块被转换为一个proc)所在的方法中返回.比如:</p>
+</div><p>proc与代码块类似,因此如果调用的proc执行一个return语句,它会试图从代码块(这个代码块被转换为一个proc)所在的方法中返回.比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -196,13 +188,13 @@
     <span class="nb">p</span><span class="o">.</span><span class="n">call</span>
     <span class="nb">puts</span> <span class="s2">&#34;exiting method&#34;</span>
   <span class="k">end</span>
-  <span class="nb">test</span></code></pre></td></tr></table>
+  <span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>不过,因为proc经常在不同方法间传递,在proc中使用return语句会十分诡异.在proc被调用时,在句法上包含该proc的方法已经返回:</p>
+</div><p>不过,因为proc经常在不同方法间传递,在proc中使用return语句会十分诡异.在proc被调用时,在句法上包含该proc的方法已经返回:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -225,15 +217,14 @@
     <span class="nb">p</span><span class="o">.</span><span class="n">call</span>
     <span class="nb">puts</span> <span class="s2">&#34;exiting method&#34;</span>
   <span class="k">end</span>
-  <span class="nb">test</span></code></pre></td></tr></table>
+  <span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在把代码块转换成对象后,可以四处传递该对象,并且在&rdquo;上下文&rdquo;之外使用.如果这样做,则要承担从一个已经返回的方法中返回的风险.就像本例所示那样.当这种情况发生时,Ruby会抛出一个LocalJumpError异常.</p>
-
+</div><p>在把代码块转换成对象后,可以四处传递该对象,并且在&quot;上下文&quot;之外使用.如果这样做,则要承担从一个已经返回的方法中返回的风险.就像本例所示那样.当这种情况发生时,Ruby会抛出一个LocalJumpError异常.</p>
 <p>当然,在这个臆造的例子中,可以通过去掉多余的return语句来修复这个问题.不过return语句并非总是多余的,这时可以通过使用lambda而非proc来修复这个问题.如前所述,lambda更像方法而非代码块.这样,在lambda中的return语句仅仅从lambda自身返回.而不会从产生lambda的方法中返回:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -248,13 +239,13 @@
   <span class="nb">p</span><span class="o">.</span><span class="n">call</span>
   <span class="nb">puts</span> <span class="s2">&#34;exiting method&#34;</span>
 <span class="k">end</span>
-<span class="nb">test</span></code></pre></td></tr></table>
+<span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Lambda中的return仅仅从lambda自身返回,这个事实意味着我们根本无须考虑LocalJumpError;</p>
+</div><p>Lambda中的return仅仅从lambda自身返回,这个事实意味着我们根本无须考虑LocalJumpError;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -277,15 +268,14 @@
   <span class="n">l</span><span class="o">.</span><span class="n">call</span>
   <span class="nb">puts</span>  <span class="s2">&#34;exiting method&#34;</span>
 <span class="k">end</span>
-<span class="nb">test</span></code></pre></td></tr></table>
+<span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="代码块-proc和lambda中的break语句">代码块、proc和lambda中的break语句</h2>
-
+</div><h2 id="代码块proc和lambda中的break语句">代码块、proc和lambda中的break语句</h2>
 <p>当我们用Proc.new创建一个proc对象时,这个Proc.new就是break语句应该返回的地方,当我们调用proc对象的时候,这个迭代器已经返回了,因此,用Proc.new创建一个顶级break语句是说不通的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -300,13 +290,13 @@
     <span class="nb">proc</span><span class="o">.</span><span class="n">call</span>
     <span class="nb">puts</span>  <span class="s2">&#34;exiting test method&#34;</span>
   <span class="k">end</span>
-  <span class="nb">test</span></code></pre></td></tr></table>
+  <span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果通过迭代器方法的&amp;参数方式创建一个proc,我们可以调用它让该迭代器方法返回；</p>
+</div><p>如果通过迭代器方法的&amp;参数方式创建一个proc,我们可以调用它让该迭代器方法返回；</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -327,14 +317,14 @@
   <span class="k">def</span> <span class="nf">test</span>
     <span class="n">iterator</span> <span class="p">{</span><span class="nb">puts</span> <span class="s2">&#34;entering proc&#34;</span><span class="p">;</span><span class="k">break</span><span class="p">)</span>
   <span class="k">end</span>
-  <span class="nb">test</span></code></pre></td></tr></table>
+  <span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Lambda类似于方法,因此,如果把一个break语句单独地放在那里,而不是出现在循环或者迭代方法中是说不通的.下面的语句,没有任何东西可以被break,你可能认为它会失败.
+</div><p>Lambda类似于方法,因此,如果把一个break语句单独地放在那里,而不是出现在循环或者迭代方法中是说不通的.下面的语句,没有任何东西可以被break,你可能认为它会失败.
 不过,在这种情况下,break的行为与return一样;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -349,7 +339,8 @@
   <span class="nb">lambda</span><span class="o">.</span><span class="n">call</span>
   <span class="nb">puts</span> <span class="s2">&#34;exiting  test  method&#34;</span>
 <span class="k">end</span>
-<span class="nb">test</span></code></pre></td></tr></table>
+<span class="nb">test</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -392,7 +383,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -410,7 +401,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

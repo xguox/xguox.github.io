@@ -16,17 +16,17 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="XguoX" /><meta name="description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的一篇" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
+<meta name="author" content="XguoX" /><meta name="description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个**倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/elasticsearch-custom-analyzer.html/" />
+<link rel="canonical" href="https://xguox.com/elasticsearch-custom-analyzer.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,26 +39,22 @@
 
 
 <meta property="og:title" content="Elasticsearch analysis &amp; 自定义 analyzers" />
-<meta property="og:description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的一篇" />
+<meta property="og:description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个**倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/elasticsearch-custom-analyzer.html/" />
-<meta property="article:published_time" content="2016-08-01T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-08-01T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/elasticsearch-custom-analyzer.html/" />
+<meta property="article:published_time" content="2016-08-01T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-08-01T16:01:23+08:00" />
 <meta itemprop="name" content="Elasticsearch analysis &amp; 自定义 analyzers">
-<meta itemprop="description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的一篇">
-
-
+<meta itemprop="description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个**倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的">
 <meta itemprop="datePublished" content="2016-08-01T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-08-01T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="2673">
+<meta itemprop="wordCount" content="2715">
 
 
 
-<meta itemprop="keywords" content="Elasticsearch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Elasticsearch analysis &amp; 自定义 analyzers"/>
-<meta name="twitter:description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的一篇"/>
+<meta name="twitter:description" content="当一个 document 被索引时, 通常是对应每个 field 都生成一个**倒排索引(Inverted Index)用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 1 Aug 2016 </span>
-          <span class="more-meta"> 2673 words </span>
+          <span class="more-meta"> 2715 words </span>
           <span class="more-meta"> 6 mins read </span>
         
       </div>
@@ -153,30 +149,21 @@
 
     
     <div class="post-content">
-      <p>当一个 document 被索引时, 通常是对应每个 field 都生成一个<strong>倒排索引(Inverted Index)</strong>用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的<a href="https://ruby-china.org/topics/23447">一篇文章</a>可以结合参考理解. 每个 field 的倒排索引是由<strong>「对应」</strong>于这个 field 的那些词语(term)所组成. 从而, 搜索的时候, 就可查到某个 document 是否含有(或者说命中)某些 terms, 进而返回所有命中查找词的 documents.</p>
-
-<p>这里强调的<strong>「对应」</strong>其实就是 <strong>Analyzers</strong> 在支持着.</p>
-
-<hr />
-
+      <p>当一个 document 被索引时, 通常是对应每个 field 都生成一个**倒排索引(Inverted Index)<strong>用于作为存储的数据结构, 关于倒排索引, 推荐炮哥之前写的<a href="https://ruby-china.org/topics/23447">一篇文章</a>可以结合参考理解. 每个 field 的倒排索引是由</strong>「对应」**于这个 field 的那些词语(term)所组成. 从而, 搜索的时候, 就可查到某个 document 是否含有(或者说命中)某些 terms, 进而返回所有命中查找词的 documents.</p>
+<p>这里强调的**「对应」**其实就是 **Analyzers** 在支持着.</p>
+<hr>
 <p>Elasticsearch 的<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html">官方文档</a>:</p>
-
 <blockquote>
 <p>Analyzers are composed of a single <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenizers.html">Tokenizer</a> and zero or more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenfilters.html">TokenFilters</a>. The tokenizer may be preceded by one or more <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-charfilters.html">CharFilters</a>.</p>
 </blockquote>
-
 <p><strong>Analyzers</strong> 是由一个 <strong>Tokenizer</strong> 和任意个数的 <strong>TokenFilters</strong> 组成. 而在把需要处理的字符串传给 Tokenizer 之前需要经过一个或多个的 CharFilters(Character filters) 做预处理.</p>
-
 <p><strong>Elasticsearch(2.3)</strong> 默认给了我们八种 <strong>Analyzers(standard, simple, whitespace, stop, keyword, pattern, language, snowball)</strong> 开箱即用.  此外, 还提供给了我们 <strong>3 种 CharFilters, 12 种 Tokenizer, 以及一大堆 TokenFilters</strong> 用于自定义 Analyzers.</p>
-
-<hr />
-
+<hr>
 <p>说半天, 都是很抽象的东西. 下面用一些栗子说明.</p>
-
 <p>新建索引, 并设置好 mappings</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -190,6 +177,7 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">curl</span> <span class="o">-</span><span class="nx">XPUT</span> <span class="s1">&#39;http://localhost:9200/blog/&#39;</span> <span class="o">-</span><span class="nx">d</span> <span class="s1">&#39;
@@ -206,13 +194,13 @@
 </span><span class="s1">     }
 </span><span class="s1">  }
 </span><span class="s1">}&#39;</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>存入数据如下,</p>
+</div><p>存入数据如下,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -223,13 +211,13 @@
 </span><span class="s1">{
 </span><span class="s1">    &#34;title&#34;: &#34;the Good Cats &amp; the Good Dogs!&#34;
 </span><span class="s1">}
-</span><span class="s1">&#39;</span></code></pre></td></tr></table>
+</span><span class="s1">&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用 <strong><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-termvectors.html">termvector</a></strong> 来查看 title 这个 field 的数据是如何存储的(倒排索引)</p>
+</div><p>使用 <strong><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-termvectors.html">termvector</a></strong> 来查看 title 这个 field 的数据是如何存储的(倒排索引)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -262,6 +250,7 @@
 </span><span class="lnt">31
 </span><span class="lnt">32
 </span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">curl</span> <span class="o">-</span><span class="nx">XGET</span> <span class="s1">&#39;http://localhost:9200/blog/post/1/_termvector?fields=title&amp;pretty=true&#39;</span>
@@ -297,21 +286,18 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>因为在定义 mappings 的时候, title 用的 analyzer 是 standard, <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html">官方给的 standard</a> 是由以下几个部分组成的</p>
-
+</div><p>因为在定义 mappings 的时候, title 用的 analyzer 是 standard, <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html">官方给的 standard</a> 是由以下几个部分组成的</p>
 <blockquote>
 <p>An analyzer of type standard is built using the Standard Tokenizer with the Standard Token Filter, Lower Case Token Filter, and Stop Token Filter.</p>
 </blockquote>
-
 <p><strong>Standard Tokenizer</strong> 是基于语法(英语)做分词的, 并且把标点符号比如上面的 <code>&amp;</code> 和 <code>!</code> 去掉, <strong>Lower Case Token Filter</strong> 则是把所有的单词都统一成小写, 除此以外, standard analyzer 还用到了 <strong>Stop Token Filter</strong>, 没说设置了哪些停词, 所以, 这里看不到其作用, 不过可以肯定的是, 单词 <code>the</code> 不是停词, 其实, 我们可以设置单词 <code>the</code> 为 <strong>stopwords</strong>, 因为其实对于索引而言, 这个词的并没有什么意义, 可以去掉.  最后, <strong>term_freq</strong> 表示每个词出现的次数.</p>
-
 <p>基于如上的结果来做一些搜索, 先试试这个:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -331,11 +317,10 @@
 </span><span class="s1">}&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>输出的结果, 居然是&hellip;&hellip;.</p>
+</div><p>输出的结果, 居然是&hellip;&hellip;.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -367,22 +352,20 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>什么鬼, 居然搜不到???  其实, 仔细看就会发现其实也不奇怪, 我们搜索的关键词是 <strong>dog</strong>, 但是 title 的倒排索引索引中的词只有 <code>[cats, dogs, good, the]</code> 这几个词, 注意是 <strong>dogs</strong> 不是我们要搜索的 <strong>dog</strong></p>
-
+</div><p>什么鬼, 居然搜不到???  其实, 仔细看就会发现其实也不奇怪, 我们搜索的关键词是 <strong>dog</strong>, 但是 title 的倒排索引索引中的词只有 <code>[cats, dogs, good, the]</code> 这几个词, 注意是 <strong>dogs</strong> 不是我们要搜索的 <strong>dog</strong></p>
 <p>好吧, 瞬间觉得好不智能是伐 = . =</p>
-
 <p>下面换一个 snowball analyzer 再试试看, 不过要先删掉当前索引, 再重新跑一次(<strong>mappings 每次更改都要修改 reindex 才能生效</strong>)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">curl</span> <span class="o">-</span><span class="no">XDELETE</span> <span class="s1">&#39;http://localhost:9200/blog&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">curl</span> <span class="o">-</span><span class="no">XDELETE</span> <span class="s1">&#39;http://localhost:9200/blog&#39;</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -396,6 +379,7 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">curl</span> <span class="o">-</span><span class="nx">XPUT</span> <span class="s1">&#39;http://localhost:9200/blog/&#39;</span> <span class="o">-</span><span class="nx">d</span> <span class="s1">&#39;
@@ -412,13 +396,13 @@
 </span><span class="s1">     }
 </span><span class="s1">  }
 </span><span class="s1">}&#39;</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>还是存入同样的数据,</p>
+</div><p>还是存入同样的数据,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -432,11 +416,10 @@
 </span><span class="s1">&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>再次, 使用 <strong>termvector</strong> 来查看 title 这个 field 的数据是如何存储的</p>
+</div><p>再次, 使用 <strong>termvector</strong> 来查看 title 这个 field 的数据是如何存储的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -466,6 +449,7 @@
 </span><span class="lnt">28
 </span><span class="lnt">29
 </span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">curl</span> <span class="o">-</span><span class="nx">XGET</span> <span class="s1">&#39;http://localhost:9200/blog/post/1/_termvector?fields=title&amp;pretty=true&#39;</span>
@@ -498,23 +482,19 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>可以看到, 这一次, 存入的词语只有 <code>[cat, dog, good]</code>, <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-snowball-analyzer.html">官方描述 Snowball Analyzer</a></p>
-
+</div><p>可以看到, 这一次, 存入的词语只有 <code>[cat, dog, good]</code>, <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-snowball-analyzer.html">官方描述 Snowball Analyzer</a></p>
 <blockquote>
 <p>An analyzer of type snowball that uses the standard tokenizer, with standard filter, lowercase filter, stop filter, and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-snowball-tokenfilter.html">snowball filter</a>.</p>
 </blockquote>
-
 <p>大部分跟 standard analyzer 差不多, 从结果看出区别, snowball 把 <code>the</code> 设置为停词了, 然后还多了个 snowball filter. 没有详细深挖这个 filter, 不过大意应该是提取词干, 比如 computing 和 computed 的词干 comput, 或者上面的 dogs, cats 变为 dog, cat.</p>
-
 <p>现在再去搜索 <code>dog</code>, 肯定是可以命中的.</p>
-
 <p>那么问题来了, 如果我搜索的是 dogs 呢? 会不会不中? 答案是, 能够命中的, 因为这里搜索 dogs, 会先把搜索的词同样的处理为 dog 再去匹配.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -536,7 +516,7 @@
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -558,6 +538,7 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
@@ -582,17 +563,15 @@
     <span class="p">}</span> <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <p>以上, 大概说了一些默认的 Analyzers, 接下来, 看下怎么自定义 Analyzers 并运用到 mappings 中.</p>
-
 <p>官方给出了一个自定义 analyzer 语法例子如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -620,55 +599,55 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml">index<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>analysis<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>analyzer<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>myAnalyzer2<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">                </span>type<span class="w"> </span><span class="p">:</span><span class="w"> </span>custom<span class="w">
-</span><span class="w">                </span>tokenizer<span class="w"> </span><span class="p">:</span><span class="w"> </span>myTokenizer1<span class="w">
-</span><span class="w">                </span>filter<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>myTokenFilter1<span class="p">,</span><span class="w"> </span>myTokenFilter2<span class="p">]</span><span class="w">
-</span><span class="w">                </span>char_filter<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>my_html<span class="p">]</span><span class="w">
-</span><span class="w">                </span>position_increment_gap<span class="p">:</span><span class="w"> </span><span class="m">256</span><span class="w">
-</span><span class="w">        </span>tokenizer<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>myTokenizer1<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">                </span>type<span class="w"> </span><span class="p">:</span><span class="w"> </span>standard<span class="w">
-</span><span class="w">                </span>max_token_length<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">900</span><span class="w">
-</span><span class="w">        </span>filter<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>myTokenFilter1<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">                </span>type<span class="w"> </span><span class="p">:</span><span class="w"> </span>stop<span class="w">
-</span><span class="w">                </span>stopwords<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>stop1<span class="p">,</span><span class="w"> </span>stop2<span class="p">,</span><span class="w"> </span>stop3<span class="p">,</span><span class="w"> </span>stop4<span class="p">]</span><span class="w">
-</span><span class="w">            </span>myTokenFilter2<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">                </span>type<span class="w"> </span><span class="p">:</span><span class="w"> </span>length<span class="w">
-</span><span class="w">                </span>min<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">                </span>max<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
-</span><span class="w">        </span>char_filter<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">              </span>my_html<span class="w"> </span><span class="p">:</span><span class="w">
-</span><span class="w">                </span>type<span class="w"> </span><span class="p">:</span><span class="w"> </span>html_strip<span class="w">
-</span><span class="w">                </span>escaped_tags<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>xxx<span class="p">,</span><span class="w"> </span>yyy<span class="p">]</span><span class="w">
-</span><span class="w">                </span>read_ahead<span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">1024</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">index </span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">analysis </span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">analyzer </span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">myAnalyzer2 </span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="k">type </span><span class="p">:</span><span class="w"> </span>custom<span class="w">
+</span><span class="w">                </span><span class="k">tokenizer </span><span class="p">:</span><span class="w"> </span>myTokenizer1<span class="w">
+</span><span class="w">                </span><span class="k">filter </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>myTokenFilter1<span class="p">,</span><span class="w"> </span>myTokenFilter2<span class="p">]</span><span class="w">
+</span><span class="w">                </span><span class="k">char_filter </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>my_html<span class="p">]</span><span class="w">
+</span><span class="w">                </span><span class="k">position_increment_gap</span><span class="p">:</span><span class="w"> </span><span class="m">256</span><span class="w">
+</span><span class="w">        </span><span class="k">tokenizer </span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">myTokenizer1 </span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="k">type </span><span class="p">:</span><span class="w"> </span>standard<span class="w">
+</span><span class="w">                </span><span class="k">max_token_length </span><span class="p">:</span><span class="w"> </span><span class="m">900</span><span class="w">
+</span><span class="w">        </span><span class="k">filter </span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="k">myTokenFilter1 </span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="k">type </span><span class="p">:</span><span class="w"> </span>stop<span class="w">
+</span><span class="w">                </span><span class="k">stopwords </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>stop1<span class="p">,</span><span class="w"> </span>stop2<span class="p">,</span><span class="w"> </span>stop3<span class="p">,</span><span class="w"> </span>stop4<span class="p">]</span><span class="w">
+</span><span class="w">            </span><span class="k">myTokenFilter2 </span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="k">type </span><span class="p">:</span><span class="w"> </span>length<span class="w">
+</span><span class="w">                </span><span class="k">min </span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">                </span><span class="k">max </span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">        </span><span class="k">char_filter </span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="k">my_html </span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="k">type </span><span class="p">:</span><span class="w"> </span>html_strip<span class="w">
+</span><span class="w">                </span><span class="k">escaped_tags </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>xxx<span class="p">,</span><span class="w"> </span>yyy<span class="p">]</span><span class="w">
+</span><span class="w">                </span><span class="k">read_ahead </span><span class="p">:</span><span class="w"> </span><span class="m">1024</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>接下来, 试下写一个自己的.</p>
-
+</div><p>接下来, 试下写一个自己的.</p>
 <p>上面的第一个栗子中, 可以看到, 当存入的是 dogs, 搜索 dog 都不能命中, 更不用说搜索 <code>do</code> <code>go</code> 什么的.</p>
-
 <p>很多时候我们一些电商网站, 输入一两个字符, 就会给出一些提示选项给我们, 如图:</p>
-
-<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f6brqidftjj20z40hcn14.jpg" alt="" /></p>
-
+<p><img src="http://ww4.sinaimg.cn/large/62fdd4d5gw1f6brqidftjj20z40hcn14.jpg" alt=""></p>
 <p>这种 <strong>Autocomplete</strong> 的功能需要把字符串分的粒度很细, 这时候我们就可以用到 <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_ngrams_for_partial_matching.html">Ngrams for Partial Matching</a></p>
-
 <p>写一个用于 <strong>Autocomplete</strong> 的 <strong>Analyzer</strong>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">curl</span> <span class="o">-</span><span class="no">XDELETE</span> <span class="s1">&#39;http://localhost:9200/blog&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">
+<span class="n">curl</span> <span class="o">-</span><span class="no">XDELETE</span> <span class="s1">&#39;http://localhost:9200/blog&#39;</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -715,6 +694,7 @@
 </span><span class="lnt">45
 </span><span class="lnt">46
 </span><span class="lnt">47
+</span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">curl</span> <span class="o">-</span><span class="nx">XPUT</span> <span class="s1">&#39;http://localhost:9200/blog/&#39;</span> <span class="o">-</span><span class="nx">d</span> <span class="s1">&#39;
@@ -764,20 +744,17 @@
 </span><span class="s1">  }
 </span><span class="s1">}
 </span><span class="s1">&#39;</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>其中, <strong>my_stop</strong> 这个 filter 和 <strong>replace_ampersands</strong> 这个 char_filter 其实可以不用, 只是拿来示范一下,
+</div><p>其中, <strong>my_stop</strong> 这个 filter 和 <strong>replace_ampersands</strong> 这个 char_filter 其实可以不用, 只是拿来示范一下,
 my_stop 是把单词 <code>the</code> 去掉, 这里细分以后, 就会很奇怪的<strong>有 th, 但是没有 the</strong>, 因为 the 被停词去掉了, 好吧, 在实际中不会这么去用 nGram,</p>
-
 <p><code>replace_ampersands</code> 这个 char_filter 是在分词前预处理字符串, <strong>把 &amp; 变成 and</strong>.</p>
-
 <p>值得注意的是, 这里用的是 <strong>edgeNGram</strong>, 而不是 <strong>nGram</strong>, 从名字可以猜出来, 结果看后面</p>
-
 <p>存入数据,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -791,11 +768,10 @@ my_stop 是把单词 <code>the</code> 去掉, 这里细分以后, 就会很奇�
 </span><span class="s1">&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Again, 使用 <strong>termvector</strong> 来查看此时 title 是如何存储的</p>
+</div><p>Again, 使用 <strong>termvector</strong> 来查看此时 title 是如何存储的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -843,6 +819,7 @@ my_stop 是把单词 <code>the</code> 去掉, 这里细分以后, 就会很奇�
 </span><span class="lnt">46
 </span><span class="lnt">47
 </span><span class="lnt">48
+</span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">curl</span> <span class="o">-</span><span class="nx">XGET</span> <span class="s1">&#39;http://localhost:9200/blog/post/1/_termvector?fields=title&amp;pretty=true&#39;</span>
@@ -893,14 +870,14 @@ my_stop 是把单词 <code>the</code> 去掉, 这里细分以后, 就会很奇�
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>倒排索引的粒度变细了, 这样, 在输入前面两个字符 <code>th</code> 就可以命中匹配. edgeNGram 是仅从词头开始分词, 这里如果用的是 nGram 的话, 那么粒度会更细, 会多出一些在 <strong>edgeNGram</strong> 中没的, 比如, <code>ats</code>, <code>ogs</code> 等等.
+</div><p>倒排索引的粒度变细了, 这样, 在输入前面两个字符 <code>th</code> 就可以命中匹配. edgeNGram 是仅从词头开始分词, 这里如果用的是 nGram 的话, 那么粒度会更细, 会多出一些在 <strong>edgeNGram</strong> 中没的, 比如, <code>ats</code>, <code>ogs</code> 等等.
 min_gram 和 max_gram 都还比较好理解, <strong>token_chars</strong> 是指分割点, 比如这里加了 letter 和 digit, 因为空格不属于这两样, 那么<strong>空格就会被当成分割点</strong>, 倒排索引里也就看不到有空格. 如果要保留空格, 也就是留下 <code>the c</code> 和 <code>the ca</code> &hellip;这些分词的话, 就得再加上 <strong>whitespace</strong> 了.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -922,7 +899,7 @@ min_gram 和 max_gram 都还比较好理解, <strong>token_chars</strong> 是指
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -970,24 +947,15 @@ min_gram 和 max_gram 都还比较好理解, <strong>token_chars</strong> 是指
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <p>最后, 如果只是想精确的存储值而不被分析的话, 可以用 <strong>&ldquo;index&rdquo;: &ldquo;not_analyzed&rdquo;</strong></p>
-
 <p>比如 <code>United Kingdom</code> 就是 <code>United Kingdom</code>, 不想被拆成 <code>United</code>, <code>Kingdom</code>什么的, 这种时候就可以用上了, not_analyzed 的效率会高一些.</p>
-
 <p>long, double, date 这些类型的数据是永远不会被分析的. 要么是 <code>&quot;index&quot; : &quot;no&quot;</code>,  或者 <code>&quot;index&quot; : &quot;not_analyzed&quot;</code></p>
-
 <p>Last but not least, 如果想知道具体怎么计算出来的匹配得分, 还可以看看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-explain.html">Explain API</a></p>
-
-<hr />
-
+<hr>
 <p>相关阅读:
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html</a></p>
-
 <p><a href="https://ruby-china.org/topics/23447">How search and index works (Ruby 语言描述)</a></p>
-
 <p><a href="https://qbox.io/blog/an-introduction-to-ngrams-in-elasticsearch">An Introduction to Ngrams in Elasticsearch</a></p>
 
     </div>
@@ -1034,7 +1002,7 @@ min_gram 和 max_gram 都还比较好理解, <strong>token_chars</strong> 是指
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -1052,7 +1020,7 @@ min_gram 和 max_gram 都还比较好理解, <strong>token_chars</strong> 是指
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

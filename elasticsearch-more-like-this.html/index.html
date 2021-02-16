@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/elasticsearch-more-like-this.html/" />
+<link rel="canonical" href="https://xguox.com/elasticsearch-more-like-this.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="Elasticsearch More Like This 搜索" />
 <meta property="og:description" content="Elasticsearch 封装好了More Like This 搜索功能, 用来基于给定的某个或某组文档, 返回与之相似的文档. 语法如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 { &#34;more_like_this&#34; : { &#34;fields&#34; :" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/elasticsearch-more-like-this.html/" />
-<meta property="article:published_time" content="2016-02-29T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2016-02-29T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/elasticsearch-more-like-this.html/" />
+<meta property="article:published_time" content="2016-02-29T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-02-29T16:01:23+08:00" />
 <meta itemprop="name" content="Elasticsearch More Like This 搜索">
 <meta itemprop="description" content="Elasticsearch 封装好了More Like This 搜索功能, 用来基于给定的某个或某组文档, 返回与之相似的文档. 语法如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 { &#34;more_like_this&#34; : { &#34;fields&#34; :">
-
-
 <meta itemprop="datePublished" content="2016-02-29T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2016-02-29T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="268">
 
 
 
-<meta itemprop="keywords" content="Elasticsearch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Elasticsearch More Like This 搜索"/>
 <meta name="twitter:description" content="Elasticsearch 封装好了More Like This 搜索功能, 用来基于给定的某个或某组文档, 返回与之相似的文档. 语法如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 { &#34;more_like_this&#34; : { &#34;fields&#34; :"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -153,13 +149,11 @@
 
     
     <div class="post-content">
-      
-
-<p><strong>Elasticsearch</strong> 封装好了<strong>More Like This 搜索</strong>功能, 用来基于给定的某个或某组文档, 返回与之相似的文档.
+      <p><strong>Elasticsearch</strong> 封装好了<strong>More Like This 搜索</strong>功能, 用来基于给定的某个或某组文档, 返回与之相似的文档.
 语法如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -199,48 +193,33 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>结合 <strong>Rails</strong> 例子:</p>
+</div><p>结合 <strong>Rails</strong> 例子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">last</span>
 <span class="n">query</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:query</span><span class="o">=&gt;</span><span class="p">{</span><span class="ss">:more_like_this</span><span class="o">=&gt;</span><span class="p">{</span><span class="ss">docs</span><span class="p">:</span><span class="o">[</span><span class="p">{</span><span class="ss">_index</span><span class="p">:</span> <span class="s1">&#39;posts&#39;</span><span class="p">,</span><span class="ss">_type</span><span class="p">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="ss">_id</span><span class="p">:</span> <span class="vi">@post</span><span class="o">.</span><span class="n">id</span><span class="p">}</span><span class="o">]</span><span class="p">,</span> <span class="ss">:min_term_freq</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:min_doc_freq</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">}}}</span>
-<span class="n">records</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="o">.</span><span class="n">records</span></code></pre></td></tr></table>
+<span class="n">records</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="o">.</span><span class="n">records</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><img src="http://ww2.sinaimg.cn/large/62fdd4d5jw1f2dt5fc3ysj227o09cdik.jpg" alt="" /></p>
-
+</div><p><img src="http://ww2.sinaimg.cn/large/62fdd4d5jw1f2dt5fc3ysj227o09cdik.jpg" alt=""></p>
 <p>这个查询的参数有三个,分别是 <code>Document Input Parameters</code>, <code>Term Selection Parametersedit</code>, <code>Query Formation Parameters</code></p>
-
 <p><strong>Document Input Parameters</strong> 是必须有的查询参数, 可以是 <code>docs</code>, <code>ids</code> 或者 <code>like_text</code>之一.</p>
-
 <p><strong>Term Selection Parametersedit</strong> 可以是 <code>max_query_terms</code>, <code>min_term_freq</code>, <code>min_doc_freq</code>, <code>max_doc_freq</code>, <code>min_word_length</code>, <code>max_word_length</code>, <code>stop_words</code>, <code>analyzer</code></p>
-
 <p><strong>Query Formation Parameters</strong> 可以是 <code>minimum_should_match</code>, <code>boost_terms</code>, <code>include</code>, <code>boost</code></p>
-
 <p>相关释义<a href="https://www.elastic.co/guide/en/elasticsearch/reference/1.6/query-dsl-mlt-query.html">文档</a>写的还是挺清楚的.</p>
-
-<hr />
-
+<hr>
 <h3 id="related">Related:</h3>
-
 <p><a href="http://xguox.me/elasticsearch-ik-mmseg-homebrew-ubuntu.html">Elasticsearch 开箱笔记</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-rails.html">Elasticsearch on Rails</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-aggregations.html">Elasticsearch Aggregations 聚合分析</a></p>
-
 <p><a href="http://xguox.me/upgrade-elasticsearch-2-3.html">Upgrade Elasticsearch to 2.3</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-scroll.html">Elasticsearch Scroll (Ruby)</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-custom-analyzer.html">Elasticsearch analysis &amp; 自定义 analyzers</a></p>
-
 <p><a href="http://xguox.me/elasticsearch-Changing-Mapping-with-Zero-Downtime.html">Elasticsearch 如何不用停机情况下完成 mapping 的修改</a></p>
 
     </div>
@@ -287,7 +266,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -305,7 +284,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

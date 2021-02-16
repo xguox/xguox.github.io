@@ -16,17 +16,17 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="XguoX" /><meta name="description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 &amp;lt;%= render partial: &amp;#34;product&amp;#34;, collection: @products %&amp;gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设 @products 是" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
+<meta name="author" content="XguoX" /><meta name="description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 2 3 &amp;lt;%= render partial: &amp;#34;product&amp;#34;, collection: @products %&amp;gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设" /><meta name="keywords" content="Ruby, Golang, Erlang, 前端, 后端, Android, Elasticsearch, Programmer, Photo, Lens, Camera, Sony, A7r, Fujifilm, Lego" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/rails-render-collection.html/" />
+<link rel="canonical" href="https://xguox.com/rails-render-collection.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,26 +39,22 @@
 
 
 <meta property="og:title" content="Rails render collection 的魔法" />
-<meta property="og:description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 &lt;%= render partial: &#34;product&#34;, collection: @products %&gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设 @products 是" />
+<meta property="og:description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 2 3 &lt;%= render partial: &#34;product&#34;, collection: @products %&gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/rails-render-collection.html/" />
-<meta property="article:published_time" content="2017-08-17T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2017-08-17T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/rails-render-collection.html/" />
+<meta property="article:published_time" content="2017-08-17T16:01:23+08:00" />
+<meta property="article:modified_time" content="2017-08-17T16:01:23+08:00" />
 <meta itemprop="name" content="Rails render collection 的魔法">
-<meta itemprop="description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 &lt;%= render partial: &#34;product&#34;, collection: @products %&gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设 @products 是">
-
-
+<meta itemprop="description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 2 3 &lt;%= render partial: &#34;product&#34;, collection: @products %&gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设">
 <meta itemprop="datePublished" content="2017-08-17T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2017-08-17T16:01:23&#43;08:00" />
-<meta itemprop="wordCount" content="265">
+<meta itemprop="wordCount" content="256">
 
 
 
-<meta itemprop="keywords" content="Ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rails render collection 的魔法"/>
-<meta name="twitter:description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 &lt;%= render partial: &#34;product&#34;, collection: @products %&gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设 @products 是"/>
+<meta name="twitter:description" content="都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 collection 选项 1 2 3 &lt;%= render partial: &#34;product&#34;, collection: @products %&gt; 而不是遍历集合来渲染单个模板. 渲染集合还有个简写形式. 假设"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -142,7 +138,7 @@
 
       <div class="post-meta">
         <span class="post-time"> 17 Aug 2017 </span>
-          <span class="more-meta"> 265 words </span>
+          <span class="more-meta"> 256 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -156,29 +152,35 @@
       <p>都知道的, 在 Rails 的 View 里边渲染集合的时候, 会用到 render 方法参数的 <strong>collection</strong> 选项</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="o">&lt;%=</span> <span class="n">render</span> <span class="ss">partial</span><span class="p">:</span> <span class="s2">&#34;product&#34;</span><span class="p">,</span> <span class="ss">collection</span><span class="p">:</span> <span class="vi">@products</span> <span class="o">%&gt;</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>而不是遍历集合来渲染单个模板.</p>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">
+<span class="o">&lt;%=</span> <span class="n">render</span> <span class="ss">partial</span><span class="p">:</span> <span class="s2">&#34;product&#34;</span><span class="p">,</span> <span class="ss">collection</span><span class="p">:</span> <span class="vi">@products</span> <span class="o">%&gt;</span>
 
-<p>渲染集合还有个简写形式. 假设 <code>@products</code> 是 <code>product</code> 实例集合, 在 <code>index.html.erb</code>中可以直接写成下面的形式, 得到的结果是一样的:</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>而不是遍历集合来渲染单个模板.</p>
+<p>渲染集合还有个简写形式. 假设 <code>@products</code> 是 <code>product</code> 实例集合, 在 <code>index.html.erb </code>中可以直接写成下面的形式, 得到的结果是一样的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="o">&lt;%=</span> <span class="n">render</span> <span class="vi">@products</span> <span class="o">%&gt;</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>这里,  Rails 做的魔法其实是去找遍历成员的 <strong>to_partial_path</strong></p>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">
+<span class="o">&lt;%=</span> <span class="n">render</span> <span class="vi">@products</span> <span class="o">%&gt;</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>这里,  Rails 做的魔法其实是去找遍历成员的 <strong>to_partial_path</strong></p>
 <p><strong>action_view/renderer/partial_renderer (Rails 4.2)</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -209,22 +211,21 @@
   <span class="k">else</span>
     <span class="n">path</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></td></tr></table>
+<span class="k">end</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>打开 rails console 可以试试</p>
+</div><p>打开 rails console 可以试试</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">pry</span><span class="p">(</span><span class="n">main</span><span class="p">)</span><span class="o">&gt;</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">to_partial_path</span>
-<span class="o">=&gt;</span> <span class="s2">&#34;users/user&#34;</span></code></pre></td></tr></table>
+<span class="o">=&gt;</span> <span class="s2">&#34;users/user&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里也可以把 user 这个 model 的 <strong>to_partial_path</strong> 重写,  返回表示渲染路径的字符串,</p>
-
+</div><p>这里也可以把 user 这个 model 的 <strong>to_partial_path</strong> 重写,  返回表示渲染路径的字符串,</p>
 <p>如果你的某个 <strong>PORO</strong> 实现了 <strong>to_partial_path</strong>, 那对应的 collection 也可以直接用类似的方式去 render</p>
 
     </div>
@@ -271,7 +272,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -289,7 +290,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>

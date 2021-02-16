@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.72.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://xguox.me/css3-column-star.html/" />
+<link rel="canonical" href="https://xguox.com/css3-column-star.html/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,22 +41,18 @@
 <meta property="og:title" content="css3 之 column-*" />
 <meta property="og:description" content="原本想要使用 CSS3 中的多栏属性实现类似报纸那样的排版, 或者 pinterest 那样的瀑布流, 但结果跟预想相去较远. 原以为用 column-count 或 column-width 来将 HTML 元素变成多栏, 再 column-gap 定义为 0 让" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xguox.me/css3-column-star.html/" />
-<meta property="article:published_time" content="2014-02-13T16:01:23&#43;08:00"/>
-<meta property="article:modified_time" content="2014-02-13T16:01:23&#43;08:00"/>
-
+<meta property="og:url" content="https://xguox.com/css3-column-star.html/" />
+<meta property="article:published_time" content="2014-02-13T16:01:23+08:00" />
+<meta property="article:modified_time" content="2014-02-13T16:01:23+08:00" />
 <meta itemprop="name" content="css3 之 column-*">
 <meta itemprop="description" content="原本想要使用 CSS3 中的多栏属性实现类似报纸那样的排版, 或者 pinterest 那样的瀑布流, 但结果跟预想相去较远. 原以为用 column-count 或 column-width 来将 HTML 元素变成多栏, 再 column-gap 定义为 0 让">
-
-
 <meta itemprop="datePublished" content="2014-02-13T16:01:23&#43;08:00" />
 <meta itemprop="dateModified" content="2014-02-13T16:01:23&#43;08:00" />
 <meta itemprop="wordCount" content="340">
 
 
 
-<meta itemprop="keywords" content="CSS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="CSS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="css3 之 column-*"/>
 <meta name="twitter:description" content="原本想要使用 CSS3 中的多栏属性实现类似报纸那样的排版, 或者 pinterest 那样的瀑布流, 但结果跟预想相去较远. 原以为用 column-count 或 column-width 来将 HTML 元素变成多栏, 再 column-gap 定义为 0 让"/>
 
@@ -78,25 +74,25 @@
 
   <img src="/img/logo.jpeg" alt="" class="avatar">
 
-  <a href="https://xguox.me/" class="author_name">XguoX</a>
+  <a href="https://xguox.com/" class="author_name">XguoX</a>
   <span class="author_job">写点 Ruby 糊口饭吃</span>
   <span class="author_bio mbm"> 🎨 长草学画画 ... </span>
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="https://xguox.me/">home</a>
+        <a href="https://xguox.com/">home</a>
         <span>/</span>
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/post/">Archive</a>
+        <a href="https://xguox.com/post/">Archive</a>
 
           <span>/</span>
 
       </li>
 
       <li class="nav-item">
-        <a href="https://xguox.me/categories/">Categories</a>
+        <a href="https://xguox.com/categories/">Categories</a>
       </li>
 
     </ul>
@@ -108,14 +104,14 @@
         <li><a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a></li>
         <li><a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a></li>
     <li>
-      <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
     </li>
     </ul>
   </div>
 
   <section id="js-search" class="p-3 p-lg-5 d-flex flex-column">
     <div class="my-auto" >
-      <form action="https://xguox.me/search">
+      <form action="https://xguox.com/search">
         <input id="search-query" name="s" placeholder="~$ enter to search"/>
       </form>
     </div>
@@ -133,7 +129,7 @@
             <div class="content-wrapper">
               <div id="content" class="content">
                 <article class="post inner">
-    <a class="home-btn" href= "https://xguox.me/" >
+    <a class="home-btn" href= "https://xguox.com/" >
       Home
     </a>
     
@@ -155,9 +151,7 @@
     <div class="post-content">
       <p>原本想要使用 CSS3 中的多栏属性实现类似报纸那样的排版, 或者 pinterest 那样的瀑布流,  但结果跟预想相去较远.
 原以为用 column-count 或 column-width 来将 HTML 元素变成多栏, 再 column-gap 定义为 0 让所有元素能贴在一起,  但是才发现没有真正理解多栏的含义,  使用多栏的话是从上到下的排序, 而如果按时间顺序列出所有 posts 的话,  那结果只是</p>
-
-<p>基于这样的排序, 于是就想着将计就计,  把页面整体做成横向滚动, 为此还使用了 [jquery.mousewheel.min.js]() 来把鼠标滚动设置成<a href="http://handhack.com/explore">横向</a>.  想来绝大部分的网页都是上下滚动, 搞搞非主流.   最后发现,  整体这么设置的话, 会造成用户观看的时候视线变成了频繁的正弦曲线, 很糟糕.  现在(14.2.14)还是这个样子, 因为没有想到其他 nice 的方案, 暂时没做修改.</p>
-
+<p>基于这样的排序, 于是就想着将计就计,  把页面整体做成横向滚动, 为此还使用了 <a href="">jquery.mousewheel.min.js</a> 来把鼠标滚动设置成<a href="http://handhack.com/explore">横向</a>.  想来绝大部分的网页都是上下滚动, 搞搞非主流.   最后发现,  整体这么设置的话, 会造成用户观看的时候视线变成了频繁的正弦曲线, 很糟糕.  现在(14.2.14)还是这个样子, 因为没有想到其他 nice 的方案, 暂时没做修改.</p>
 <p>主流浏览器对 <code>column-*</code>的支持各不相同,
 又比如, <code>moz-column-count</code> can not work properly with  <code>-moz-column-fill: auto</code>, 见 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=733808">https://bugzilla.mozilla.org/show_bug.cgi?id=733808</a>
 所以像这样整体的过度使用暂时还是放弃为好.</p>
@@ -206,7 +200,7 @@
       <a href="mailto:xguox@hotmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/XguoX_L" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/xguox" class="iconfont icon-github" title="github"></a>
-  <a href="https://xguox.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://xguox.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -224,7 +218,7 @@
   <span class="copyright-year">
     &copy;
     2011 -
-    2019
+    2021
     <span class="heart">
       <i class="iconfont icon-bulb"></i>
     </span>
